@@ -1,4 +1,4 @@
-import { connectReducer, tokenReducer, vaultReducer } from './reducers';
+import { connectReducer, tokenReducer, vaultReducer, servicesReducer } from './reducers';
 import { useReducer } from 'react';
 
 const combineReducers = reducer => {
@@ -16,10 +16,12 @@ const combineReducers = reducer => {
 
 const rootReducer = combineReducers({
   connection: connectReducer,
+  services: servicesReducer,
   tokens: tokenReducer,
   vault: vaultReducer
 });
 
+// tslint:disable-next-line:no-shadowed-variable
 function useStore(rootReducer, state) {
   const initialState = state || rootReducer(undefined, { type: undefined });
   return useReducer(rootReducer, initialState);

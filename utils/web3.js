@@ -25,15 +25,16 @@ const setup = async (network, provider, infuraOptions) => {
   };
 
   // Provide infura project url when testing
-  if (provider !== 'browser') {
-    
+  // if (provider !== 'browser') {
     options = { ...options, ...infuraOptions };
-  }
+  // }
 
   maker = await Maker.create(provider, options);
 
   await maker.authenticate();
   await maker.service('proxy').ensureProxy();
+
+  let proxy = await maker.currentProxy();
 
   return maker;
 };

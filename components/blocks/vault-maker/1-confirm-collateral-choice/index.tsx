@@ -1,4 +1,5 @@
-import React, { Children, FC, Fragment } from 'react';
+import React, { Children, FC, Fragment, useEffect, useState } from 'react';
+import { Box } from 'rebass';
 import {
   LOCK_COLLATERAL_NUM,
 } from '../../../../constants/step-names';
@@ -8,6 +9,7 @@ import { ChildExtension } from '../../../elements/shared/child-extension';
 import { Title, TitleProps } from '../../../elements/title';
 import { Balance, BalanceProps } from './balance';
 import { OAButton, OAButtonProps } from './oa-button';
+import styles from './styles';
 
 export interface ChooseCollateral {
   Balance: FC<BalanceProps>;
@@ -27,8 +29,14 @@ export const ConfirmCollateral: FC<ChooseCollateralProps> &
   ChooseCollateral = props => {
   const { children, dispatchStep } = props;
 
+  const [visible, setVisible] = useState({});
+
+  useEffect(() => {
+    setVisible({ opacity: 1});
+  }, [])  
+  
   return (
-    <Fragment>
+    <Box sx={{...styles.container, ...visible}}>
       {Children.map(children, (child: React.ReactElement & ChildExtension) => {
         if (child.type.displayName === 'CoinIcon') {
           return React.cloneElement(child, child.props);
@@ -37,7 +45,7 @@ export const ConfirmCollateral: FC<ChooseCollateralProps> &
         if (child.type.displayName === 'Balance') {
           return React.cloneElement(child, child.props);
         }
-
+        
         if (child.type.displayName === 'Title') {
           return React.cloneElement(child, child.props);
         }
@@ -58,7 +66,7 @@ export const ConfirmCollateral: FC<ChooseCollateralProps> &
 
         return child;
       })}
-    </Fragment>
+    </Box>
   );
 };
 

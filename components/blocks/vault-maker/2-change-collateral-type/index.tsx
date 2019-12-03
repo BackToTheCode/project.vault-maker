@@ -1,4 +1,4 @@
-import React, { Children, FC } from 'react';
+import React, { Children, FC, useState, useEffect } from 'react';
 import { Box } from 'rebass';
 import {
   CONFIRM_COLLATERAL_NUM,
@@ -34,8 +34,14 @@ export const ChangeCollateral: FC<ChangeCollateralProps> &
 
   const handleSubmit = (event: React.SyntheticEvent) => event.preventDefault();
 
+  const [visible, setVisible] = useState({});
+
+  useEffect(() => {
+    setVisible({ opacity: 1});
+  }, [])  
+  
   return (
-    <Box as="form" sx={styles.form} onSubmit={handleSubmit}>
+    <Box as="form" sx={{...styles.form, ...visible}} onSubmit={handleSubmit}>
       {Children.map(
         children,
         (child: React.ReactElement & ChildExtension) => {

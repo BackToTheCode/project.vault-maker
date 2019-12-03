@@ -8,7 +8,13 @@ import React, { FC, useEffect, useState } from 'react';
 import ledgerLogo from '../../../public/images/ledger-logo.png';
 import metamaskLogo from '../../../public/images/metamask-fox.svg';
 import trezorLogo from '../../../public/images/trezor-logo.png';
-import { BAT, ETH, getWeb3 as mkrGetWeb3, MDAI, setup as mkrSetup } from '../../../utils/web3';
+import {
+  BAT,
+  ETH,
+  getWeb3 as mkrGetWeb3,
+  MDAI,
+  setup as mkrSetup
+} from '../../../utils/web3';
 import { VaultMaker } from '../vault-maker/wrapped';
 import { Wallet } from '../wallet';
 
@@ -23,7 +29,11 @@ export interface HeroProps {
   dispatchConnect: ({ address }: { address: string }) => void;
   dispatchTokens: ({ tokens }: { tokens: any[] }) => void;
   dispatchSelectToken: ({ selectedToken }: { selectedToken: any }) => any;
+  dispatchSetMaker: ({ maker }: { maker: any }) => any;
+  dispatchSetWeb3: ({ web3 }: { web3: any }) => any;
+  maker: any;
   selectedToken: any;
+  web3: any;
 }
 
 interface Hero {
@@ -32,11 +42,14 @@ interface Hero {
 
 export const Hero: FC<HeroProps> & Hero = props => {
   const [isLoading, setLoading] = useState(false);
-  const { isConnected, isComplete, isCreated } = props;
+  let { maker, web3 } = props;
+  const {
+    isConnected,
+    isComplete,
+    isCreated,
+    selectedToken
+  } = props;
   const router = useRouter();
-
-  let maker: any = null;
-  let web3: any = null;
 
   const addBalances = async (tokens: any[]) => {
     if (!maker) {
@@ -62,8 +75,10 @@ export const Hero: FC<HeroProps> & Hero = props => {
     const { cdpTypes } = maker.service('mcd:cdpType');
     const uniqCdpTypes = uniqBy(cdpTypes, (cdpt: any) => cdpt.currency.symbol);
 
+    console.log('uniqCdpTypes', uniqCdpTypes);
     const dict: object = {};
     const tokens = uniqCdpTypes.map((cdpType: any) => {
+      console.log('cdpType', cdpType);
       const token = {
         ilk: cdpType.ilk,
         penalty: cdpType.liquidationPenalty,
@@ -74,7 +89,6 @@ export const Hero: FC<HeroProps> & Hero = props => {
       return { ...token, ...dict[token.symbol] };
     });
 
-    
     return tokens;
   };
 
@@ -89,6 +103,9 @@ export const Hero: FC<HeroProps> & Hero = props => {
   };
 
   const selectDefaultToken = (tokens: any[]) => {
+    if (!tokens) {
+      return;
+    }
     const usdValues = tokens.map(token => parseInt(token.usdValue, 10));
     const maxIndex = usdValues.indexOf(Math.max(...usdValues));
     return tokens[maxIndex];
@@ -102,37 +119,49 @@ export const Hero: FC<HeroProps> & Hero = props => {
 
     maker = await mkrSetup(network, provider, { url, privateKey });
     web3 = (await mkrGetWeb3()) as any;
+
+    console.log('localMaker', maker);
+
+    props.dispatchSetMaker({ maker });
+    props.dispatchSetWeb3({ web3 });
+
   };
 
   const handleMetamask = async (e: any) => {
     e.preventDefault();
     setLoading(true);
 
+    setTimeout(() =>{
+      setLoading(false);
+    }, 4000);
+
     try {
       await setupMaker();
-      const userAccount = await getAccount();
-      const tokens = await getTokens();
-      const tokensWithBalances = await addBalances(tokens);
-      const selectedToken = selectDefaultToken(tokensWithBalances);
+      if (maker) {
+        const userAccount = await getAccount();
+        const tokens = await getTokens();
+        const tokensWithBalances = await addBalances(tokens);
+        const newSelectedToken = selectDefaultToken(tokensWithBalances);
 
-      props.dispatchConnect({ address: userAccount });
-      props.dispatchTokens({ tokens: tokensWithBalances });
-      props.dispatchSelectToken({ selectedToken });
+        props.dispatchConnect({ address: userAccount });
+        props.dispatchTokens({ tokens: tokensWithBalances });
+        props.dispatchSelectToken({ selectedToken: newSelectedToken });
+
+        setLoading(false);
+      }
     } catch (error) {
       console.error(error);
     }
-
-    setLoading(false);
   };
 
-  const { ilk, symbol } = props.selectedToken;
-  const { drawAmount, lockAmount } = props
+  const { ilk, symbol } = selectedToken;
+  const { drawAmount, lockAmount } = props;
 
   const vaultOptions = {
     drawAmount,
     ilk,
     lockAmount,
-    symbol,
+    symbol
   };
 
   return (
@@ -151,23 +180,29 @@ const renderDashboard = (
   maker: any,
   vaultOptions: any
 ) => {
-  if (isComplete) {
-    setTimeout(() => {
-      router.push('/dashboard');
-    }, 20000);
-  }
 
-  const { ilk, symbol, lockAmount, drawAmount } =  vaultOptions;
+  const { ilk, symbol, lockAmount, drawAmount } = vaultOptions;
 
   const tokens = {
-    'BAT': BAT,
-    'ETH': ETH
-  }
+    BAT,
+    ETH
+  };
 
   const createCdp = async () => {
     const cdpManager = maker.service('mcd:cdpManager');
-    const cdp = await cdpManager.openLockAndDraw(ilk, tokens[symbol](lockAmount), MDAI(drawAmount));
-    console.log('cdp', cdp);
+    const TOK = tokens[symbol];
+
+    const cdp = await cdpManager.openLockAndDraw(
+      ilk,
+      TOK(lockAmount),
+      MDAI(drawAmount)
+    ).catch(error => {
+      console.error(`bad error ${error}`);
+    });
+    if (cdp) {
+      console.log('cdp', cdp);
+      router.push('/dashboard');
+    }
   };
 
   useEffect(() => {

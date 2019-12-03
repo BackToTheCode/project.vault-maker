@@ -1,4 +1,4 @@
-import React, { Children, FC, useState } from 'react';
+import React, { Children, FC, useState, useEffect } from 'react';
 import { Box } from 'rebass';
 import { CONFIRM_COLLATERAL_NUM, DRAW_DAI_NUM } from '../../../../constants/step-names';
 import { CTAButton, CTAButtonProps } from '../../../elements/cta-button';
@@ -30,15 +30,19 @@ export const LockCollateral: FC<LockCollateralProps> &
   const { children, symbol, tokens, dispatchStep } = props;
 
   const handleSubmit = (event: React.SyntheticEvent) => event.preventDefault();
-
   const handleLockedCollateralChange = ({ lockAmount }) => {
     props.dipatchLockCollateral({ lockAmount });
   };
 
   const [valid, setValid] = useState(true);
+  const [visible, setVisible] = useState({});
+
+  useEffect(() => {
+    setVisible({ opacity: 1});
+  }, [])  
 
   return (
-    <Box as="form" sx={styles.form} onSubmit={handleSubmit}>
+    <Box as="form" sx={{...styles.form, ...visible}} onSubmit={handleSubmit}>
       {Children.map(children, (child: any) => {
         if (child.type.displayName === 'Title') {
           return React.cloneElement(child, child.props);

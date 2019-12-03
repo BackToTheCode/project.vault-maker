@@ -1,4 +1,4 @@
-import React, { Children, FC, Fragment } from 'react';
+import React, { Children, FC, Fragment, useEffect, useState } from 'react';
 import {
   COMPLETE_VAULT_NUM,
   CONFIRM_VAULT_NUM
@@ -11,6 +11,8 @@ import {
 import { Notice, NoticeProps } from '../../../elements/notice';
 import { OAButton, OAButtonProps } from '../../../elements/oa-button';
 import { Title, TitleProps } from '../../../elements/title';
+import styles from './styles';
+import { Box } from 'rebass';
 
 export interface OpenVaultProps {
   children: React.ReactNode;
@@ -29,8 +31,14 @@ export interface OpenVault {
 export const OpenVault: FC<OpenVaultProps> & OpenVault = props => {
   const { children, dispatchStep } = props;
 
+  const [visible, setVisible] = useState({});
+
+  useEffect(() => {
+    setVisible({ opacity: 1 });
+  }, []);
+
   return (
-    <Fragment>
+    <Box sx={{ ...styles.container, ...visible }}>
       {Children.map(children, (child: any) => {
         if (child.type.displayName === 'Title') {
           return React.cloneElement(child, child.props);
@@ -64,7 +72,7 @@ export const OpenVault: FC<OpenVaultProps> & OpenVault = props => {
 
         return child;
       })}
-    </Fragment>
+    </Box>
   );
 };
 OpenVault.displayName = 'OpenVault';

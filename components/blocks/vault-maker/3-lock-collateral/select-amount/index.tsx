@@ -61,7 +61,8 @@ export const SelectAmount: FC<SelectAmountProps> = props => {
     }
   };
 
-  const maxRemaining = selectedToken.balance;
+  const gasFees = 0.05;
+  const maxRemaining = selectedToken.balance - gasFees;
   const remaining = selectedToken.balance - amount;
   const constrainedRemaining =
     remaining > maxRemaining ? maxRemaining : remaining < 0 ? 0 : remaining;

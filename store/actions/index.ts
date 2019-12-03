@@ -8,8 +8,12 @@ const STEP = 'STEP';
 const LOCK_COLLATERAL = 'LOCK_COLLATERAL';
 const DRAW_DAI = 'DRAW_DAI';
 
+const SET_MAKER = 'SET_MAKER';
+const SET_WEB3 = 'SET_WEB3';
+
 export const types = {
   connection: { CONNECT, DISCONNECT },
+  services: { SET_MAKER, SET_WEB3 },
   tokens: { SELECT_TOKEN, TOKENS },
   vault: { STEP, LOCK_COLLATERAL, DRAW_DAI }
 };
