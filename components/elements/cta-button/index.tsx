@@ -16,7 +16,7 @@ export const CTAButton: FC<CTAButtonProps> = props => {
     props.dispatchStep({ step });
   };
   return (
-    <Button sx={styles.ctaButtonStyle} variant="primary" onClick={handleClick}>
+    <Button {...props} sx={styles.ctaButtonStyle} variant="primary" onClick={handleClick}>
       {children}
     </Button>
   );

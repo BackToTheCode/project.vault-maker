@@ -14,12 +14,14 @@ export interface SelectAmountProps {
   }: {
     lockAmount: number;
   }) => void;
+  valid: boolean;
+  setValid: any;
   symbol?: string;
   tokens?: any;
 }
 
 export const SelectAmount: FC<SelectAmountProps> = props => {
-  const { symbol, tokens } = props;
+  const { symbol, tokens, valid } = props;
   const selectedToken = tokens.filter(token => token.symbol === symbol)[0];
   const maxAvailableTokens = selectedToken.balance;
   const initialAmount = 0;
@@ -27,7 +29,6 @@ export const SelectAmount: FC<SelectAmountProps> = props => {
   const theme: any = useTheme();
   const [amount, setAmount] = useState(initialAmount);
   const [width, setWidth] = useState(5);
-  const [valid, setValid] = useState(true);
 
   useEffect(() => {
     if (maxAvailableTokens > initialAmount) {
@@ -44,11 +45,11 @@ export const SelectAmount: FC<SelectAmountProps> = props => {
     const currentAmount = parseFloat(value);
 
     if (currentAmount < 0) {
-      setValid(false);
+      props.setValid(false);
     } else if (currentAmount > maxAvailableTokens) {
-      setValid(false);
+      props.setValid(false);
     } else {
-      setValid(true);
+      props.setValid(true);
     }
 
     if (value.length < maxLength) {

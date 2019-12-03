@@ -11,12 +11,14 @@ export interface SelectDaiProps {
   children?: React.ReactChild[];
   lockAmount?: number;
   handleDrawDaiChange?: (amount: number) => void;
+  setValid: any;
   symbol?: string;
   tokens?: any;
+  valid: boolean;
 }
 
 export const SelectDai: FC<SelectDaiProps> = props => {
-  const { lockAmount: amountLocked, symbol, tokens } = props;
+  const { lockAmount: amountLocked, symbol, tokens, valid } = props;
   const selectedToken = tokens.filter(token => token.symbol === symbol)[0];
 
   const maxDai = amountLocked * selectedToken.price * selectedToken.ratio;
@@ -24,7 +26,6 @@ export const SelectDai: FC<SelectDaiProps> = props => {
   const theme: any = useTheme();
   const [amount, setAmount] = useState(toCurrency(0));
   const [width, setWidth] = useState(5);
-  const [valid, setValid] = useState(true);
 
   const remaining = maxDai - amount;
   const constrainedRemaining =
@@ -41,11 +42,11 @@ export const SelectDai: FC<SelectDaiProps> = props => {
     const currentAmount = parseFloat(value);
 
     if (currentAmount < 0) {
-      setValid(false);
+      props.setValid(false);
     } else if (currentAmount > maxDai) {
-      setValid(false);
+      props.setValid(false);
     } else {
-      setValid(true);
+      props.setValid(true);
     }
 
     if (value.length < maxLength) {

@@ -1,4 +1,4 @@
-import React, { Children, FC } from 'react';
+import React, { Children, FC, useState } from 'react';
 import { Box } from 'rebass';
 import {
   CONFIRM_VAULT_NUM,
@@ -49,6 +49,8 @@ export const DrawDai: FC<DrawDaiProps> & DrawDai = props => {
     props.dispatchDrawDai({ drawAmount: amount });
   };
 
+  const [valid, setValid] = useState(true);
+
   return (
     <Box as="form" sx={styles.form} onSubmit={handleSubmit}>
       {Children.map(children, (child: any) => {
@@ -62,8 +64,10 @@ export const DrawDai: FC<DrawDaiProps> & DrawDai = props => {
             drawAmount,
             handleDrawDaiChange,
             lockAmount,
+            setValid,
             symbol,
-            tokens
+            tokens,
+            valid
           };
           return React.cloneElement(child, newProps);
         }
@@ -76,6 +80,7 @@ export const DrawDai: FC<DrawDaiProps> & DrawDai = props => {
           const newProps: CTAButtonProps = {
             ...child.props,
             dispatchStep,
+            isDisabled: !valid,
             step: CONFIRM_VAULT_NUM
           };
           return React.cloneElement(child, newProps);
