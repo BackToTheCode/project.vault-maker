@@ -39,7 +39,6 @@ const servicesReducer = (
 
   switch (type) {
     case SET_MAKER:
-      console.log('action', action);
       const { maker } = payload;
       return { ...state, maker };
 

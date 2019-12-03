@@ -19,10 +19,8 @@ function mapDispatchToProps(dispatch: any) {
       dispatch({ type: 'CONNECT', payload }),
     dispatchDisconnect: (payload: any) =>
       dispatch({ type: 'DISCONNECT', payload }),
-    dispatchSelectToken: (payload: any) => {
-      console.log('payload', payload);
-      return dispatch({ type: 'SELECT_TOKEN', payload });
-    },
+    dispatchSelectToken: (payload: any) => 
+    dispatch({ type: 'SELECT_TOKEN', payload }),
     dispatchSetMaker: (payload: any) =>
       dispatch({ type: 'SET_MAKER', payload }),
     dispatchSetWeb3: (payload: any) => 

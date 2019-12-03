@@ -75,10 +75,8 @@ export const Hero: FC<HeroProps> & Hero = props => {
     const { cdpTypes } = maker.service('mcd:cdpType');
     const uniqCdpTypes = uniqBy(cdpTypes, (cdpt: any) => cdpt.currency.symbol);
 
-    console.log('uniqCdpTypes', uniqCdpTypes);
     const dict: object = {};
     const tokens = uniqCdpTypes.map((cdpType: any) => {
-      console.log('cdpType', cdpType);
       const token = {
         ilk: cdpType.ilk,
         penalty: cdpType.liquidationPenalty,
@@ -119,8 +117,6 @@ export const Hero: FC<HeroProps> & Hero = props => {
 
     maker = await mkrSetup(network, provider, { url, privateKey });
     web3 = (await mkrGetWeb3()) as any;
-
-    console.log('localMaker', maker);
 
     props.dispatchSetMaker({ maker });
     props.dispatchSetWeb3({ web3 });
