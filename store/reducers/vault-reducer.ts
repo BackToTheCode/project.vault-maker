@@ -25,7 +25,6 @@ const vaultReducer = (state: any = initialState, action: any) => {
       return { ...state, lockAmount };
     case DRAW_DAI:
       const { drawAmount } = payload;
-      
       return { ...state, drawAmount };
     default:
       return state;

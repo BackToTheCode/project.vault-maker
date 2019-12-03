@@ -2,6 +2,7 @@ import { types } from '../actions';
 
 const defaultToken = {
   balance: 0,
+  ilk: 'ETH-A',
   penalty: 0,
   price: 0,
   ratio: 0,
@@ -25,7 +26,6 @@ const tokenReducer = (state: any = initialState, action: any) => {
 
     case TOKENS:
       const { tokens } = payload;
-      console.log('TOKENS', tokens);
       return { ...state, tokens };
 
     default:

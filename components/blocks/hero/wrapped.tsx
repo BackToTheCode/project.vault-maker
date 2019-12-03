@@ -3,8 +3,11 @@ import { Hero } from '../hero';
 
 function mapStateToProps(state: any) {
   return {
+    drawAmount: state.vault.drawAmount,
     isConnected: state.connection.isConnected,
-    isCreated: state.vault.isCreated
+    isCreated: state.vault.isCreated,
+    lockAmount: state.vault.lockAmount,
+    selectedToken: state.tokens.selectedToken,
   };
 }
 

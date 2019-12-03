@@ -21,7 +21,7 @@ export const SelectDai: FC<SelectDaiProps> = props => {
   const { lockAmount: amountLocked, symbol, tokens, valid } = props;
   const selectedToken = tokens.filter(token => token.symbol === symbol)[0];
 
-  const maxDai = amountLocked * selectedToken.price * selectedToken.ratio;
+  const maxDai = (amountLocked * selectedToken.price) / selectedToken.ratio;
 
   const theme: any = useTheme();
   const [amount, setAmount] = useState(toCurrency(0));
@@ -31,10 +31,10 @@ export const SelectDai: FC<SelectDaiProps> = props => {
   const constrainedRemaining =
     remaining > maxDai ? maxDai : remaining < 0 ? 0 : remaining;
 
-  useEffect(() => { 
+  useEffect(() => {
     setAmount(toCurrency(maxDai));
     props.handleDrawDaiChange(maxDai);
-  }, [])
+  }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const maxLength = 8;
@@ -65,7 +65,6 @@ export const SelectDai: FC<SelectDaiProps> = props => {
         id="drawAmount"
         name="drawAmount"
         type="number"
-
         value={amount}
         sx={{
           ...theme.text.heading.extra,

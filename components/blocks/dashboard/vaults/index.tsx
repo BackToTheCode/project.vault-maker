@@ -1,7 +1,7 @@
 import React, { Children, FC } from 'react';
 import { Box, Flex } from 'rebass';
-import { Vault, VaultProps } from './vault';
 import styles from './styles';
+import { Vault, VaultProps } from './vault';
 
 export interface VaultsProps {
   children: React.ReactNode | string;

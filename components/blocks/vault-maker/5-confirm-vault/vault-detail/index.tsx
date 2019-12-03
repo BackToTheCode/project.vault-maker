@@ -17,7 +17,7 @@ export const VaultDetail: FC<VaultDetailProps> = props => {
   const { lockAmount, drawAmount, ratio, price, symbol } = props;
 
   const collateralValue = lockAmount * price;
-  const liquidiationValue = drawAmount * ratio;
+  const liquidiationValue = collateralValue / ratio;
 
   return (
     <Box sx={styles.container}>

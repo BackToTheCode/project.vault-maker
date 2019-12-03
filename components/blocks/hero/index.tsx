@@ -8,18 +8,22 @@ import React, { FC, useEffect, useState } from 'react';
 import ledgerLogo from '../../../public/images/ledger-logo.png';
 import metamaskLogo from '../../../public/images/metamask-fox.svg';
 import trezorLogo from '../../../public/images/trezor-logo.png';
-import { getWeb3 as mkrGetWeb3, setup as mkrSetup } from '../../../utils/web3';
+import { BAT, ETH, getWeb3 as mkrGetWeb3, MDAI, setup as mkrSetup } from '../../../utils/web3';
 import { VaultMaker } from '../vault-maker/wrapped';
 import { Wallet } from '../wallet';
 
 export interface HeroProps {
+  drawAmount: number;
+  lockAmount: number;
   variant?: string;
   isComplete: boolean;
   isConnected: boolean;
+  isCreated: boolean;
   children?: React.ReactNode;
   dispatchConnect: ({ address }: { address: string }) => void;
   dispatchTokens: ({ tokens }: { tokens: any[] }) => void;
   dispatchSelectToken: ({ selectedToken }: { selectedToken: any }) => any;
+  selectedToken: any;
 }
 
 interface Hero {
@@ -58,9 +62,10 @@ export const Hero: FC<HeroProps> & Hero = props => {
     const { cdpTypes } = maker.service('mcd:cdpType');
     const uniqCdpTypes = uniqBy(cdpTypes, (cdpt: any) => cdpt.currency.symbol);
 
-    const dict: any = {};
+    const dict: object = {};
     const tokens = uniqCdpTypes.map((cdpType: any) => {
       const token = {
+        ilk: cdpType.ilk,
         penalty: cdpType.liquidationPenalty,
         price: cdpType.price.toBigNumber().toNumber(),
         ratio: cdpType.liquidationRatio.toBigNumber().toNumber(),
@@ -69,6 +74,7 @@ export const Hero: FC<HeroProps> & Hero = props => {
       return { ...token, ...dict[token.symbol] };
     });
 
+    
     return tokens;
   };
 
@@ -119,11 +125,21 @@ export const Hero: FC<HeroProps> & Hero = props => {
     setLoading(false);
   };
 
+  const { ilk, symbol } = props.selectedToken;
+  const { drawAmount, lockAmount } = props
+
+  const vaultOptions = {
+    drawAmount,
+    ilk,
+    lockAmount,
+    symbol,
+  };
+
   return (
     <FullContainer variant="container.default">
       {renderWallet(isConnected, isLoading, handleMetamask)}
       {renderVaultMaker(isComplete, isConnected)}
-      {renderDashboard(isComplete, isCreated, router)}
+      {renderDashboard(isComplete, isCreated, router, maker, vaultOptions)}
     </FullContainer>
   );
 };
@@ -131,16 +147,27 @@ export const Hero: FC<HeroProps> & Hero = props => {
 const renderDashboard = (
   isComplete: boolean,
   isCreated: boolean,
-  router: any
+  router: any,
+  maker: any,
+  vaultOptions: any
 ) => {
   if (isComplete) {
     setTimeout(() => {
       router.push('/dashboard');
-    }, 10000);
+    }, 20000);
   }
 
-  const createCdp = () => {
-    console.log('creating cdp...');
+  const { ilk, symbol, lockAmount, drawAmount } =  vaultOptions;
+
+  const tokens = {
+    'BAT': BAT,
+    'ETH': ETH
+  }
+
+  const createCdp = async () => {
+    const cdpManager = maker.service('mcd:cdpManager');
+    const cdp = await cdpManager.openLockAndDraw(ilk, tokens[symbol](lockAmount), MDAI(drawAmount));
+    console.log('cdp', cdp);
   };
 
   useEffect(() => {
