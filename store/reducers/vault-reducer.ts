@@ -19,7 +19,6 @@ const vaultReducer = (state: any = initialState, action: any) => {
   switch (type) {
     case STEP:
       const { step } = payload;
-      console.log('Step...', { ...state, step });
       return { ...state, step };
     case LOCK_COLLATERAL:
       const { lockAmount } = payload;

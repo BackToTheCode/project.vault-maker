@@ -3,7 +3,8 @@ import { Hero } from '../hero';
 
 function mapStateToProps(state: any) {
   return {
-    isConnected: state.connection.isConnected
+    isConnected: state.connection.isConnected,
+    isCreated: state.vault.isCreated
   };
 }
 

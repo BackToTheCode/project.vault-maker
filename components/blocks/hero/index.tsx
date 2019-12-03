@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core';
 import uniqBy from 'lodash.uniqby';
 // import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import ledgerLogo from '../../../public/images/ledger-logo.png';
 import metamaskLogo from '../../../public/images/metamask-fox.svg';
 import trezorLogo from '../../../public/images/trezor-logo.png';
@@ -28,7 +28,7 @@ interface Hero {
 
 export const Hero: FC<HeroProps> & Hero = props => {
   const [isLoading, setLoading] = useState(false);
-  const { isConnected, isComplete } = props;
+  const { isConnected, isComplete, isCreated } = props;
   const router = useRouter();
 
   let maker: any = null;
@@ -102,45 +102,55 @@ export const Hero: FC<HeroProps> & Hero = props => {
     e.preventDefault();
     setLoading(true);
 
-    await setupMaker();
+    try {
+      await setupMaker();
+      const userAccount = await getAccount();
+      const tokens = await getTokens();
+      const tokensWithBalances = await addBalances(tokens);
+      const selectedToken = selectDefaultToken(tokensWithBalances);
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 3500);
-
-    const userAccount = await getAccount();
-    const tokens = await getTokens();
-    const tokensWithBalances = await addBalances(tokens);
-    const selectedToken = selectDefaultToken(tokensWithBalances);
-
-    props.dispatchConnect({ address: userAccount });
-    props.dispatchTokens({ tokens: tokensWithBalances });
-    props.dispatchSelectToken({ selectedToken });
+      props.dispatchConnect({ address: userAccount });
+      props.dispatchTokens({ tokens: tokensWithBalances });
+      props.dispatchSelectToken({ selectedToken });
+    } catch (error) {
+      console.error(error);
+    }
 
     setLoading(false);
   };
 
-  const isCreated = false;
-
   return (
     <FullContainer variant="container.default">
       {renderWallet(isConnected, isLoading, handleMetamask)}
-      {!isComplete && renderVaultMaker(isConnected)}
-      {isComplete && renderDashboard(isCreated, router)}
+      {renderVaultMaker(isComplete, isConnected)}
+      {renderDashboard(isComplete, isCreated, router)}
     </FullContainer>
   );
 };
 
-const renderDashboard = (isCreated: boolean, router: any) => {
-  setTimeout(() => {
-    router.push('/dashboard');
-    isCreated = true;
-  }, 10000);
+const renderDashboard = (
+  isComplete: boolean,
+  isCreated: boolean,
+  router: any
+) => {
+  if (isComplete) {
+    setTimeout(() => {
+      router.push('/dashboard');
+    }, 10000);
+  }
 
-  return !isCreated ? (
-    <Loading text={'Creating your new Vault...'} />
-  ) : (
-    <div>CDP Created</div>
+  const createCdp = () => {
+    console.log('creating cdp...');
+  };
+
+  useEffect(() => {
+    if (isComplete) {
+      createCdp();
+    }
+  }, [isComplete]);
+
+  return (
+    isComplete && !isCreated && <Loading text={'Creating your new Vault...'} />
   );
 };
 
@@ -172,13 +182,14 @@ const renderWallet = (
     </Wallet>
   ));
 
-const renderVaultMaker = (isConnected: boolean) => {
-  // const VaultMaker: any = dynamic(() => import('../vault-maker/wrapped').then(mod => mod.VaultMaker),
-  //   {
-  //     loading: () => <Loading />
-  //   }
-  // );
-  // // console.log('DynamicVaultMaker', DynamicVaultMaker);
-  // // return isConnected && <DynamicVault />
-  return isConnected && <VaultMaker.Wrapped />
+const renderVaultMaker = (isComplete: boolean, isConnected: boolean) => {
+  return !isComplete && isConnected && <VaultMaker.Wrapped />;
 };
+
+// const VaultMaker: any = dynamic(() => import('../vault-maker/wrapped').then(mod => mod.VaultMaker),
+//   {
+//     loading: () => <Loading />
+//   }
+// );
+// // console.log('DynamicVaultMaker', DynamicVaultMaker);
+// // return isConnected && <DynamicVault />
