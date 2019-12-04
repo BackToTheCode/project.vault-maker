@@ -133,7 +133,7 @@ export const Hero: FC<HeroProps> & Hero = props => {
 
     setTimeout(() =>{
       setLoading(false);
-    }, 4000);
+    }, 5000);
 
     try {
       await setupMaker();
