@@ -1,14 +1,14 @@
 const styles = {
   balance: {
+    bg: 'superLightSecondary',
     borderBottomColor: 'dark',
     borderBottomStyle: 'solid',
     borderBottomWidth: 1,
+    borderRadius: '4px',
     display: 'inline-block',
     fontFamily: 'body',
-    pl: 0,
-    pr: 4,
-    py: 3,
-    width: '100px'
+    px: 6,
+    py: 3
   },
   balanceDetail: { mt: 6, mb: 6, color: 'grey' },
   balanceValue: { fontWeight: 'bold', mt: 6 },

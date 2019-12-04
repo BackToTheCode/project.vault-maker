@@ -2,6 +2,7 @@ const styles = {
   container: {
     dark: {
       bg: 'superLightGrey',
+      borderBottom: '1px solid lightGrey'
     },
     px: 5,
     py: 5

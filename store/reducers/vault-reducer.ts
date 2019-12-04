@@ -1,7 +1,5 @@
 import {
-  CONFIRM_COLLATERAL_NUM,
-  LOCK_COLLATERAL_NUM,
-  DRAW_DAI_NUM
+  CONFIRM_COLLATERAL_NUM
 } from '../../constants/step-names';
 import { types } from '../actions';
 

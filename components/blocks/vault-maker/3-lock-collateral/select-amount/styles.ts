@@ -34,7 +34,7 @@ const styles = {
     borderBottomColor: 'dark',
     borderBottomStyle: 'solid',
     borderBottomWidth: 1,
-    borderRadius: 0,
+    borderRadius: '4px',
     color: 'dark',
     display: 'inline-block',
     fontFamily: 'body',

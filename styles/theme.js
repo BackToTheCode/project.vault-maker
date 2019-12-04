@@ -8,7 +8,6 @@ const theme = {
   },
   breakpoints: ['40em', '52em', '64em'],
   buttons: buttons,
-
   colors: {
     bat: 'rgb(234, 86, 19)',
     dark: '#222222',
@@ -57,8 +56,6 @@ const theme = {
   space: [0, 2, 4, 6, 8, 12, 16, 24, 32, 48],
   text: text,
   variants: variants,
- 
-
 };
 
 theme.fontSizes.body = theme.fontSizes[2];

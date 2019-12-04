@@ -1158,12 +1158,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@backtothecode/vault-maker-ui@^0.5.9":
-  version "0.5.11"
-  resolved "https://registry.yarnpkg.com/@backtothecode/vault-maker-ui/-/vault-maker-ui-0.5.11.tgz#8ebb8dcabbda5b4c32032596a47bdd1d3e87757d"
-  integrity sha512-UYEiKlOu9BUENGXqZAPPxX2hpljBPiXZTEvkHnP7cWy/K+QlwZaYz7v4KijmmskQNbooaRBX7APTE2O9OzeM7A==
+"@backtothecode/vault-maker-ui@^0.5.15":
+  version "0.5.15"
+  resolved "https://registry.yarnpkg.com/@backtothecode/vault-maker-ui/-/vault-maker-ui-0.5.15.tgz#1c71d8b61e0fbb5e01daa60b5d220a4e288e9902"
+  integrity sha512-dEaQUlx7/LMM1v0Z+nRJX7Uf4Hp8JS4+3lZKWHILhC2GWBLU2K1ZSfb2FI6HIVPMyYr84vYeS1CmY9nOMxXdRg==
   dependencies:
-    "@backtothecode/vault-maker-ui" "^0.5.9"
     "@emotion/core" "^10.0.22"
     "@makerdao/dai" "^0.22.0"
     "@makerdao/dai-plugin-mcd" "^1.0.1"
