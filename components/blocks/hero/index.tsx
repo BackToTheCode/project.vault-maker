@@ -2,7 +2,6 @@
 import { FullContainer, Loading } from '@backtothecode/vault-maker-ui';
 import { jsx } from '@emotion/core';
 import uniqBy from 'lodash.uniqby';
-// import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import React, { FC, useEffect, useState } from 'react';
 import ledgerLogo from '../../../public/images/ledger-logo.png';
@@ -50,6 +49,11 @@ export const Hero: FC<HeroProps> & Hero = props => {
     selectedToken
   } = props;
   const router = useRouter();
+  const [isReady, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, [])
 
   const addBalances = async (tokens: any[]) => {
     if (!maker) {
@@ -162,7 +166,7 @@ export const Hero: FC<HeroProps> & Hero = props => {
 
   return (
     <FullContainer variant="container.default">
-      {renderWallet(isConnected, isLoading, handleMetamask)}
+      {renderWallet(isReady, isConnected, isLoading, handleMetamask)} 
       {renderVaultMaker(isComplete, isConnected)}
       {renderDashboard(isComplete, isCreated, router, maker, vaultOptions)}
     </FullContainer>
@@ -192,9 +196,8 @@ const renderDashboard = (
       ilk,
       TOK(lockAmount),
       MDAI(drawAmount)
-    ).catch(error => {
-      console.error(`bad error ${error}`);
-    });
+    )
+
     if (cdp) {
       console.log('cdp', cdp);
       router.push('/dashboard');
@@ -213,41 +216,35 @@ const renderDashboard = (
 };
 
 const renderWallet = (
-  isConnected: boolean,
-  isLoading: boolean,
-  handleMetamask: (e: any) => Promise<void>
-) =>
-  !isConnected &&
-  (isLoading ? (
-    <Loading />
-  ) : (
-    <Wallet>
+  isReady: boolean, 
+  isConnected: boolean, 
+  isLoading: boolean, 
+  handleMetamask: (e: any) => Promise<void>) => {
+  return (
+    isReady ?
+    (!isConnected &&
+    (isLoading ? (
+      <Loading />
+    ) : (
+      <Wallet>
       <Wallet.Header>Start Making a Vault</Wallet.Header>
       <Wallet.SubHeader>Connect to the Ethereum network</Wallet.SubHeader>
       <Wallet.LogoButton
-        variant="outline"
         icon={metamaskLogo}
         onClick={handleMetamask}
       >
         Connect with Metamask
       </Wallet.LogoButton>
-      <Wallet.LogoButton variant="outline" icon={trezorLogo} isDisabled={true}>
+      <Wallet.LogoButton icon={trezorLogo} isDisabled={true}>
         Trezor - coming soon...
       </Wallet.LogoButton>
-      <Wallet.LogoButton variant="outline" icon={ledgerLogo} isDisabled={true}>
+      <Wallet.LogoButton icon={ledgerLogo} isDisabled={true}>
         Ledger - coming soon...
       </Wallet.LogoButton>
-    </Wallet>
-  ));
+    </Wallet>)))
+    : <Loading text={'Loading...'} />
+  )};
 
 const renderVaultMaker = (isComplete: boolean, isConnected: boolean) => {
   return !isComplete && isConnected && <VaultMaker.Wrapped />;
 };
-
-// const VaultMaker: any = dynamic(() => import('../vault-maker/wrapped').then(mod => mod.VaultMaker),
-//   {
-//     loading: () => <Loading />
-//   }
-// );
-// // console.log('DynamicVaultMaker', DynamicVaultMaker);
-// // return isConnected && <DynamicVault />

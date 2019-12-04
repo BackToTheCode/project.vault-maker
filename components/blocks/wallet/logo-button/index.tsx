@@ -6,9 +6,9 @@ import styles from './styles';
 // tslint:disable-next-line:no-empty-interface
 export interface LogoButtonProps {
   icon: string;
-  sx: SxStyleProp;
-  isDisabled: boolean;
-  onClick: (e: any) => void
+  sx?: SxStyleProp;
+  isDisabled?: boolean;
+  onClick?: (e: any) => void
 }
 
 export const LogoButton: FC<LogoButtonProps> = ({
