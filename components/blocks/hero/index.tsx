@@ -18,16 +18,18 @@ import { VaultMaker } from '../vault-maker/wrapped';
 import { Wallet } from '../wallet';
 
 export interface HeroProps {
+  appState: any,
+  cdp: any,
   drawAmount: number;
   lockAmount: number;
   variant?: string;
   isComplete: boolean;
   isConnected: boolean;
-  isCreated: boolean;
   children?: React.ReactNode;
   dispatchConnect: ({ address }: { address: string }) => void;
   dispatchTokens: ({ tokens }: { tokens: any[] }) => void;
   dispatchSelectToken: ({ selectedToken }: { selectedToken: any }) => any;
+  dispatchSetCdp: ({ cdp }: { cdp: any }) => any;
   dispatchSetMaker: ({ maker }: { maker: any }) => any;
   dispatchSetWeb3: ({ web3 }: { web3: any }) => any;
   maker: any;
@@ -43,10 +45,12 @@ export const Hero: FC<HeroProps> & Hero = props => {
   const [isLoading, setLoading] = useState(false);
   let { maker, web3 } = props;
   const {
+    appState,
+    cdp,
     isConnected,
     isComplete,
-    isCreated,
-    selectedToken
+    selectedToken,
+    dispatchSetCdp
   } = props;
   const router = useRouter();
   const [isReady, setReady] = useState(false);
@@ -54,6 +58,14 @@ export const Hero: FC<HeroProps> & Hero = props => {
   useEffect(() => {
     setReady(true);
   }, [])
+
+  useEffect(() => {
+    if (cdp) {
+      console.log('setting appstate...')
+      localStorage.setItem('appState', appState);
+      router.push('/dashboard');
+    }
+  }, cdp)
 
   const addBalances = async (tokens: any[]) => {
     if (!maker) {
@@ -163,20 +175,19 @@ export const Hero: FC<HeroProps> & Hero = props => {
     lockAmount,
     symbol
   };
-
+  
   return (
     <FullContainer variant="container.default">
       {renderWallet(isReady, isConnected, isLoading, handleMetamask)} 
       {renderVaultMaker(isComplete, isConnected)}
-      {renderDashboard(isComplete, isCreated, router, maker, vaultOptions)}
+      {renderDashboard(dispatchSetCdp, isComplete, maker, vaultOptions)}
     </FullContainer>
   );
 };
 
 const renderDashboard = (
+  dispatchSetCdp: any,
   isComplete: boolean,
-  isCreated: boolean,
-  router: any,
   maker: any,
   vaultOptions: any
 ) => {
@@ -199,8 +210,8 @@ const renderDashboard = (
     )
 
     if (cdp) {
-      console.log('cdp', cdp);
-      router.push('/dashboard');
+      console.log('cdp-original', cdp);
+      dispatchSetCdp({cdp})
     }
   };
 
@@ -211,7 +222,7 @@ const renderDashboard = (
   }, [isComplete]);
 
   return (
-    isComplete && !isCreated && <Loading text={'Creating your new Vault...'} />
+    isComplete && <Loading text={'Creating your new Vault...'} />
   );
 };
 

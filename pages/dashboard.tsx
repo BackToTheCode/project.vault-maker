@@ -2,9 +2,8 @@ import { css, Global } from '@emotion/core';
 import emotionNormalize from 'emotion-normalize';
 import { ThemeProvider, withTheme } from 'emotion-theming';
 import React from 'react';
-import { Dashboard } from '../components/blocks/dashboard';
+import { Dashboard } from '../components/blocks/dashboard/wrapped';
 import { Header } from '../components/blocks/header/wrapped';
-import { Hero } from '../components/blocks/hero/wrapped';
 import { Context } from '../components/context';
 import logoImage from '../public/images/mark-maker.svg';
 import { rootReducer, useStore } from '../store/store';
@@ -13,7 +12,10 @@ import appTheme from '../styles/theme';
 const Provider = Context.Provider;
 
 export default () => {
-  const [state, dispatch] = useStore(rootReducer) as any;
+
+  const initialState = localStorage.getItem('appStat');
+  console.log('initialState', initialState)
+  const [state, dispatch] = useStore(rootReducer, initialState) as any;
 
   const makeGlobalStyles = (theme: any) => css`
     ${emotionNormalize}
@@ -49,7 +51,7 @@ const renderHeader = () => {
 
 const renderDashboard = () => {
   return (
-    <Dashboard />
+    <Dashboard.Wrapped />
   )
 }
 

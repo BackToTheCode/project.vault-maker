@@ -3,13 +3,14 @@ import { Hero } from '../hero';
 
 function mapStateToProps(state: any) {
   return {
+    appState: state,
+    cdp: state.services.cdp,
     drawAmount: state.vault.drawAmount,
     isConnected: state.connection.isConnected,
-    isCreated: state.vault.isCreated,
     lockAmount: state.vault.lockAmount,
     maker: state.services.maker,
     selectedToken: state.tokens.selectedToken,
-    web3: state.services.web3
+    web3: state.services.web3,
   };
 }
 
@@ -20,7 +21,9 @@ function mapDispatchToProps(dispatch: any) {
     dispatchDisconnect: (payload: any) =>
       dispatch({ type: 'DISCONNECT', payload }),
     dispatchSelectToken: (payload: any) => 
-    dispatch({ type: 'SELECT_TOKEN', payload }),
+      dispatch({ type: 'SELECT_TOKEN', payload }),
+    dispatchSetCdp: (payload: any) => 
+      dispatch({ type: 'SET_CDP', payload }),
     dispatchSetMaker: (payload: any) =>
       dispatch({ type: 'SET_MAKER', payload }),
     dispatchSetWeb3: (payload: any) => 

@@ -1,13 +1,9 @@
-// dispatchSetMaker: (payload: any) =>
-// dispatch({ type: 'SET_MAKER' }, payload),
-// dispatchSetWeb3: (payload: any) =>
-// dispatch({ type: 'SET_WEB3' }, payload),
-
 import { types } from '../actions';
 
 export interface Payload {
-    maker?: any;
-    web3?: any;
+  maker?: any;
+  web3?: any;
+  cdp?: any;
 }
 
 export type ServicesAction =
@@ -17,6 +13,10 @@ export type ServicesAction =
     }
   | {
       type: 'SET_WEB3';
+      payload: Payload;
+    }
+  | {
+      type: 'SET_CDP';
       payload: Payload;
     };
 
@@ -34,7 +34,7 @@ const servicesReducer = (
   state: State = initialState,
   action: ServicesAction
 ) => {
-  const { SET_MAKER, SET_WEB3 } = types.services;
+  const { SET_MAKER, SET_WEB3, SET_CDP } = types.services;
   const { payload, type } = action;
 
   switch (type) {
@@ -45,6 +45,11 @@ const servicesReducer = (
     case SET_WEB3:
       const { web3 } = payload;
       return { ...state, web3 };
+
+    case SET_CDP:
+      const { cdp } = payload;
+      console.log('cdp-reducer', cdp);
+      return { ...state, cdp };
 
     default:
       return state;

@@ -3,10 +3,7 @@ import { Container } from '@backtothecode/vault-maker-ui';
 import { jsx } from '@emotion/core';
 import React, { FC } from 'react';
 import render from './render';
-import { vaults } from './render/vaults';
 import styles from './styles';
-// import { Address, AddressProps } from './address';
-// import { Logo, LogoProps } from './logo';
 
 export interface DashboardProps {
   children?: React.ReactNode;
@@ -16,14 +13,17 @@ export interface DashboardProps {
 }
 
 interface Dashboard {
-//   Logo: FC<LogoProps>;
-//   Address: FC<AddressProps>;
   Wrapped?: any;
 };
 
-export const Dashboard: FC<DashboardProps> & Dashboard = props => {
-  const { children, isConnected, address } = props;
+export const Dashboard: FC<DashboardProps> & Dashboard = props => { 
+  const { cdp } = props;
   const { tabs, vaults } = render;
+
+  console.log('CDP', cdp);
+  console.log('STATE', state)
+
+
   return (
     <Container sx={styles.container} variant="container.default">
         {tabs()}
