@@ -2,6 +2,7 @@ import connect from '../../../store/connect';
 import { Hero } from '../hero';
 
 function mapStateToProps(state: any) {
+  console.log('state-original', state);
   return {
     appState: state,
     cdp: state.services.cdp,

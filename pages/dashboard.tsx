@@ -1,7 +1,7 @@
 import { css, Global } from '@emotion/core';
 import emotionNormalize from 'emotion-normalize';
 import { ThemeProvider, withTheme } from 'emotion-theming';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dashboard } from '../components/blocks/dashboard/wrapped';
 import { Header } from '../components/blocks/header/wrapped';
 import { Context } from '../components/context';
@@ -12,10 +12,10 @@ import appTheme from '../styles/theme';
 const Provider = Context.Provider;
 
 export default () => {
+  const [state, dispatch] = useStore(rootReducer) as any; 
 
-  const initialState = localStorage.getItem('appStat');
-  console.log('initialState', initialState)
-  const [state, dispatch] = useStore(rootReducer, initialState) as any;
+  console.log('state', state)
+  console.log('state.services', state.services)
 
   const makeGlobalStyles = (theme: any) => css`
     ${emotionNormalize}

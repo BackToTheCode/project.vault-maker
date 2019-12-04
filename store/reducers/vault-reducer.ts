@@ -1,6 +1,4 @@
-import {
-  CONFIRM_COLLATERAL_NUM
-} from '../../constants/step-names';
+import { CONFIRM_COLLATERAL_NUM } from '../../constants/step-names';
 import { types } from '../actions';
 
 const initialState: any = {
@@ -11,19 +9,25 @@ const initialState: any = {
 };
 
 const vaultReducer = (state: any = initialState, action: any) => {
-  const { STEP, LOCK_COLLATERAL, DRAW_DAI } = types.vault;
+  const { STEP, LOCK_COLLATERAL, DRAW_DAI, INITIALISE_VAULT } = types.vault;
   const { payload, type } = action;
 
   switch (type) {
     case STEP:
       const { step } = payload;
       return { ...state, step };
+
     case LOCK_COLLATERAL:
       const { lockAmount } = payload;
       return { ...state, lockAmount };
+
     case DRAW_DAI:
       const { drawAmount } = payload;
       return { ...state, drawAmount };
+
+    case INITIALISE_VAULT:
+      return payload;
+
     default:
       return state;
   }

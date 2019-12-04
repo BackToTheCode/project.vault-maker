@@ -60,8 +60,9 @@ export const Hero: FC<HeroProps> & Hero = props => {
   }, [])
 
   useEffect(() => {
+    localStorage.setItem('appState', appState);
     if (cdp) {
-      localStorage.setItem('appState', appState);
+      console.log('setting...', appState)
       router.push('/dashboard');
     }
   }, cdp)

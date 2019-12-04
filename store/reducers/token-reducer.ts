@@ -16,7 +16,7 @@ const initialState: any = {
 };
 
 const tokenReducer = (state: any = initialState, action: any) => {
-  const { SELECT_TOKEN, TOKENS } = types.tokens;
+  const { SELECT_TOKEN, TOKENS, INITIALISE_TOKENS } = types.tokens;
   const { payload, type } = action;
 
   switch (type) {
@@ -28,6 +28,9 @@ const tokenReducer = (state: any = initialState, action: any) => {
       const { tokens } = payload;
       return { ...state, tokens };
 
+    case INITIALISE_TOKENS:
+      return payload;
+      
     default:
       return state;
   }

@@ -4,7 +4,7 @@ export type ConnectionAction =
   | { type: 'CONNECT'; payload: { address: string } }
   | { type: 'DISCONNECT'; payload: null };
 
-export type State = {
+export interface State {
   isConnected: boolean;
   address?: string;
 };
@@ -17,7 +17,7 @@ const connectReducer = (
   state: State = initialState,
   action: ConnectionAction
 ) => {
-  const { CONNECT, DISCONNECT } = types.connection;
+  const { CONNECT, DISCONNECT, INITIALISE_CONNECT } = types.connection;
   const { payload, type } = action;
 
   switch (type) {
@@ -27,6 +27,9 @@ const connectReducer = (
 
     case DISCONNECT:
       return { ...state, isConnected: false };
+
+    case INITIALISE_CONNECT:
+        return payload;
 
     default:
       return state;
