@@ -5,7 +5,9 @@ const styles = {
     borderBottomWidth: 1,
     display: 'inline-block',
     fontFamily: 'body',
+    pl: 0,
     position: 'relative',
+    pr: 4,
     py: 3,
     top: '-8px',
   },
@@ -24,8 +26,7 @@ const styles = {
     fontWeight: 'bold',
     justifyContent: 'left',
     letterSpacing: '0.5px',
-    mb: 3,
-    mt: 6
+    mb: 4
   },
   symbol: {
     bottom: '7px',

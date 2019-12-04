@@ -16,7 +16,7 @@ export const Entry: FC<EntryProps> = props => {
       <Text sx={styles.label} variant="body.small">
         {`${symbol}`}
       </Text>
-      <Text variant="heading.small">{children}</Text>
+      <Text variant="body.regular">{children}</Text>
     </Box>
   );
 };

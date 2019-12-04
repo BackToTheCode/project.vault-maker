@@ -1,9 +1,5 @@
 const styles = {
   container: {
-    // '&:hover': {
-    //   bg: 'lightMidGrey'
-    // },
-    // bg: 'superLightGrey',
     dark: {
       bg: 'superLightGrey',
     },

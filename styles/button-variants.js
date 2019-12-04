@@ -1,34 +1,35 @@
 const buttons = {
-  primary: {
-    color: 'white',
-    bg: 'primary',
+  outline: {
+    '&:hover': {
+      backgroundColor: 'rgba(26, 171, 155, 0.1)'
+    },
+    bg: 'transparent',
     borderColor: 'primary',
+    color: 'primary'
+  },
+  primary: {
     '&:hover': {
       bg: 'darkPrimary',
       borderColor: 'darkPrimary'
-    }
+    },
+    bg: 'primary',
+    borderColor: 'primary',
+    color: 'white'
   },
   secondary: {
-    color: 'white',
     bg: 'secondary',
-    borderColor: 'secondary'
-  },  
-  outline: {
-    color: 'primary',
-    bg: 'transparent',
-    borderColor: 'primary',
-    '&:hover': {
-      backgroundColor: 'rgba(26, 171, 155, 0.1)'
-    }
+    borderColor: 'secondary',
+    color: 'white'
   },
   text: {
-    color: 'primary',
-    bg: 'transparent',
-    borderColor: 'transparent',
     '&:hover': {
       backgroundColor: 'transparent',
       color: 'lightPrimary',
-    }
+      transform: 'translateY(0px)'
+    },    
+    bg: 'transparent',
+    borderColor: 'transparent',
+    color: 'primary'
   }
 };
 
