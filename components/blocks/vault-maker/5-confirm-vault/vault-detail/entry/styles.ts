@@ -13,7 +13,7 @@ const styles = {
     fontWeight: 'bold',
     justifyContent: 'left',
     letterSpacing: '0.5px',
-    mb: 3
+    mb: 3,
   }
 };
 

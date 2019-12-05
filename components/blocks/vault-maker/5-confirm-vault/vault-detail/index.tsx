@@ -28,9 +28,10 @@ export const VaultDetail: FC<VaultDetailProps> = props => {
   return (
     <Box sx={{...styles.container, ...visible}}>
       <Entry symbol={symbol} isDark={true}>{`${toCurrency(lockAmount)}`}</Entry>
-      <Entry symbol={"DAI"}>{`${toCurrency(drawAmount)}`}</Entry>
-      <Entry symbol={"COLLATERAL VALUE"} isDark={true}>{`${toCurrency(collateralValue)} USD`}</Entry>
-      <Entry sx={{mb: 3}}symbol={"LIQUIDATION VALUE"}>{`${toCurrency(liquidiationValue)} USD`}</Entry>
+      <Entry symbol={"COLLATERAL"}>{`${toCurrency(collateralValue)} USD`}</Entry>
+      <Entry symbol={"DAI"} isDark={true}>{`${toCurrency(drawAmount)}`}</Entry>
+      <Entry symbol={"LIQUIDATION*"}>{`${toCurrency(liquidiationValue)} USD`}</Entry>
+      <Text variant="body.small" sx={{gridColumn: '1 / span 2', lineHeight: 1.5}}>*If the value of your locked collateral falls below the liquidation value then your collateral will be auctioned off. The proceeds will be used to repay your borrowed DAI with the balance being returned to you.</Text>
     </Box>
   );
 };
