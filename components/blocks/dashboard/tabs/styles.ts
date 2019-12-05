@@ -1,15 +1,18 @@
 const styles = {
   container: {
+    width: '1060px',
     maxWidth: '95%',
+    mt: '150px',
     mx: 'auto',
-    width: '100%'
   },
-  filler: {
-    borderBottomWidth: '3px',
-    borderColor: 'lightGrey',
-    borderStyle: 'solid',
-    borderWidth: 0
+  tabs: {
+    display: 'grid',
+    gridTemplateColumns: '60px 60px auto'
+  },
+  text: {
+      color: 'white'
   }
+
 };
 
 export default styles;

@@ -1,6 +1,7 @@
 const styles = {
     container: {
-        bg: 'grey',
+        bg: 'grey',  
+        flexDirection: 'column',
         minHeight: '100vh'
     }
 }

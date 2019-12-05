@@ -4,6 +4,7 @@ import { jsx } from '@emotion/core';
 import React, { Children, FC, useEffect, useState } from 'react';
 import { Box } from 'rebass';
 import { Tabs} from './tabs';
+import { Vaults } from './vaults';
 import styles from './styles';
 
 export interface DashboardProps {
@@ -23,9 +24,11 @@ export const Dashboard: FC<DashboardProps> = props => {
     setTransitioning(true);
   })
 
+// Replace FullContainer in UI library with WideContainer
   return (
     <Container variant="container.wide" sx={container}>
         <Tabs />
+        <Vaults />
     </Container>
   );
 };

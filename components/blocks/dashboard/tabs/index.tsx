@@ -9,19 +9,17 @@ export interface TabsProps {
 }
 
 export const Tabs: FC<TabsProps> = props => {
-  const { children } = props;
-  const { container, filler} = styles;
+  const { container, tabs, text} = styles;
   return (
-    <Flex sx={container}>
-      <Box>
-        <Text variant="body.regular">
+    <Box sx={container}>
+      <Box sx={tabs}>
+        <Text variant="body.regular" sx={text}>
           Open
         </Text>
-        <Text variant="body.regular">
+        <Text variant="body.regular" sx={text}>
           Closed
         </Text>
       </Box>
-      <Box sx={filler} />
-    </Flex>
+    </Box>
   );
 };
