@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { FullContainer, Loading } from '@backtothecode/vault-maker-ui';
+import { Container, Loading } from '@backtothecode/vault-maker-ui';
 import { jsx } from '@emotion/core';
 import uniqBy from 'lodash.uniqby';
 import { useRouter } from 'next/router';
@@ -177,11 +177,11 @@ export const Hero: FC<HeroProps> & Hero = props => {
   };
   
   return (
-    <FullContainer variant="container.default">
+    <Container sx={{justifyContent: 'center'}} variant="container.default">
       {renderWallet(isReady, isConnected, isLoading, handleMetamask)} 
       {renderVaultMaker(isComplete, isConnected)}
       {renderDashboard(dispatchSetCdp, isComplete, maker, vaultOptions)}
-    </FullContainer>
+    </Container>
   );
 };
 
@@ -235,7 +235,7 @@ const renderWallet = (
     isReady ?
     (!isConnected &&
     (isLoading ? (
-      <Loading />
+      <Loading sx={{mt: '160px'}} />
     ) : (
       <Wallet>
       <Wallet.Header>Start Making a Vault</Wallet.Header>

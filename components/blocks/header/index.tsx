@@ -2,8 +2,10 @@
 import { Container } from '@backtothecode/vault-maker-ui';
 import { jsx } from '@emotion/core';
 import React, { Children, FC } from 'react';
+import { Box } from 'rebass';
 import { Address, AddressProps } from './address';
 import { Logo, LogoProps } from './logo';
+import styles from './styles';
 
 export interface HeaderProps {
   children?: React.ReactNode;
@@ -12,28 +14,17 @@ export interface HeaderProps {
   address?: string;
 }
 
-interface Header {
-  Logo: FC<LogoProps>;
-  Address: FC<AddressProps>;
-  Wrapped?: any;
-};
-
-export const Header: FC<HeaderProps> & Header = props => {
+export const Header: FC<HeaderProps> = props => {
   const { children, isConnected, address } = props;
+  const { addressContainer, leftHeader, logoContainer, rightHeader } = styles;
   return (
     <Container variant="container.wide">
-      {Children.map(children, (child: any) => {
-        if (child.type.displayName === 'Logo') {
-          return React.cloneElement(child, child.props);
-        }
-
-        if (child.type.displayName === 'Address') {
-          const newProps = { ...{ isConnected, address }, ...child.props };
-          return React.cloneElement(child, newProps);
-        }
-
-        return child;
-      })}
+      <Box sx={{...leftHeader, ...logoContainer}}>
+        <Logo />
+      </Box>
+      <Box sx={{...addressContainer, ...rightHeader}}>
+        <Address {...props} />
+      </Box>
     </Container>
   );
 };
@@ -41,6 +32,3 @@ export const Header: FC<HeaderProps> & Header = props => {
 Header.defaultProps = {
   isConnected: false
 };
-
-Header.Logo = Logo;
-Header.Address = Address;

@@ -13,7 +13,6 @@ export interface AddressProps {
 }
 
 export const Address: FC<AddressProps> = ({ isConnected, address, ern }) => {
-  
   const variant = isConnected ? 'indicator.connected' : 'indicator.unconnected';
 
   const connectedMessage = isConnected
@@ -28,7 +27,7 @@ export const Address: FC<AddressProps> = ({ isConnected, address, ern }) => {
         <Box variant={variant} sx={styles.indicator} />
         <Box sx={styles.addressContainer}>
           <Text
-            sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+            sx={styles.address}
             variant={'body.regular'}
           >
             {connectedMessage}

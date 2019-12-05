@@ -9,7 +9,7 @@ export interface TitleProps extends HeadingProps {
 
 export const Title: FC<TitleProps> = ({ children, sx }) => {
   return (
-    <Heading sx={{ ...styles.titleStyle, ...sx }} variant="heading.regular">
+    <Heading sx={{ ...styles.titleStyle, ...sx }} variant="heading.small">
       {children}
     </Heading>
   );

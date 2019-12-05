@@ -1,14 +1,19 @@
 const styles = {
-  card: {
-    alignItems: 'center',
-    padding: 7,
-    paddingBottom: '20px' 
-  },
-  container: {
-    alignItems: 'start',
-    flexDirection: 'column',
-    height: '100%'
-  }
+    grid: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, 50%)',
+        height: '100vh',
+        width: '100%'
+    },
+    gridItem: {
+        height: '100%'
+    },
+    heroItem: {
+        bg: 'primary'
+    },
+    makerItem: {
+        bg: 'grey'
+    }
 }
 
 export default styles;

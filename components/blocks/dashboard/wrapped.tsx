@@ -4,7 +4,7 @@ import { Dashboard } from '../dashboard';
 function mapStateToProps(state: any) {
   console.log('STATE-MAP', state)
   return {
-    cdp: state.services.cdp
+    cdp: state.services ? state.services.cdp : {"a": 5}
   };
 }
 

@@ -17,7 +17,7 @@ export interface WalletProps {
 
 export const Wallet: FC<WalletProps> & Wallet = ({ children }) => {
   return (
-    <Box>
+    <Box sx={{mt: '160px'}}>
       {Children.map(children, (child: any) => {
         if (child.type.name === 'Header') {
           return React.cloneElement(child, child.props);

@@ -16,7 +16,7 @@
   },
   "jest": {},
   "dependencies": {
-    "@backtothecode/vault-maker-ui": "^0.5.15",
+    "@backtothecode/vault-maker-ui": "^0.5.17",
     "@emotion/core": "^10.0.22",
     "@makerdao/dai": "^0.22.0",
     "@makerdao/dai-plugin-mcd": "^1.0.1",

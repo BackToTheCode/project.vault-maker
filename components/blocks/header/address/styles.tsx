@@ -1,4 +1,7 @@
 const styles = {
+  address: {
+    overflow: 'hidden', textOverflow: 'ellipsis' , color: 'rgb(255,255,255)'
+  },
   container: {
     width: '100%',
     justifyContent: 'flex-end',
@@ -21,10 +24,9 @@ const styles = {
     top: '22px'
   },
   addressContainer: {
+    color: 'white',
     px: 4,
     py: 4,
-    bg: 'lightGrey',
-    borderRadius: '4px',
   },
   ernContainer: {
     marginTop: 3,

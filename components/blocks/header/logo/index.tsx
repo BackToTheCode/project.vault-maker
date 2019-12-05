@@ -2,11 +2,12 @@
 import { jsx } from '@emotion/core';
 import { FC } from 'react';
 import { Box, Image } from 'rebass';
+import logo from '../../../../public/images/mark-maker.svg';
 import styles from './styles';
 
 export interface LogoProps {
   variant?: string;
-  image: string;
+  image?: string;
   children?: React.ReactNode;
 }
 
@@ -18,4 +19,7 @@ export const Logo: FC<LogoProps> = ({ image }) => {
     </Box>
   );
 };
-Logo.displayName = 'Logo';
+
+Logo.defaultProps = {
+  image: logo
+}
