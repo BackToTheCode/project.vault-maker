@@ -1,19 +1,19 @@
 const styles = {
+  container: {
+    alignItems: 'center',
+    position: 'fixed',
+    width: '100%',
+  },
   addressContainer: {
     alignItems: 'center',
     display: 'flex',
-    flex: 1,
-    justifyContent: 'center'
-  },
-  leftHeader: {
-    bg: 'primary'
+    justifyContent: 'center',
+    flex: 1
   },
   logoContainer: {
     flex: 1
 },
-  rightHeader: {
-    bg: 'grey'
-  }
+
 };
 
 export default styles;

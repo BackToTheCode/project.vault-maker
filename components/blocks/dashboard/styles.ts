@@ -1,5 +1,7 @@
 const styles = {
-  container: { justifyContent: 'center', flexDirection: 'column' }
-};
-
+    container: {
+        bg: 'grey',
+        minHeight: '100vh'
+    }
+}
 export default styles;

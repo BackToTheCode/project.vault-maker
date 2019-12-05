@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Container } from '@backtothecode/vault-maker-ui';
 import { jsx } from '@emotion/core';
-import React, { Children, FC } from 'react';
+import React, { Children, FC, useEffect, useState } from 'react';
 import { Box } from 'rebass';
 import { Address, AddressProps } from './address';
 import { Logo, LogoProps } from './logo';
@@ -16,13 +16,20 @@ export interface HeaderProps {
 
 export const Header: FC<HeaderProps> = props => {
   const { children, isConnected, address } = props;
-  const { addressContainer, leftHeader, logoContainer, rightHeader } = styles;
+  const { addressContainer, container, logoContainer} = styles;
+
+  const [isTransitioning, setTransitioning] = useState(false)
+
+  useEffect(() => {
+    setTransitioning(true);
+  })
+
   return (
-    <Container variant="container.wide">
-      <Box sx={{...leftHeader, ...logoContainer}}>
+    <Container variant="container.wide" sx={container}>
+      <Box sx={logoContainer}>
         <Logo />
       </Box>
-      <Box sx={{...addressContainer, ...rightHeader}}>
+      <Box sx={addressContainer}>
         <Address {...props} />
       </Box>
     </Container>

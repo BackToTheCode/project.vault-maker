@@ -1,19 +1,21 @@
 const styles = {
     grid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, 50%)',
+        display: 'flex',
         height: '100vh',
         width: '100%'
     },
     gridItem: {
-        height: '100%'
+        flex: 1,
+        height: '100%',
     },
     heroItem: {
-        bg: 'primary'
+        bg: 'primary',
+        transition: '0.5s all'
     },
     makerItem: {
         bg: 'grey'
-    }
-}
+    },
+    transitioning: (isTransitioning) => isTransitioning ? {flex: 0}: {}
+ }
 
 export default styles;

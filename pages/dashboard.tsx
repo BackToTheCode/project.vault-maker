@@ -1,21 +1,28 @@
 import { css, Global } from '@emotion/core';
 import emotionNormalize from 'emotion-normalize';
 import { ThemeProvider, withTheme } from 'emotion-theming';
-import React, { useEffect, useState } from 'react';
-import { Dashboard } from '../components/blocks/dashboard/wrapped';
-import { Header } from '../components/blocks/header/wrapped';
+import React from 'react';
+import { Header } from '../components/blocks/header';
+import { Dashboard } from '../components/blocks/dashboard';
 import { Context } from '../components/context';
-import logoImage from '../public/images/mark-maker.svg';
 import { rootReducer, useStore } from '../store/store';
 import appTheme from '../styles/theme';
 
 const Provider = Context.Provider;
 
+/**
+ * Sends custom event to Tealium using utag.link and updates utag_data when Tealium is available
+ * - event action is a concatenation of 'send', category suffix and label suffix
+ * - Example:
+ * -- event_category = PetInsurance_PetInsurance_Customer
+ * -- event_action = sendCustomerId
+ * -- evemt_label = PetInsurance_PetInsurance_Customer_Id
+ * @param {string} value - the value to be sent to tealium
+ * @param {string} catSuffix - PASCAL CASE - used to populate event category and action
+ * @param {string} labelSuffix - PASCAL CASE - used to populate event category, action and label
+ */
 export default () => {
-  const [state, dispatch] = useStore(rootReducer) as any; 
-
-  console.log('state', state)
-  console.log('state.services', state.services)
+  const [state, dispatch] = useStore(rootReducer) as any;
 
   const makeGlobalStyles = (theme: any) => css`
     ${emotionNormalize}
@@ -32,26 +39,9 @@ export default () => {
     <ThemeProvider theme={appTheme}>
       <GlobalStyles />
       <Provider value={{ state, dispatch }}>
-        {renderHeader()}
-        {renderDashboard()}
+        <Header />
+        <Dashboard />
       </Provider>
     </ThemeProvider>
   );
 };
-
-// Section renderers
-const renderHeader = () => {
-  return (
-    <Header.Wrapped>
-      <Header.Logo image={logoImage} />
-      <Header.Address />
-    </Header.Wrapped>
-  );
-};
-
-const renderDashboard = () => {
-  return (
-    <Dashboard.Wrapped />
-  )
-}
-
