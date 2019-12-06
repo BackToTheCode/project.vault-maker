@@ -8,7 +8,7 @@ const styles = {
   tabs: {
     display: 'grid',
     gridColumnGap: '20px',
-    gridTemplateColumns: '80px 80px auto',
+    gridTemplateColumns: '70px 70px auto',
 
   }
 };

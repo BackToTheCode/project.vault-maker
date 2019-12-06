@@ -8,15 +8,14 @@ export const VaultMaker = () => {
   const [isTransitioning, setTransitioning] = useState(false)
   const router = useRouter();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setTransitioning(true);
-      setTimeout(() => {
-        router.push('/dashboard')
-      }, 500)
-    }, 1000)
-   
-  })
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setTransitioning(true);
+  //     setTimeout(() => {
+  //       router.push('/dashboard')
+  //     }, 500)
+  //   }, 1000)
+  // })
 
   return (
     <Box sx={grid}>

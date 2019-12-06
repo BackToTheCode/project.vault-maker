@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { WideContainer } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
-import React, { Children, FC, useEffect, useState } from 'react';
-import { Box } from 'rebass';
-import { Tabs} from './tabs';
-import { Vaults } from './vaults';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './styles';
+import { Tabs } from './tabs';
+import { Vaults } from './vaults';
 
 export interface DashboardProps {
   children?: React.ReactNode;
@@ -18,11 +17,11 @@ export const Dashboard: FC<DashboardProps> = props => {
   const { children, isConnected, address } = props;
   const { container } = styles;
 
-  const [isTransitioning, setTransitioning] = useState(false)
+  // const [isTransitioning, setTransitioning] = useState(false)
 
-  useEffect(() => { 
-    setTransitioning(true);
-  })
+  // useEffect(() => { 
+  //   setTransitioning(true);
+  // })
 
   return (
     <WideContainer sx={container}>
@@ -31,4 +30,3 @@ export const Dashboard: FC<DashboardProps> = props => {
     </WideContainer>
   );
 };
-
