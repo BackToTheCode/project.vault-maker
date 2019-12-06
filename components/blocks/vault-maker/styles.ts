@@ -10,12 +10,18 @@ const styles = {
     },
     heroItem: {
         bg: 'primary',
-        transition: '0.5s all'
+        justifyContent: 'center',
+        transition: '0.5s flex',
+        transitioning: (isTransitioning) => isTransitioning ? {flex: 0}: {},
     },
     makerItem: {
         bg: 'grey'
     },
-    transitioning: (isTransitioning) => isTransitioning ? {flex: 0}: {}
+    vault: {
+        transition: '0.5s opacity',
+        transitioning: (isTransitioning) => isTransitioning ? {opacity: 0}: {},
+        width: '300px'
+    }
  }
 
 export default styles;

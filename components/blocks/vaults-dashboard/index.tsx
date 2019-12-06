@@ -15,7 +15,7 @@ export interface DashboardProps {
 
 export const Dashboard: FC<DashboardProps> = props => {
   const { children, isConnected, address } = props;
-  const { container } = styles;
+  const { container, width } = styles;
 
   // const [isTransitioning, setTransitioning] = useState(false)
 
@@ -25,8 +25,8 @@ export const Dashboard: FC<DashboardProps> = props => {
 
   return (
     <WideContainer sx={container}>
-        <Tabs />
-        <Vaults />
+        <Tabs sx={width} />
+        <Vaults sx={width} />
     </WideContainer>
   );
 };

@@ -7,13 +7,14 @@ import styles from './styles';
 
 
 export interface VaultProps {
-  children?: React.ReactNode | string;
+  sx?: any
 }
 
 export const Vaults: FC<VaultProps> = props => {
+  const { sx } = props;
   const { vault, vaultContainer} = styles;
   return (
-    <GridContainer sx={vaultContainer}>
+    <GridContainer sx={{...vaultContainer, ...sx}}>
       <Box sx={vault} />
       <Box sx={vault} />
     </GridContainer>

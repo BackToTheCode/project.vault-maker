@@ -7,8 +7,7 @@ const styles = {
   },
   tabs: {
     display: 'grid',
-    gridColumnGap: '20px',
-    gridTemplateColumns: '70px 70px auto',
+    gridTemplateColumns: '100px 100px auto',
 
   }
 };

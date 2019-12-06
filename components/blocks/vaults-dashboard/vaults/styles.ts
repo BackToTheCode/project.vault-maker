@@ -12,7 +12,7 @@ const styles = {
     gridRowGap: '15px',
     gridTemplateColumns: 'auto',
     maxWidth: '95%',
-    mt:'20px',
+    mt: 8,
   }
 };
 

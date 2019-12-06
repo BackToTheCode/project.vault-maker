@@ -4,11 +4,11 @@ const styles = {
     color: 'white'
   },
   text: {
-    borderColor: 'transparent',
+    borderColor: 'rgba(255,255,255,0.1)',
     borderStyle: 'solid',
     borderWidth: '0 0 2px 0',
     color: 'rgba(255,255,255,0.5)',
-    px: 5,
+    px: 7,
     py: 5,
     textAlign: 'center'
   }

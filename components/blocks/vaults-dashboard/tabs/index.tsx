@@ -6,18 +6,20 @@ import styles from './styles';
 import { Tab } from './tab';
 
 export interface TabsProps {
-  children?: React.ReactNode | string;
+  sx?: any;
 }
 
 // Create GridContainer from box
 
 export const Tabs: FC<TabsProps> = props => {
-  const { container, tabs, text} = styles;
+  const { sx } = props;
+  const { container, tabs} = styles;
   return (
-    <Box sx={container}>
+    <Box sx={{...container, ...sx}}>
       <Box sx={tabs}>
         <Tab isActive={true}>Open</Tab>
         <Tab>Closed</Tab>
+        <Tab />
       </Box>
     </Box>
   );
