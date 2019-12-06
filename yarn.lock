@@ -1189,6 +1189,37 @@
     react-dom "16.12.0"
     rebass "^4.0.7"
 
+"@backtothecode/vm-ui-library@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@backtothecode/vm-ui-library/-/vm-ui-library-0.1.4.tgz#cacfff8165b768cddfd75208b86b1e4e62ef3047"
+  integrity sha512-ePlqMz8wnmkuCSqUMyScyl6aAOKIfw/zk4TgT8qhCVtfoT0cXlLKOntfeCR/dSuCDyJ0tDiqorqBlfJeaDP3vg==
+  dependencies:
+    "@emotion/core" "^10.0.22"
+    "@makerdao/dai" "^0.22.0"
+    "@makerdao/dai-plugin-mcd" "^1.0.1"
+    "@rebass/forms" "^4.0.6"
+    "@storybook/addon-a11y" "^5.2.6"
+    "@storybook/addon-actions" "^5.2.6"
+    "@storybook/addon-docs" "^5.2.6"
+    "@storybook/addon-knobs" "^5.2.6"
+    "@storybook/addon-links" "^5.2.6"
+    "@storybook/addon-storysource" "^5.2.6"
+    "@testing-library/react" "^9.3.2"
+    "@types/lodash.uniqby" "^4.7.6"
+    "@types/marked" "^0.7.2"
+    "@types/rebass" "^4.0.3"
+    dotenv "^8.2.0"
+    emotion-normalize "^10.1.0"
+    emotion-theming "^10.0.19"
+    lodash.uniqby "^4.7.0"
+    marked "^0.7.0"
+    next "^9.1.4"
+    next-images "^1.2.0"
+    next-transpile-modules "^2.3.1"
+    react "^16.12.0"
+    react-dom "16.12.0"
+    rebass "^4.0.7"
+
 "@chromaui/localtunnel@2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@chromaui/localtunnel/-/localtunnel-2.0.1.tgz#2d4cef4efa189a2a2f015d639e754956c54cacd1"

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Container } from '@backtothecode/vault-maker-ui';
+import { Container } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
 import React, { Children, FC, useEffect, useState } from 'react';
 import { Box } from 'rebass';
@@ -24,7 +24,6 @@ export const Dashboard: FC<DashboardProps> = props => {
     setTransitioning(true);
   })
 
-// Replace FullContainer in UI library with WideContainer
   return (
     <Container variant="container.wide" sx={container}>
         <Tabs />

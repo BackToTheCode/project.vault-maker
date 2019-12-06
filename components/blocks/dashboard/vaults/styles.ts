@@ -11,10 +11,8 @@ const styles = {
     display: 'grid',
     gridRowGap: '15px',
     gridTemplateColumns: 'auto',
-    width: '1060px',
     maxWidth: '95%',
-    mt:'40px',
-    mx: 'auto',
+    mt:'20px',
   }
 };
 

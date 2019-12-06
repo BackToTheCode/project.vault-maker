@@ -1,24 +1,23 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { Children, FC } from 'react';
-import { Box, Flex, Text } from 'rebass';
+import React, { FC } from 'react';
+import { Box } from 'rebass';
 import styles from './styles';
+import { Tab } from './tab';
 
 export interface TabsProps {
   children?: React.ReactNode | string;
 }
+
+// Create GridContainer from box
 
 export const Tabs: FC<TabsProps> = props => {
   const { container, tabs, text} = styles;
   return (
     <Box sx={container}>
       <Box sx={tabs}>
-        <Text variant="body.regular" sx={text}>
-          Open
-        </Text>
-        <Text variant="body.regular" sx={text}>
-          Closed
-        </Text>
+        <Tab isActive={true}>Open</Tab>
+        <Tab>Closed</Tab>
       </Box>
     </Box>
   );
