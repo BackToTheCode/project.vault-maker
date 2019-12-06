@@ -2,10 +2,7 @@ const styles = {
     container: {
         bg: 'grey',  
         flexDirection: 'column',
-        margin: '0 auto',
-        minHeight: '100vh',
-        width: '1060px'
-    
+        minHeight: '100vh',    
     }
 }
 export default styles;

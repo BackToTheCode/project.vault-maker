@@ -19,7 +19,7 @@ const theme = {
     lightPrimary: 'rgb(89, 188, 175)',
     lightSecondary: 'rgb(255, 225, 160)',
     lightWarning: 'rgb(255, 169, 164)',
-    midGrey: '#7a7b86',
+    midGrey: 'rgb(76, 93, 113)',
     primary: '#1AAB9B',
     rep: 'rgb(65, 36, 103)',
     secondary: '#F4B731',

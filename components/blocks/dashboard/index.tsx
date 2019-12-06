@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Container } from '@backtothecode/vm-ui-library';
+import { WideContainer } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
 import React, { Children, FC, useEffect, useState } from 'react';
 import { Box } from 'rebass';
@@ -25,10 +25,10 @@ export const Dashboard: FC<DashboardProps> = props => {
   })
 
   return (
-    <Container variant="container.wide" sx={container}>
+    <WideContainer sx={container}>
         <Tabs />
         <Vaults />
-    </Container>
+    </WideContainer>
   );
 };
 
