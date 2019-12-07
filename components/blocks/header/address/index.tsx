@@ -1,49 +1,37 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { FC } from 'react';
-import { Box, Flex, Text } from 'rebass';
+import { FC } from 'react';
+import { Box, Text } from 'rebass';
 import styles from './styles';
 
 export interface AddressProps {
-  variant?: string;
-  children?: React.ReactNode;
   address?: string;
-  ern?: string;
   isConnected?: boolean;
 }
 
-export const Address: FC<AddressProps> = ({ isConnected, address, ern }) => {
-  const variant = isConnected ? 'indicator.connected' : 'indicator.unconnected';
-
-  const connectedMessage = isConnected
-    ? address
-      ? address
-      : 'Connected'
-    : 'Not connected';
+/**
+ * Component for showing a users address 
+ *  and whether they are connected to the ethereum network
+ * 
+ * @param props my prop
+ * const age = 21
+ * const name = 'Jitendra Nirnejak'
+ * return (
+ *   <User age={age} name={name} />
+ * )
+ */
+export const Address: FC<AddressProps> = props => {
+  const { isConnected, address } = props;
+  const { container, indicator } = styles;
 
   return (
-    <Flex sx={styles.container}>
-      {/* <Box sx={styles.innerContainer}> */}
-        <Box variant={variant} sx={styles.indicator} />
-        <Box sx={styles.addressContainer}>
-          <Text
-            sx={styles.address}
-            variant={'body.regular'}
-          >
-            {connectedMessage}
-          </Text>
-        </Box>
-        {ern && (
-          <Box sx={styles.ernContainer}>
-            <Text variant={'body.small'} sx={styles.ern}>
-              {ern}
-            </Text>
-          </Box>
-        )}
-      {/* </Box> */}
-    </Flex>
+    <Box sx={container}>
+      <Box sx={{...indicator, ...(indicator.connected(isConnected))}} />
+      <Text sx={styles.address} variant={'body.regular'}>
+        {isConnected ? address : 'Not connected'}
+      </Text>
+    </Box>
   );
 };
+
 Address.displayName = 'Address';
-
-
