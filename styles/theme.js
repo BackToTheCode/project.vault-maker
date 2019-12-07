@@ -1,35 +1,15 @@
 import buttons from './button-variants';
 import variants from './general-variants';
 import text from './text-variants';
+import colors from './colors';
 
 const theme = {
   borderWidths: {
     default: 2
   },
-  breakpoints: ['40em', '52em', '64em'],
+  breakpoints: ['640px', '832px', '1024px'],
   buttons: buttons,
-  colors: {
-    bat: 'rgb(234, 86, 19)',
-    dark: '#222222',
-    darkPrimary: '#0d8577',
-    eth: 'rgb(201, 157, 102)',
-    grey: 'rgb(55, 74, 97)',
-    lightGrey: '#e4e4e4',
-    lightMidGrey: '#a3a3a3',
-    lightPrimary: 'rgb(89, 188, 175)',
-    lightSecondary: 'rgb(255, 225, 160)',
-    lightWarning: 'rgb(255, 169, 164)',
-    midGrey: 'rgb(76, 93, 113)',
-    primary: '#1AAB9B',
-    rep: 'rgb(65, 36, 103)',
-    secondary: '#F4B731',
-    superLightGrey: '#f5f5f5',
-    superLightPrimary: 'rgb(216, 238, 235)',
-    superLightSecondary: 'rgb(255, 246, 228)',
-    superLightWarning: 'rgb(255, 233, 232)',
-    transparent: 'transparent',
-    warning: 'rgb(255,0,0)'
-  },
+  colors: colors,
   fontSizes: [14, 16, 18, 24, 28, 36, 42],
   fontWeights: {
     body: 400,
@@ -57,8 +37,5 @@ const theme = {
   text: text,
   variants: variants,
 };
-
-theme.fontSizes.body = theme.fontSizes[2];
-theme.fontSizes.title = theme.fontSizes[5];
 
 export default theme;

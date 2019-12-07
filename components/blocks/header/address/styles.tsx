@@ -1,32 +1,32 @@
 const styles = {
   address: {
-    overflow: 'hidden', textOverflow: 'ellipsis' , color: 'rgb(255,255,255)'
+    color: 'rgb(255,255,255)',
+    display: ['none', 'block', 'block'],
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
   },
   container: {
-    width: '100%',
+    alignItems: 'center',
     justifyContent: 'flex-end',
     mr: 20,
-    alignItems: 'center'
-  },
-  innerContainer: {
-    textAlign: 'left',
-    flexDirection: 'column',
+    width: '100%',
     maxWidth: '140px',
     position: 'relative',
+    textAlign: 'left',
     top: '-5px'
   },
   indicator: {
     borderRadius: '50%',
-    position: 'relative',
-    width: '8px',
+    bottom: [0, '14px', '14px'],
     height: '8px',
-    right: 7,
-    top: '22px'
+    left: '-15px',
+    position: 'absolute',
+    width: '8px'
   },
   addressContainer: {
     color: 'white',
     px: 4,
-    py: 4,
+    py: 4
   },
   ernContainer: {
     marginTop: 3,

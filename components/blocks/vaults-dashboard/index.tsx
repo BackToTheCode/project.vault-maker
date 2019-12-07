@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import { WideContainer } from '@backtothecode/vm-ui-library';
+import { Container, WideContainer } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
 import React, { FC, useEffect, useState } from 'react';
+import { Title } from '../../elements/title';
 import styles from './styles';
 import { Tabs } from './tabs';
 import { Vaults } from './vaults';
@@ -19,14 +20,20 @@ export const Dashboard: FC<DashboardProps> = props => {
 
   // const [isTransitioning, setTransitioning] = useState(false)
 
-  // useEffect(() => { 
+  // useEffect(() => {
   //   setTransitioning(true);
   // })
 
   return (
     <WideContainer sx={container}>
-        <Tabs sx={width} />
-        <Vaults sx={width} />
+      <Container
+        sx={{ mt: '150px', width: '900px', maxWidth: '95%', mb: '50px' }}
+      >
+        <Title>My Vaults</Title>
+      </Container>
+
+      <Tabs sx={width} />
+      <Vaults sx={width} />
     </WideContainer>
   );
 };

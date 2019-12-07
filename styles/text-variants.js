@@ -6,35 +6,39 @@ const base = {
 const text = {
   body: {
     large: {
-      color: 'dark',
+      color: 'white',
       fontFamily: 'body',
       fontSize: 3
     },
     regular: {
-      color: 'dark',
+      color: 'white',
       fontFamily: 'body',
       fontSize: 2
     },
     small: {
-      color: 'dark',
+      color: 'white',
       fontFamily: 'body',
       fontSize: 0
     }
   },
   heading: {
     extra: {
+      color: 'white',
       fontFamily: 'heading',
       fontSize: [6, 6, 6]
     },
     large: {
+      color: 'white',
       fontFamily: 'heading',
       fontSize: [5, 5, 5]
     },
     regular: {
+      color: 'white',
       fontFamily: 'heading',
       fontSize: 4
     },
     small: {
+      color: 'white',
       fontFamily: 'heading',
       fontSize: 3
     }

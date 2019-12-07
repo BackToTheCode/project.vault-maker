@@ -8,6 +8,7 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: '0 0 2px 0',
     color: 'rgba(255,255,255,0.5)',
+    minWidth: 'initial',  
     px: 7,
     py: 5,
     textAlign: 'center'

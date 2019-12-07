@@ -3,15 +3,14 @@ import { Heading, HeadingProps, SxStyleProp } from 'rebass';
 import styles from './styles';
 
 export interface TitleProps extends HeadingProps {
-  children?: React.ReactNode | string;
   sx?: SxStyleProp;
 }
 
-export const Title: FC<TitleProps> = ({ children, sx }) => {
+export const Title: FC<TitleProps> = props => {
+  const { children, sx } = props;
+  const { base } = styles;
   return (
-    <Heading sx={{ ...styles.titleStyle, ...sx }} variant="heading.small">
-      {children}
-    </Heading>
+    <Heading variant="heading.extra" sx={{ ...base, ...sx }}>{children}</Heading>
   );
 };
 Title.displayName = 'Title';

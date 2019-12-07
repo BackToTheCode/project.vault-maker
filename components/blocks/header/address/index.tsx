@@ -22,8 +22,8 @@ export const Address: FC<AddressProps> = ({ isConnected, address, ern }) => {
     : 'Not connected';
 
   return (
-    <Flex width={1} sx={styles.container}>
-      <Box sx={styles.innerContainer}>
+    <Flex sx={styles.container}>
+      {/* <Box sx={styles.innerContainer}> */}
         <Box variant={variant} sx={styles.indicator} />
         <Box sx={styles.addressContainer}>
           <Text
@@ -40,7 +40,7 @@ export const Address: FC<AddressProps> = ({ isConnected, address, ern }) => {
             </Text>
           </Box>
         )}
-      </Box>
+      {/* </Box> */}
     </Flex>
   );
 };

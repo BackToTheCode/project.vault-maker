@@ -4,11 +4,11 @@ type TitleStyleProps = {
 };
 
 interface Styles {
-  titleStyle: TitleStyleProps;
+  base: TitleStyleProps;
 };
 
 const styles: Styles = {
-  titleStyle: {
+  base: {
     flex: 1
   }
 };
