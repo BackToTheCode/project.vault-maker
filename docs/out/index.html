@@ -42,6 +42,108 @@
 
 
 
+    <section>
+        <article><h1>Key Links</h1>
+<ul>
+<li>[<code>App | Vault Maker</code>] https://nervous-shannon-c787e5.netlify.com/</li>
+<li>[<code>UI Component Library | Vault Maker UI</code>] https://github.com/BackToTheCode/package.vault-maker-ui</li>
+<li>[<code>Design System | Storybook</code>] https://adoring-leavitt-ad4453.netlify.com</li>
+<li>[<code>Wireframes | InvisionApp</code>] (https://projects.invisionapp.com/boards/FD3XNJ8SM8Q/)</li>
+<li>[<code>Kanban Board | Vault Maker</code>] (https://trello.com/b/H0NV22h9/mcd-vault-manager)</li>
+</ul>
+<h1>Vault Maker</h1>
+<p>Vault Maker gives users the opportunity to set up and manage Vaults covering
+the range of collateral types currently approved by Maker voters.</p>
+<p><strong>Note</strong>: Collateralised Debt Position -&gt; renamed to -&gt; Vault.</p>
+<h2>Why</h2>
+<p>To create a brutally simple tool for members of the MakerDAO community to use to
+create and maintain Vaults.</p>
+<h2>Installation</h2>
+<p>Clone the repository with <code>git clone git@github.com:BackToTheCode/project.mcd-vault-manager.git</code></p>
+<p>Install dependencies with <code>yarn install</code></p>
+<h2>Run</h2>
+<p>Start the development server with <code>yarn dev</code></p>
+<h2>Test</h2>
+<p>Run the test suit with with <code>yarn test</code></p>
+<h2>Process</h2>
+<ul>
+<li>Firstly, simple wireframes were drawn on paper to help the author understand the necessary flows. These are open to change as the project progresses <a href="https://projects.invisionapp.com/boards/FD3XNJ8SM8Q/"><code>Wireframes | InvisionApp</code></a></li>
+<li>Secondly, a kanban board was prepared populated with all the necessary tickets [<code>Kanban Board | Vault Maker</code>] (https://trello.com/b/H0NV22h9/mcd-vault-manager)</li>
+<li>Thirdly, setup storybook to create a design-system for the tool [<code>Design System | Storybook</code>] (https://adoring-leavitt-ad4453.netlify.com)</li>
+<li>Finally, built out the tool itself using Next.JS / Dai.js and an array of other tools and libraries</li>
+</ul>
+<h2>Structure</h2>
+<pre class="prettyprint source"><code>__mocks__/
+└── globalComponentMock.js
+
+__tests__/
+└── integrationTests.js
+
+pages/
+└── completePages.js
+
+components/
+├── blocks/
+│   ├── block/
+│   │   ├── subComponent.js
+│   │   └── subComponent.js
+└── elements/
+    └── component.js
+</code></pre>
+<ul>
+<li>Global Mocks: Any shared mocks will be in here</li>
+<li>Integration Tests: All integration tests will be housed in this folder</li>
+<li>Components: Any component that is not a page can be found here. The folder is subdivided into atomic components (elements) and molecular components (blocks)</li>
+</ul>
+<h2>Testing approach</h2>
+<ul>
+<li>This project draws heavily on Kent C Dodds testing philosophy</li>
+<li>No snapshots tests as any changes typically are intentionally</li>
+<li>Few unit tests given the likelihood of testing implementation details. Use react-testing-library to address this issue</li>
+<li>Heavily favour integration tests using react-testing-library to test real world application behaviour</li>
+</ul>
+<h2>Technology</h2>
+<h3>💰Dai.js</h3>
+<p>Dai.js is a library - developed by the Maker Foundation team - to allow community member developers to quickly and simply build applications on top of MakerDAO's platform of smart contracts.</p>
+<h3>⚛️  React / Next.js</h3>
+<p>Next.JS is the self described React Framework for production. It is more opinionated than the Facebook developed create-react-app bootstrapping library.
+Next.JS also comes with some major performance optimizations and the ability to fully export the application as a static site. This static export
+capability is being leveraged in this project.</p>
+<h3>🆎 Typescript</h3>
+<p>Typescript brings a degree of type-safety to weakly typed javascripts. It adds some fairly significant overhead during setup and also development.</p>
+<h3>💅 Emotion Theming / ⚛️  Rebass</h3>
+<p>We're using the UI component library Rebass along with Emotion Theming. Rebass and Emotion Theming play well together with Emotion Theming easily overriding Rebass component styles.</p>
+<p>We're also taking inspiration from BEM naming by creating blocks with parent components and child component naming.</p>
+<p>Here's an example.</p>
+<pre class="prettyprint source"><code>&lt;Card>
+  &lt;Card.Header>
+    &lt;Card.Image
+      alt=”bob-ross-headshot”
+      src=”www.example.com/bob-ross.jpg”
+    />
+    &lt;Card.Title>
+      Bob Ross
+    &lt;/Card.Title>
+  &lt;/Card.Header>
+  &lt;Card.Text>
+    Robert Norman Ross (October 29, 1942 – July 4, 1995) was an American painter,
+    art instructor, and television host. He was the creator and host of
+    The Joy of Painting, an instructional television program that aired from
+    1983 to 1994 on PBS in the United States…
+  &lt;/Card.Text>
+&lt;/Card>
+
+</code></pre>
+<h3>📚 Storybook</h3>
+<p>Storybook is a front-end tool that allows engineers to maintain a living record of all their applications components. All versions/states of each component are listed alongside one another.</p>
+<h2>📤 Deployment</h2>
+<p>Both the design system and the app itself are being deployed as static sites via Netlify.</p>
+<ul>
+<li>[<code>App | Vault Maker</code>] https://nervous-shannon-c787e5.netlify.com/</li>
+<li>[<code>Design System | Storybook</code>] https://adoring-leavitt-ad4453.netlify.com</li>
+</ul></article>
+    </section>
+
 
 
 
@@ -50,13 +152,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Address">Address</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Address.html">Address</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sat Dec 07 2019 19:01:24 GMT+0000 (Greenwich Mean Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sat Dec 07 2019 22:30:52 GMT+0000 (Greenwich Mean Time)
 </footer>
 
 <script> prettyPrint(); </script>

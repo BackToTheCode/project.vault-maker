@@ -3,15 +3,19 @@ import { jsx } from '@emotion/core';
 import { Box, Text } from 'rebass';
 import styles from './styles';
 /**
- * Component for showing a users address
- *  and whether they are connected to the ethereum network
+ * Component for showing details of the user.
  *
- * @param props my prop
+ * @component
+ * @example
  * const age = 21
  * const name = 'Jitendra Nirnejak'
  * return (
  *   <User age={age} name={name} />
  * )
+ * @prop {boolean} isConnected
+ * @prop {string} address
+ *
+ * @extends {Component<Props>}
  */
 export const Address = props => {
     const { isConnected, address } = props;
