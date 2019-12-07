@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const styles = {
     container: {
         bg: 'grey',
@@ -10,5 +8,5 @@ const styles = {
         width: '900px'
     }
 };
-exports.default = styles;
+export default styles;
 //# sourceMappingURL=styles.js.map

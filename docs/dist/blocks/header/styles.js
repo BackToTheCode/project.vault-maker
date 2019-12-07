@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const styles = {
     addressContainer: {
         alignItems: 'center',
@@ -32,5 +30,5 @@ const styles = {
         color: 'rgb(255,255,255)'
     },
 };
-exports.default = styles;
+export default styles;
 //# sourceMappingURL=styles.js.map

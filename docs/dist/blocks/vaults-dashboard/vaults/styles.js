@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const styles = {
     vault: {
         bg: 'midGrey',
@@ -17,5 +15,5 @@ const styles = {
         mt: 8,
     }
 };
-exports.default = styles;
+export default styles;
 //# sourceMappingURL=styles.js.map

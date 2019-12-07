@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const styles = {
     grid: {
         display: 'flex',
@@ -25,5 +23,5 @@ const styles = {
         width: '300px'
     }
 };
-exports.default = styles;
+export default styles;
 //# sourceMappingURL=styles.js.map

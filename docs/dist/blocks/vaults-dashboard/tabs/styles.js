@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const styles = {
     container: {
         maxWidth: '95%',
@@ -13,5 +11,5 @@ const styles = {
         width: '100%'
     }
 };
-exports.default = styles;
+export default styles;
 //# sourceMappingURL=styles.js.map

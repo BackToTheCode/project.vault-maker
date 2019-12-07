@@ -1,19 +1,14 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 /** @jsx jsx */
-const core_1 = require("@emotion/core");
-const rebass_1 = require("rebass");
-const mark_maker_svg_1 = __importDefault(require("../../../../public/images/mark-maker.svg"));
-const styles_1 = __importDefault(require("./styles"));
-exports.Logo = ({ image }) => {
-    return (<rebass_1.Box width={styles_1.default.container}>
-      <rebass_1.Image src={image} sx={styles_1.default.logo}/>
-    </rebass_1.Box>);
+import { jsx } from '@emotion/core';
+import { Box, Image } from 'rebass';
+import logo from '../../../../public/images/mark-maker.svg';
+import styles from './styles';
+export const Logo = ({ image }) => {
+    return (<Box width={styles.container}>
+      <Image src={image} sx={styles.logo}/>
+    </Box>);
 };
-exports.Logo.defaultProps = {
-    image: mark_maker_svg_1.default
+Logo.defaultProps = {
+    image: logo
 };
 //# sourceMappingURL=index.jsx.map

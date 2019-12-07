@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const styles = {
     active: {
         borderColor: 'white',
@@ -16,5 +14,5 @@ const styles = {
         textAlign: 'center'
     }
 };
-exports.default = styles;
+export default styles;
 //# sourceMappingURL=styles.js.map
