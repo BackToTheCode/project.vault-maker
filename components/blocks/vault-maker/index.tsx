@@ -6,7 +6,7 @@ import styles from './styles';
 import savingsIcon from '../../../public/images/savings.svg';
 
 export const VaultMaker = () => {
-  const { grid, gridItem, heroItem, makerItem, transitioning, vault } = styles;
+  const { grid, gridItem, heroItem, makerItem, vault } = styles;
   const [isTransitioning, setTransitioning] = useState(false)
   const router = useRouter();
 

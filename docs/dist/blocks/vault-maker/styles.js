@@ -12,16 +12,16 @@ const styles = {
         bg: 'primary',
         justifyContent: 'center',
         transition: '0.5s flex',
-        transitioning: (isTransitioning: boolean) => isTransitioning ? {flex: 0}: {},
+        transitioning: (isTransitioning) => isTransitioning ? { flex: 0 } : {},
     },
     makerItem: {
         bg: 'grey'
     },
     vault: {
         transition: '0.5s opacity',
-        transitioning: (isTransitioning: boolean) => isTransitioning ? {opacity: 0}: {},
+        transitioning: (isTransitioning) => isTransitioning ? { opacity: 0 } : {},
         width: '300px'
     }
- }
-
+};
 export default styles;
+//# sourceMappingURL=styles.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"styles.js","sourceRoot":"","sources":["../../../../../components/blocks/vaults-dashboard/tabs/styles.ts"],"names":[],"mappings":"AAAA,MAAM,MAAM,GAAG;IACb,SAAS,EAAE;QACT,QAAQ,EAAE,KAAK;QACf,eAAe;QACf,EAAE,EAAE,MAAM;QACV,KAAK,EAAE,QAAQ;KAChB;IACD,IAAI,EAAE;QACJ,OAAO,EAAE,MAAM;QACf,mBAAmB,EAAE,kBAAkB;QACvC,KAAK,EAAE,MAAM;KACd;CACF,CAAC;AAEF,eAAe,MAAM,CAAC"}

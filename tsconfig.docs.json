@@ -1,0 +1,55 @@
+{
+    "compilerOptions": {
+    //   "typeRoots": [
+    //     "./typings",
+    //     "./node_modules/@types"
+    //   ],
+      "target": "esnext",
+      "module": "esnext",
+      "jsx": "preserve",
+      "lib": [
+        "dom",
+        "es2017"
+      ],
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "allowJs": true,
+      "noEmit": false,
+      "strict": true,
+      "strictNullChecks": false,
+      "allowSyntheticDefaultImports": true,
+      "outDir": "docs/dist",
+      "skipLibCheck": true,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "removeComments": false,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": false,
+      "isolatedModules": false
+    },
+    "files": [
+      "next-env.d.ts"
+    ],
+    "exclude": [
+      "jest.*",
+      "config",
+      "node_modules",
+      "__mocks__",
+      "__tests__",
+      ".vscode",
+      "out",
+      "./store",
+      ".utils",
+      "storybook-static",
+      "**/*.spec.ts",
+      "**/*.stories.ts",
+      "**/*.spec.tsx",
+      "**/*.stories.tsx"
+    ],
+    "include": [
+      "./components/**/*"
+    ]
+  }
+  

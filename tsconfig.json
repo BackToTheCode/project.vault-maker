@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
-    "typeRoots": ["./typings", "./node_modules/@types"],
+    "typeRoots": [
+      "./typings",
+      "./node_modules/@types"
+    ],
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowJs": true,
@@ -22,18 +28,23 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "files": ["next-env.d.ts", "jest.setup.js"],
+  "files": [
+    "next-env.d.ts"
+  ],
   "exclude": [
+    "jest.*",
+    "config",
     "node_modules",
     "__mocks__",
     "__tests__",
     ".vscode",
     "out",
-    "storybook-static"
+    "storybook-static",
+    "components/**/*.spec.ts"
   ],
   "include": [
-    "./pages/**/*.(j|t)(s)?x*",
-    "./src/**/*.(j|t)(s)?x*",
+    "pages/**/*.ts?x",
+    "components/**/*.ts?x",
     "utils",
     "styles",
     "typings/**/*",

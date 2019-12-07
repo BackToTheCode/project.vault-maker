@@ -8,6 +8,7 @@
     "chromatic": "CHROMATIC_APP_CODE=fyfw94kk8u chromatic",
     "storybook": "start-storybook",
     "lint": "tslint './components/**/*.{ts,tsx,js}'",
+    "docs": "tsc  -p ./tsconfig.docs.json && jsdoc -c ./jsdocs.config.json",
     "dev": "next -p 8080",
     "test": "jest",
     "build": "ANALYZE=true next build",

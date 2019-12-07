@@ -3,7 +3,7 @@ const styles = {
     alignItems: 'center',
     display: 'flex',
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
   container: {
     alignItems: 'center',
