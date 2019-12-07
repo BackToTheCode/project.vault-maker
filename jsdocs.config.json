@@ -4,24 +4,36 @@
     "dictionaries": ["jsdoc", "closure"]
   },
   "source": {
-    "include": ["docs/dist"],
-    // "include": ["components"],
-    "includePattern": ".+\\.js(doc|x)?$",
+    // "include": ["docs/dist"],
+    "include": ["components"],
+    "includePattern": "\\.(jsx|js|ts|tsx)$",
+    // "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "plugins": [
-    "plugins/markdown", 
-    // "node_modules/better-docs/typescript",
+    "plugins/markdown",
+    "node_modules/better-docs/typescript",
     "node_modules/better-docs/component"
   ],
   "templates": {
+    "referenceTitle": "Vault Maker",
+    "disableSort": false,
+    "collapse": true,
     "better-docs": {
-      "name": "Vault Maker Components"
+      "name": "Vault Maker Components",
+      "component": {
+        "entry": [
+            "import 'babel-polyfill';",
+            "import 'bulma/css/bulma.css';"
+        ]
+      }
     }
   },
   "opts": {
-    "destination": "docs/out",
-    "templates": "node_modules/better-docs",
+    "destination": "./docs/out",
+    // "templates": ["./docs/template"],
+    "template": "./node_modules/braintree-jsdoc-template/",
+    "encoding": "utf8",
     "recurse": true,
     "readme": "README.md"
   }

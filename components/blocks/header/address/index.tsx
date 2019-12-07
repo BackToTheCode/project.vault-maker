@@ -1,28 +1,36 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { FC } from 'react';
+import PropTypes from 'prop-types';
 import { Box, Text } from 'rebass';
 import styles from './styles';
 
+/**
+ * AddressProps {@link Address}
+ * @see Address
+ */ 
 export interface AddressProps {
+  /**
+   * Is connected to the Ethereum network
+   */
   address?: string;
   isConnected?: boolean;
 }
 
 /**
- * Component for showing details of the user.
+ * Component for showing whether a user is connected to the Ethereum network 
+ * and what their address is
  * 
  * @component
  * @example
- * const age = 21
- * const name = 'Jitendra Nirnejak'
+ * const isConnected = true
+ * const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
  * return (
- *   <User age={age} name={name} />
+ *   <Address isConnected={isConnected} address={address} />
  * )  
- * @prop {boolean} isConnected
- * @prop {string} address
  *
- * @extends {Component<Props>}
+ * @see AddressProps
+ * @extends {FC<Props>}
  */
 export const Address: FC<AddressProps> = props => {
   const { isConnected, address } = props;
@@ -37,6 +45,5 @@ export const Address: FC<AddressProps> = props => {
     </Box>
   );
 };
-
 
 Address.displayName = 'Address';

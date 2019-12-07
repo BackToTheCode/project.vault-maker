@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Address - Documentation
+      index.tsx - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -81,183 +83,69 @@
   <div id="main">
     
       <h1 class="page-title">
-        Address
+        index.tsx
       </h1>
     
 
     
+      
 
 <section>
-  <header>
-    
-      <h2>
-        
-        Address
-        
-      </h2>
-
-      
-    
-  </header>
-
   <article>
-    <div class="container-overview">
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#Address">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id="Address">
-      <span class="type-signature"></span>new Address<span class="signature">()</span><span class="type-signature"></span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Component for showing whether a user is connected to the Ethereum network
-and what their address is</p>
-  </div>
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="index.tsx.html">index.tsx</a>, <a href="index.tsx.html#line19">line 19</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-      <ul>
-        
-          <li>
-            <a href="AddressProps.html">AddressProps</a>
-          </li>
-        
-      </ul>
-    </dd>
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="example-container">
-    <a class="link-icon" href="#Address-examples">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h5 id="Address-examples">Example</h5>
-    
-
-  <pre class="prettyprint"><code>const isConnected = true
-const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
-return (
-  &lt;Address isConnected={isConnected} address={address} />
-)</code></pre>
-
-
-  </div>
-
-
-      
-    </div>
-
-    
-      <h3 class="subsection-title">Extends</h3>
-
-      
-
-
-  <ul>
-    <li>FC.&lt;Props></li>
-  </ul>
-
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
+    <pre class="prettyprint source linenums"><code>/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { FC } from 'react';
+import PropTypes from 'prop-types';
+import { Box, Text } from 'rebass';
+import styles from './styles';
+
+/**
+ * AddressProps {@link Address}
+ * @see Address
+ */ 
+export interface AddressProps {
+  /**
+   * Is connected to the Ethereum network
+   */
+  address?: string;
+  isConnected?: boolean;
+}
+
+/**
+ * Component for showing whether a user is connected to the Ethereum network 
+ * and what their address is
+ * 
+ * @component
+ * @example
+ * const isConnected = true
+ * const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
+ * return (
+ *   &lt;Address isConnected={isConnected} address={address} />
+ * )  
+ *
+ * @see AddressProps
+ * @extends {FC&lt;Props>}
+ */
+export const Address: FC&lt;AddressProps> = props => {
+  const { isConnected, address } = props;
+  const { container, indicator } = styles;
+
+  return (
+    &lt;Box sx={container}>
+      &lt;Box sx={{...indicator, ...(indicator.connected(isConnected))}} />
+      &lt;Text sx={styles.address} variant={'body.regular'}>
+        {isConnected ? address : 'Not connected'}
+      &lt;/Text>
+    &lt;/Box>
+  );
+};
+
+Address.displayName = 'Address';
+</code></pre>
   </article>
 </section>
 
-
+    
 
 
   </div>
