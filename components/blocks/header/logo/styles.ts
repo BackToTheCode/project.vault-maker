@@ -1,5 +1,6 @@
 const styles = {
   container: {
+    display: 'inline-block',
     width: '100px'
   },
   logo: {

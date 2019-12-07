@@ -16,7 +16,7 @@ export const VaultMaker = () => {
   //     setTimeout(() => {
   //       router.push('/dashboard')
   //     }, 500)
-    }, 1000)
+    }, 2500)
   })
 
   return (
@@ -26,5 +26,5 @@ export const VaultMaker = () => {
       </Flex>
       <Box sx={{...gridItem,...makerItem}} />
     </Box>
-  );
+  );  
 };

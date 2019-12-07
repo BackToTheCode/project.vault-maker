@@ -2,7 +2,7 @@ import { css, Global } from '@emotion/core';
 import emotionNormalize from 'emotion-normalize';
 import { ThemeProvider, withTheme } from 'emotion-theming';
 import React, { useEffect, useState } from 'react';
-import { Dashboard } from '../components/blocks/dashboard/wrapped';
+import { Dashboard } from '../components/blocks/vaults-dashboard/wrapped';
 import { Header } from '../components/blocks/header/wrapped';
 import { Context } from '../components/context';
 import logoImage from '../public/images/mark-maker.svg';
