@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { Container } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
-import React, { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { Box, Flex} from 'rebass';
-import { Address, AddressProps } from './address';
-import { Logo, LogoProps } from './logo';
+import { Address } from './address';
+import { Logo } from './logo';
 import { Nav } from './nav';
 import styles from './styles';
 
@@ -16,16 +16,16 @@ export interface HeaderProps {
 
 export const Header: FC<HeaderProps> = props => {
   const { isConnected, address } = props;
-  const { addressContainer, container, logoContainer, navContainer, navItem, navItemActive} = styles;
+  const { addressContainer, container, logoNavContainer} = styles;
 
   return (
     <Container sx={container}>
-      <Flex sx={logoContainer}>
+      <Flex sx={logoNavContainer}>
         <Logo />
         <Nav />
       </Flex>
       <Box sx={addressContainer}>
-        <Address {...props} />
+        <Address isConnected={isConnected} address={address} />
       </Box>
     </Container>
   );
