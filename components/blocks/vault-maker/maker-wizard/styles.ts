@@ -1,5 +1,10 @@
 const styles = {
+  button: {
+    margin: 'auto',
+    width: '250px'
+  },
   container: {
+    flexDirection: 'column',
     justifyContent: 'center',
     maxWidth: '500px',
     width: '80%',
@@ -11,8 +16,14 @@ const styles = {
     p: 5
   },
   label: {
-    // color: 'rgba(255,255,255,0.5)',
     mb: 5,
+  },
+  subTitle: {
+    mb: '50px'
+  },
+  title: {
+    mb: 7,
+    textAlign: 'center',
   }
 };
 
