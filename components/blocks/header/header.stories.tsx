@@ -1,58 +1,44 @@
+import { checkA11y } from '@storybook/addon-a11y';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
+import { Box } from 'rebass';
 import { Header } from '.';
 import logoImage from '../../../public/images/mark-maker.svg';
-import { checkA11y } from '@storybook/addon-a11y';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+
+const Background = ({ children }) => (
+  <Box sx={{ bg: 'rgb(55,74,97)', ml: 7 }}>{children}</Box>
+);
 
 export default {
-  title: 'Blocks|Header',
   component: Header,
-  decorators: [checkA11y]
+  decorators: [checkA11y],
+  parameters: {
+    backgrounds: [
+      { name: 'midGrey', value: 'rgb(55,74,97)', default: true },
+      { name: 'primary', value: 'rgb(26, 171, 155)' }
+    ]
+  },
+  title: 'Blocks|Header'
 };
 
-export const NotConnected = () => (
-  <Header>
-    <Header.Logo image={logoImage} />
-    <Header.Address />
-  </Header>
-);
+export const NotConnected = () => <Header />;
 
 export const Connected = () => (
-  <Header isConnected>
-    <Header.Logo image={logoImage} />
-    <Header.Address address="0x61049F5e03Bfe3823f274C479158A94bcA26456c" />
-  </Header>
-);
-
-export const WithErn = () => (
-  <Header isConnected>
-    <Header.Logo image={logoImage} />
-    <Header.Address
-      ern="james.eth"
-      address="0x61049F5e03Bfe3823f274C479158A94bcA26456c"
-    />
-  </Header>
-);
-
-export const WithoutAddress = () => (
-  <Header isConnected>
-    <Header.Logo image={logoImage} />
-    <Header.Address />
-  </Header>
+  <Header
+    isConnected={true}
+    address="0x61049F5e03Bfe3823f274C479158A94bcA26456c"
+  />
 );
 
 export const WithKnobs = () => (
-  <Header isConnected={boolean('Connected', true)}>
-    <Header.Logo image={logoImage} />
-    <Header.Address
-      address={select(
-        'Address',
-        ['0x61049F5e03Bfe3823f274C479158A94bcA26456c', ''],
-        '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
-      )}
-      ern={select('Ern', ['james.eth', ''], '')}
-    />
-  </Header>
+  <Header
+    isConnected={boolean('isConnected', true)}
+    address={select(
+      'Address',
+      ['0x61049F5e03Bfe3823f274C479158A94bcA26456c', ''],
+      '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
+    )}
+  />
 );
 WithKnobs.story = {
   decorators: [withKnobs]

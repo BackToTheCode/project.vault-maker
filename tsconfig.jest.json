@@ -1,12 +1,6 @@
 {
-    "compilerOptions": {
-      "jsx": "react",
-      "allowJs": true,
-      "allowSyntheticDefaultImports": true,
-      "esModuleInterop": true,
-      "noImplicitAny": true,
-      "sourceMap": true,
-      "target": "es5",
-      "downlevelIteration": true
-    }
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react"
   }
+}

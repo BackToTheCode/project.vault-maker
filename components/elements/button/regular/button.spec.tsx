@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import { Button } from '../regular';
+import { fireEvent, render } from '@testing-library/react';
 import { ThemeProvider } from 'emotion-theming';
-import appTheme from '../../../styles/theme';
+import React from 'react';
+import appTheme from '../../../../styles/theme';
+import { Button } from '../regular';
 
 describe('<Button /> spec', () => {
   test('it renders the component', () => {

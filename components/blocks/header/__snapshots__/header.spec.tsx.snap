@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> spec it renders the component 1`] = `
+<div
+  class="css-6aylez"
+>
+  Not connected
+</div>
+`;

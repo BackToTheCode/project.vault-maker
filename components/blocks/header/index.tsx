@@ -1,51 +1,54 @@
 /** @jsx jsx */
-import { Container } from '@backtothecode/vault-maker-ui';
-import { Button } from '@backtothecode/vm-ui-library';
+import { Container } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
-import { useRouter } from 'next/router';
-import React, { FC, useEffect, useState } from 'react';
-import { Box, Flex, Text } from 'rebass';
-import { Address, AddressProps } from './address';
-import { Logo, LogoProps } from './logo';
+import { FC } from 'react';
+import { Box, Flex} from 'rebass';
+import { Address } from './address';
+import { Logo } from './logo';
+import { Nav } from './nav';
 import styles from './styles';
 
+/**
+ * HeaderProps {@link Header}
+ * @see Header
+ */ 
 export interface HeaderProps {
-  children?: React.ReactNode;
-  isConnected?: boolean;
-  ern?: string;
+  /**
+   * Ethereum wallet address
+   */
   address?: string;
+  /**
+   * Is connected to the Ethereum network
+   */
+  isConnected?: boolean;
 }
 
+/**
+ * Header component with Logo, Nav and Address sub components
+ * 
+ * @component
+ * @example
+ * const isConnected = true
+ * const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
+ * return (
+ *   <Header isConnected={isConnected} address={address} />
+ * )  
+ *
+ * @see HeaderProps
+ * @extends {FC<Props>}
+ */
 export const Header: FC<HeaderProps> = props => {
-  const { children, isConnected, address } = props;
-  const { addressContainer, container, logoContainer, navContainer, navItem, navItemActive} = styles;
-  const router = useRouter();
-
-  const [isTransitioning, setTransitioning] = useState(false)
-
-  useEffect(() => {
-    setTransitioning(true);
-  })
-
-  const routeDashboard = () => {
-    router.push('/vaults');
-  }
-
-  const routeMaker = () => {
-    router.push('/')
-  }
+  const { isConnected, address } = props;
+  const { addressContainer, container, logoNavContainer} = styles;
 
   return (
-    <Container variant="container.wide" sx={container}>
-      <Flex sx={logoContainer}>
+    <Container sx={container}>
+      <Flex sx={logoNavContainer}>
         <Logo />
-        <Flex sx={navContainer}>
-          <Button onClick={routeMaker} variant={'text'} sx={{...navItem, ...navItemActive}}>Make</Button>
-          <Button onClick={routeDashboard} variant={'text'} sx={navItem}>Vaults</Button>
-        </Flex>
+        <Nav />
       </Flex>
       <Box sx={addressContainer}>
-        <Address {...props} />
+        <Address isConnected={isConnected} address={address} />
       </Box>
     </Container>
   );
