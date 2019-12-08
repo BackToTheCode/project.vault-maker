@@ -8,12 +8,35 @@ import { Logo } from './logo';
 import { Nav } from './nav';
 import styles from './styles';
 
+/**
+ * HeaderProps {@link Header}
+ * @see Header
+ */ 
 export interface HeaderProps {
-  isConnected?: boolean;
-  ern?: string;
+  /**
+   * Ethereum wallet address
+   */
   address?: string;
+  /**
+   * Is connected to the Ethereum network
+   */
+  isConnected?: boolean;
 }
 
+/**
+ * Header component with Logo, Nav and Address sub components
+ * 
+ * @component
+ * @example
+ * const isConnected = true
+ * const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
+ * return (
+ *   <Header isConnected={isConnected} address={address} />
+ * )  
+ *
+ * @see HeaderProps
+ * @extends {FC<Props>}
+ */
 export const Header: FC<HeaderProps> = props => {
   const { isConnected, address } = props;
   const { addressContainer, container, logoNavContainer} = styles;

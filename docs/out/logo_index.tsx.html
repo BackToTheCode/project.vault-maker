@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      AddressProps - Documentation
+      logo/index.tsx - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -81,255 +83,64 @@
   <div id="main">
     
       <h1 class="page-title">
-        AddressProps
+        logo/index.tsx
       </h1>
     
 
     
+      
 
 <section>
-  <header>
-    
-      <h2>
-        
-        AddressProps
-        
-      </h2>
-
-      
-    
-  </header>
-
   <article>
-    <div class="container-overview">
-      
-        
-            <div class="description">
-              <p>AddressProps <a href="Address.html">Address</a></p>
-            </div>
-        
-
-        
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="address_index.tsx.html">address/index.tsx</a>, <a href="address_index.tsx.html#line32">line 32</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-      <ul>
-        
-          <li>
-            <a href="Address.html">Address</a>
-          </li>
-        
-      </ul>
-    </dd>
-  
-
-  
-</dl>
-
-
-        
-      
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-
-<h4 class="name" id="address">
-  <span class="type-signature"></span>address<span class="type-signature"> :string</span>
-</h4>
-
-
-
-
-  <div class="description">
-    <p>Ethereum wallet address</p>
-  </div>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="address_index.tsx.html">address/index.tsx</a>, <a href="address_index.tsx.html#line37">line 37</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-            
-
-<h4 class="name" id="isConnected">
-  <span class="type-signature"></span>isConnected<span class="type-signature"> :boolean</span>
-</h4>
-
-
-
-
-  <div class="description">
-    <p>Is connected to the Ethereum network</p>
-  </div>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="address_index.tsx.html">address/index.tsx</a>, <a href="address_index.tsx.html#line43">line 43</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-    
-
-    
-
-    
-
-    
+    <pre class="prettyprint source linenums"><code>/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { FC } from 'react';
+import { Box, Image } from 'rebass';
+import logo from '../../../../public/images/mark-maker.svg';
+import styles from './styles';
+
+/**
+ * LogoProps {@link Logo}
+ * @see Logo
+ */ 
+export interface LogoProps {
+  /**
+   * Logo image url
+   */
+  image?: string;
+}
+
+/**
+ * Component displays Maker logo
+ * 
+ * @component
+ * @example
+ * const image = '../../../public/images/&lt;image-name>'
+ * return (
+ *   &lt;Logo image={image} />
+ * )  
+ *
+ * @see LogoProps
+ * @extends {FC&lt;Props>}
+ */
+export const Logo: FC&lt;LogoProps> = props => {
+  const { image } = props;
+  const { container } = styles;
+  return (
+    &lt;Box width={container}>
+      &lt;Image src={image} sx={styles.logo} />
+    &lt;/Box>
+  );
+};
+
+Logo.defaultProps = {
+  image: logo
+};
+</code></pre>
   </article>
 </section>
 
-
+    
 
 
   </div>

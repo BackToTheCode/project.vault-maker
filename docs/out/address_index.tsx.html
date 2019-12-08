@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      AddressProps - Documentation
+      address/index.tsx - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -81,255 +83,71 @@
   <div id="main">
     
       <h1 class="page-title">
-        AddressProps
+        address/index.tsx
       </h1>
     
 
     
+      
 
 <section>
-  <header>
-    
-      <h2>
-        
-        AddressProps
-        
-      </h2>
-
-      
-    
-  </header>
-
   <article>
-    <div class="container-overview">
-      
-        
-            <div class="description">
-              <p>AddressProps <a href="Address.html">Address</a></p>
-            </div>
-        
-
-        
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="address_index.tsx.html">address/index.tsx</a>, <a href="address_index.tsx.html#line32">line 32</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-      <ul>
-        
-          <li>
-            <a href="Address.html">Address</a>
-          </li>
-        
-      </ul>
-    </dd>
-  
-
-  
-</dl>
-
-
-        
-      
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-
-<h4 class="name" id="address">
-  <span class="type-signature"></span>address<span class="type-signature"> :string</span>
-</h4>
-
-
-
-
-  <div class="description">
-    <p>Ethereum wallet address</p>
-  </div>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="address_index.tsx.html">address/index.tsx</a>, <a href="address_index.tsx.html#line37">line 37</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-            
-
-<h4 class="name" id="isConnected">
-  <span class="type-signature"></span>isConnected<span class="type-signature"> :boolean</span>
-</h4>
-
-
-
-
-  <div class="description">
-    <p>Is connected to the Ethereum network</p>
-  </div>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="address_index.tsx.html">address/index.tsx</a>, <a href="address_index.tsx.html#line43">line 43</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-    
-
-    
-
-    
-
-    
+    <pre class="prettyprint source linenums"><code>/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { FC } from 'react';
+import { Box, Text } from 'rebass';
+import styles from './styles';
+
+/**
+ * AddressProps {@link Address}
+ * @see Address
+ */ 
+export interface AddressProps {
+  /**
+   * Ethereum wallet address
+   */
+  address?: string;
+  /**
+   * Is connected to the Ethereum network
+   */
+  isConnected?: boolean;
+}
+
+/**
+ * Component for showing whether a user is connected to the Ethereum network 
+ * and what their address is
+ * 
+ * @component
+ * @example
+ * const isConnected = true
+ * const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
+ * return (
+ *   &lt;Address isConnected={isConnected} address={address} />
+ * )  
+ *
+ * @see AddressProps
+ * @extends {FC&lt;Props>}
+ */
+export const Address: FC&lt;AddressProps> = props => {
+  const { isConnected, address } = props;
+  const { container, indicator } = styles;
+
+  return (
+    &lt;Box sx={container}>
+      &lt;Box sx={{...indicator, ...(indicator.connected(isConnected))}} />
+      &lt;Text sx={styles.address} variant={'body.regular'}>
+        {isConnected ? address : 'Not connected'}
+      &lt;/Text>
+    &lt;/Box>
+  );
+};
+
+Address.displayName = 'Address';
+</code></pre>
   </article>
 </section>
 
-
+    
 
 
   </div>
