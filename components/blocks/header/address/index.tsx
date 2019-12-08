@@ -4,21 +4,35 @@ import { FC } from 'react';
 import { Box, Text } from 'rebass';
 import styles from './styles';
 
+/**
+ * AddressProps {@link Address}
+ * @see Address
+ */ 
 export interface AddressProps {
+  /**
+   * Ethereum wallet address
+   */
   address?: string;
+  /**
+   * Is connected to the Ethereum network
+   */
   isConnected?: boolean;
 }
 
 /**
- * Component for showing a users address 
- *  and whether they are connected to the ethereum network
+ * Component for showing whether a user is connected to the Ethereum network 
+ * and what their address is
  * 
- * @param props my prop
- * const age = 21
- * const name = 'Jitendra Nirnejak'
+ * @component
+ * @example
+ * const isConnected = true
+ * const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
  * return (
- *   <User age={age} name={name} />
- * )
+ *   <Address isConnected={isConnected} address={address} />
+ * )  
+ *
+ * @see AddressProps
+ * @extends {FC<Props>}
  */
 export const Address: FC<AddressProps> = props => {
   const { isConnected, address } = props;
