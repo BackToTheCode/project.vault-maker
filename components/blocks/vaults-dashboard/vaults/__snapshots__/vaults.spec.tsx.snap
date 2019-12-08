@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Vaults /> spec it renders the component 1`] = `
+<div
+  class="css-1leyuya"
+  data-testid="first-vault"
+/>
+`;

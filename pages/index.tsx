@@ -2,8 +2,8 @@ import { css, Global } from '@emotion/core';
 import emotionNormalize from 'emotion-normalize';
 import { ThemeProvider, withTheme } from 'emotion-theming';
 import React from 'react';
-import { Header } from '../components/blocks/header';
-import { VaultMaker } from '../components/blocks/vault-maker';
+import { WrappedHeader } from '../components/blocks/header/wrapper';
+import { WrappedVaultMaker } from '../components/blocks/vault-maker/wrapper';
 import { Context } from '../components/context';
 import { rootReducer, useStore } from '../store/store';
 import appTheme from '../styles/theme';
@@ -39,8 +39,8 @@ export default () => {
     <ThemeProvider theme={appTheme}>
       <GlobalStyles />
       <Provider value={{ state, dispatch }}>
-        <Header />
-        <VaultMaker />
+        <WrappedHeader />
+        <WrappedVaultMaker />
       </Provider>
     </ThemeProvider>
   );

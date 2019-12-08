@@ -2,7 +2,7 @@ import { css, Global } from '@emotion/core';
 import emotionNormalize from 'emotion-normalize';
 import { ThemeProvider, withTheme } from 'emotion-theming';
 import React from 'react';
-import { Header } from '../components/blocks/header';
+import { WrappedHeader } from '../components/blocks/header/wrapper';
 import { Dashboard } from '../components/blocks/vaults-dashboard';
 import { Context } from '../components/context';
 import { rootReducer, useStore } from '../store/store';
@@ -39,7 +39,7 @@ export default () => {
     <ThemeProvider theme={appTheme}>
       <GlobalStyles />
       <Provider value={{ state, dispatch }}>
-        <Header />
+        <WrappedHeader />
         <Dashboard />
       </Provider>
     </ThemeProvider>

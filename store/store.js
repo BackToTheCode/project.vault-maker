@@ -1,4 +1,4 @@
-import { connectReducer, tokenReducer, vaultReducer, servicesReducer } from './reducers';
+import { connectReducer, tokenReducer, vaultReducer, servicesReducer, routingReducer } from './reducers';
 import { useReducer } from 'react';
 
 const combineReducers = reducer => {
@@ -16,6 +16,7 @@ const combineReducers = reducer => {
 
 const rootReducer = combineReducers({
   connection: connectReducer,
+  routing: routingReducer,
   services: servicesReducer,
   tokens: tokenReducer,
   vault: vaultReducer

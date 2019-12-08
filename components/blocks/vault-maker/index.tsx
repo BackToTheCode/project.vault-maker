@@ -1,24 +1,24 @@
-import { useRouter } from 'next/router';
-import React, { FC, useEffect, useState } from 'react';
+import React from 'react';
 import { Box, Flex, Image } from 'rebass';
-import styles from './styles';
-// import vaultIcon from '../../../public/images/vault.svg';
 import savingsIcon from '../../../public/images/savings.svg';
+import styles from './styles';
 
-export const VaultMaker = () => {
+/**
+ * VaultMakerProps {@link VaultMaker}
+ * @see VaultMaker
+ */ 
+export interface VaultMakerProps {
+  /**
+   * Whether a route transition is in progress
+   */
+  isTransitioning: boolean;
+}
+
+
+export const VaultMaker = (props) => {
   const { grid, gridItem, heroItem, makerItem, vault } = styles;
-  const [isTransitioning, setTransitioning] = useState(false)
-  const router = useRouter();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setTransitioning(true);
-  //     setTimeout(() => {
-  //       router.push('/dashboard')
-  //     }, 500)
-    }, 2500)
-  })
-
+  const { isTransitioning } = props;
+  
   return (
     <Box sx={grid}>
       <Flex sx={{...gridItem, ...heroItem, ...(heroItem.transitioning(isTransitioning))}}>
@@ -28,3 +28,8 @@ export const VaultMaker = () => {
     </Box>
   );  
 };
+
+VaultMaker.defaultProps = {
+  isTransitioning: false
+};
+
