@@ -1,34 +1,36 @@
 /** @jsx jsx */
 import { Container, WideContainer } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
-import React, { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { Title } from '../../elements/title';
 import styles from './styles';
 import { Tabs } from './tabs';
 import { Vaults } from './vaults';
 
 export interface DashboardProps {
-  children?: React.ReactNode;
-  isConnected?: boolean;
-  ern?: string;
-  address?: string;
+
 }
 
+/**
+ * Dashboard component lists out existing Vaults (CDPs)
+ *
+ * @component
+ * @example
+ * const isConnected = true
+ * const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
+ * return (
+ *   <Header isConnected={isConnected} address={address} />
+ * )
+ *
+ * @see HeaderProps
+ * @extends {FC<Props>}
+ */
 export const Dashboard: FC<DashboardProps> = props => {
-  const { children, isConnected, address } = props;
-  const { container, width } = styles;
-
-  // const [isTransitioning, setTransitioning] = useState(false)
-
-  // useEffect(() => {
-  //   setTransitioning(true);
-  // })
+  const { container, titleContainer, width } = styles;
 
   return (
     <WideContainer sx={container}>
-      <Container
-        sx={{ mt: '150px', width: '900px', maxWidth: '95%', mb: '50px' }}
-      >
+      <Container sx={{...width, ...titleContainer}}>
         <Title>My Vaults</Title>
       </Container>
 
