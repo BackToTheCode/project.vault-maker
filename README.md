@@ -63,13 +63,6 @@ components/
 - Integration Tests: All integration tests will be housed in this folder
 - Components: Any component that is not a page can be found here. The folder is subdivided into atomic components (elements) and molecular components (blocks)
 
-## Testing approach
-
-- This project draws heavily on Kent C Dodds testing philosophy
-- No snapshots tests as any changes typically are intentionally
-- Few unit tests given the likelihood of testing implementation details. Use react-testing-library to address this issue
-- Heavily favour integration tests using react-testing-library to test real world application behaviour
-
 ## Technology
 
 ### 💰Dai.js

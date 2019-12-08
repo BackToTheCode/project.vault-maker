@@ -6,15 +6,14 @@ import logo from '../../../../public/images/mark-maker.svg';
 import styles from './styles';
 
 export interface LogoProps {
-  variant?: string;
   image?: string;
-  children?: React.ReactNode;
 }
 
-export const Logo: FC<LogoProps> = ({ image }) => {
-
+export const Logo: FC<LogoProps> = props => {
+  const { image } = props;
+  const { container } = styles;
   return (
-    <Box width={styles.container}>
+    <Box width={container}>
       <Image src={image} sx={styles.logo} />
     </Box>
   );
@@ -22,4 +21,4 @@ export const Logo: FC<LogoProps> = ({ image }) => {
 
 Logo.defaultProps = {
   image: logo
-}
+};

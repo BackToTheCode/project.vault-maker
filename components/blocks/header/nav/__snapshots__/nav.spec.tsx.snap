@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Nav /> spec it renders the component 1`] = `
+<button
+  class="css-ku9nze"
+>
+  Vaults
+</button>
+`;

@@ -17,7 +17,7 @@ export default {
       { name: 'primary', value: 'rgb(26, 171, 155)' }
     ]
   },
-  title: 'Design System|Address'
+  title: 'Elements|Address'
 };
 
 export const Unconnected = () => (
