@@ -16,13 +16,11 @@ export interface DashboardProps {
  *
  * @component
  * @example
- * const isConnected = true
- * const address = '0x61049F5e03Bfe3823f274C479158A94bcA26456c'
  * return (
- *   <Header isConnected={isConnected} address={address} />
+ *   <Dashboard />
  * )
  *
- * @see HeaderProps
+ * @see DashboardProps
  * @extends {FC<Props>}
  */
 export const Dashboard: FC<DashboardProps> = props => {
@@ -33,7 +31,6 @@ export const Dashboard: FC<DashboardProps> = props => {
       <Container sx={{...width, ...titleContainer}}>
         <Title>My Vaults</Title>
       </Container>
-
       <Tabs sx={width} />
       <Vaults sx={width} />
     </WideContainer>
