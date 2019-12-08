@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import React, { Children, FC } from 'react';
-import { Box, Flex, Text } from 'rebass';
+import React, { FC } from 'react';
+import { Text } from 'rebass';
 import styles from './styles';
 
 export interface TabProps {

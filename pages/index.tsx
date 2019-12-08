@@ -3,7 +3,7 @@ import emotionNormalize from 'emotion-normalize';
 import { ThemeProvider, withTheme } from 'emotion-theming';
 import React from 'react';
 import { WrappedHeader } from '../components/blocks/header/wrapper';
-import { VaultMaker } from '../components/blocks/vault-maker';
+import { WrappedVaultMaker } from '../components/blocks/vault-maker/wrapper';
 import { Context } from '../components/context';
 import { rootReducer, useStore } from '../store/store';
 import appTheme from '../styles/theme';
@@ -29,7 +29,7 @@ export default () => {
       <GlobalStyles />
       <Provider value={{ state, dispatch }}>
         <WrappedHeader />
-        <VaultMaker />
+        <WrappedVaultMaker />
       </Provider>
     </ThemeProvider>
   );

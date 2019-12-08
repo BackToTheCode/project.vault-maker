@@ -10,6 +10,7 @@ const styles = {
     },
     heroItem: {
         bg: 'primary',
+        flex: [0, 0, 1],
         justifyContent: 'center',
         transition: '0.5s flex',
         transitioning: (isTransitioning: boolean) => isTransitioning ? {flex: 0}: {},

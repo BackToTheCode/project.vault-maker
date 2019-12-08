@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tabs /> spec it renders the component 1`] = `
+<div
+  class="css-158ar5q"
+>
+  Open
+</div>
+`;
