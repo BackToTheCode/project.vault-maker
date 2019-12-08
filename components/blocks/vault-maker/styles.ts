@@ -16,7 +16,9 @@ const styles = {
         transitioning: (isTransitioning: boolean) => isTransitioning ? {flex: 0}: {},
     },
     makerItem: {
-        bg: 'grey'
+        alignItems: 'center',
+        bg: 'grey',
+        justifyContent: 'center',
     },
     vault: {
         transition: '0.5s opacity',

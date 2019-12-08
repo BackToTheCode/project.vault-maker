@@ -69,8 +69,9 @@ export const Header: FC<HeaderProps> = props => {
     props.dispatchTransitionStart();
     if (router.route === '/') {
       setTimeout(() => {
-        router.push('/vaults');
-        props.dispatchTransitionFinish();
+        router.push('/vaults').then(() => {
+          props.dispatchTransitionFinish();
+        });
       }, 550);
       return;
     }
@@ -93,7 +94,7 @@ export const Header: FC<HeaderProps> = props => {
 
   const routes = {
     routeToMake,
-    routeToVaults,
+    routeToVaults
   };
 
   return (
