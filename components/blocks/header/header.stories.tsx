@@ -1,13 +1,13 @@
+import { checkA11y } from '@storybook/addon-a11y';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import { Header } from '.';
 import logoImage from '../../../public/images/mark-maker.svg';
-import { checkA11y } from '@storybook/addon-a11y';
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Blocks|Header',
   component: Header,
-  decorators: [checkA11y]
+  decorators: [checkA11y],
+  title: 'Blocks|Header',
 };
 
 export const NotConnected = () => (
