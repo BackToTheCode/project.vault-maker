@@ -2,12 +2,11 @@
 import { GridContainer } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
 import { FC } from 'react';
-import { Box } from 'rebass';
-import { Vault } from './vault';
 import styles from './styles';
+import { Vault } from './vault';
 
 /**
- * VaultsProps {@link VaultsProps}
+ * VaultsProps {@link Vaults}
  * @see Vaults
  */ 
 export interface VaultsProps {

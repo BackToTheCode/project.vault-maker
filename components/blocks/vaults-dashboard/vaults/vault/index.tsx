@@ -7,13 +7,18 @@ import styles from './styles';
 import { VaultItem } from './vault-item';
 
 /**
- * VaultsProps {@link VaultProps}
+ * VaultsProps {@link Vault}
  * @see Vault
  */
-
 export interface VaultProps {
-  brand: string;
-  image: string;
+  /**
+   * Brand color in rgb format
+   */
+  brand?: string;
+  /**
+   * Image url for Token
+   */
+  image?: string;
   /**
    * Styles object that is understood by system-ui
    */
@@ -34,7 +39,7 @@ export interface VaultProps {
  */
 export const Vault: FC<VaultProps> = props => {
   const { brand, image, sx } = props;
-  const { label, token, vault } = styles;
+  const { token, vault } = styles;
   return (
     <GridContainer data-testid="first-vault" sx={{ ...vault, ...sx }}>
       <CoinIcon icon={image} brand={brand} sx={token} />
