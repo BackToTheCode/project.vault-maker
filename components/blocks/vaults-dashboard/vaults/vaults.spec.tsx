@@ -5,7 +5,7 @@ import { Vaults } from '../vaults';
 describe('<Vaults /> spec', () => {
   test('it renders the component', () => {
     // Arrange
-    const expectedTestId = "first-vault";
+    const expectedTestId = "vaults";
 
     // Act
     const { getByTestId } = render(<Vaults />);

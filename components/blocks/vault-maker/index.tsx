@@ -14,11 +14,11 @@ export interface VaultMakerProps {
   isTransitioning: boolean;
 }
 
+
 export const VaultMaker = (props) => {
   const { grid, gridItem, heroItem, makerItem, vault } = styles;
   const { isTransitioning } = props;
   
-  console.log('isTransitioning', isTransitioning)
   return (
     <Box sx={grid}>
       <Flex sx={{...gridItem, ...heroItem, ...(heroItem.transitioning(isTransitioning))}}>

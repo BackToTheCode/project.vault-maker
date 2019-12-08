@@ -1,22 +1,23 @@
 /** @jsx jsx */
-import { CoinIcon }  from '@backtothecode/vm-ui-library';
+import { CoinIcon, GridContainer } from '@backtothecode/vm-ui-library';
 import { jsx } from '@emotion/core';
 import { FC } from 'react';
-import { Flex } from 'rebass';
 import ethLogo from '../../../../../public/images/ethereum-logo.svg';
 import styles from './styles';
+import { VaultItem } from './vault-item';
 
 /**
  * VaultsProps {@link VaultProps}
  * @see Vault
- */ 
-export interface VaultProps { 
+ */
+
+export interface VaultProps {
   brand: string;
   image: string;
   /**
    * Styles object that is understood by system-ui
    */
-  sx?: any
+  sx?: any;
 }
 
 /**
@@ -33,16 +34,19 @@ export interface VaultProps {
  */
 export const Vault: FC<VaultProps> = props => {
   const { brand, image, sx } = props;
-  const { token, vault } = styles;
+  const { label, token, vault } = styles;
   return (
-    <Flex data-testid="first-vault" sx={{...vault, ...sx}}>
-        <CoinIcon icon={image} brand={brand} sx={token} />
-    </Flex>
+    <GridContainer data-testid="first-vault" sx={{ ...vault, ...sx }}>
+      <CoinIcon icon={image} brand={brand} sx={token} />
+      <VaultItem label="TICKER" value="ETH" />
+      <VaultItem label="DAI" value="1000" />
+      <VaultItem label="COLLATERAL (USD)" value="3000" />
+      <VaultItem label="LIQUIDATION (USD)" value="1500" />
+    </GridContainer>
   );
 };
 
 Vault.defaultProps = {
-    brand: 'rgb(201, 157, 102)',
-    image: ethLogo,
-
-}
+  brand: 'rgb(201, 157, 102)',
+  image: ethLogo
+};
