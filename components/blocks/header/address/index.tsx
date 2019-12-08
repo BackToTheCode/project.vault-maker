@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { FC } from 'react';
-import PropTypes from 'prop-types';
 import { Box, Text } from 'rebass';
 import styles from './styles';
 
@@ -11,9 +10,12 @@ import styles from './styles';
  */ 
 export interface AddressProps {
   /**
-   * Is connected to the Ethereum network
+   * Ethereum wallet address
    */
   address?: string;
+  /**
+   * Is connected to the Ethereum network
+   */
   isConnected?: boolean;
 }
 

@@ -4,10 +4,8 @@
     "dictionaries": ["jsdoc", "closure"]
   },
   "source": {
-    // "include": ["docs/dist"],
     "include": ["components"],
     "includePattern": "\\.(jsx|js|ts|tsx)$",
-    // "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "plugins": [
@@ -31,7 +29,6 @@
   },
   "opts": {
     "destination": "./docs/out",
-    // "templates": ["./docs/template"],
     "template": "./node_modules/braintree-jsdoc-template/",
     "encoding": "utf8",
     "recurse": true,
