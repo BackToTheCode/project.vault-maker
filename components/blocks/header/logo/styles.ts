@@ -1,5 +1,6 @@
 const styles = {
   container: {
+    cursor: 'pointer',
     display: 'inline-block',
     width: '100px'
   },

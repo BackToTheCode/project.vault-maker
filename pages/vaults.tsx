@@ -10,17 +10,6 @@ import appTheme from '../styles/theme';
 
 const Provider = Context.Provider;
 
-/**
- * Sends custom event to Tealium using utag.link and updates utag_data when Tealium is available
- * - event action is a concatenation of 'send', category suffix and label suffix
- * - Example:
- * -- event_category = PetInsurance_PetInsurance_Customer
- * -- event_action = sendCustomerId
- * -- evemt_label = PetInsurance_PetInsurance_Customer_Id
- * @param {string} value - the value to be sent to tealium
- * @param {string} catSuffix - PASCAL CASE - used to populate event category and action
- * @param {string} labelSuffix - PASCAL CASE - used to populate event category, action and label
- */
 export default () => {
   const [state, dispatch] = useStore(rootReducer) as any;
 

@@ -1,14 +1,14 @@
-import { CONFIRM_COLLATERAL_NUM } from '../../constants/step-names';
+import { CONNECT_NUM } from '../../constants/step-names';
 import { types } from '../actions';
 
 const initialState: any = {
   drawAmount: 0,
   lockAmount: 0,
   selectedToken: 'ETH',
-  step: CONFIRM_COLLATERAL_NUM
+  step: CONNECT_NUM
 };
 
-const vaultReducer = (state: any = initialState, action: any) => {
+const wizardReducer = (state: any = initialState, action: any) => {
   const { STEP, LOCK_COLLATERAL, DRAW_DAI, INITIALISE_VAULT } = types.vault;
   const { payload, type } = action;
 
@@ -33,4 +33,4 @@ const vaultReducer = (state: any = initialState, action: any) => {
   }
 };
 
-export default vaultReducer;
+export default wizardReducer;

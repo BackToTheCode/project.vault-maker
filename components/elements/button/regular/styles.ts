@@ -3,6 +3,7 @@ const styles = {
     '&:focus': {
       outline: 0
     },
+    borderRadius: '30px',
     borderStyle: 'solid',
     borderWidth: 2,
     cursor: 'pointer',
@@ -15,7 +16,6 @@ const styles = {
     px: 7,
     py: 5,
     transition: '0.2s all',
-
   },
   disabled: {
     cursor: 'default',

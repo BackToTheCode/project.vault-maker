@@ -1,4 +1,4 @@
-import { connectReducer, tokenReducer, vaultReducer, servicesReducer, routingReducer } from './reducers';
+import { connectReducer, tokenReducer, wizardReducer, servicesReducer, routingReducer } from './reducers';
 import { useReducer } from 'react';
 
 const combineReducers = reducer => {
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   routing: routingReducer,
   services: servicesReducer,
   tokens: tokenReducer,
-  vault: vaultReducer
+  wizard: wizardReducer
 });
 
 // tslint:disable-next-line:no-shadowed-variable
