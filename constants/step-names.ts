@@ -1,44 +1,48 @@
-const CONFIRM_COLLATERAL = '1-confirm-collateral';
-const CHANGE_COLLATERAL = '2-change-collateral';
-const LOCK_COLLATERAL = '3-lock-collateral';
-const DRAW_DAI = '4-draw-dai';
-const CONFIRM_VAULT = '5-confirm-vault';
-const OPEN_VAULT = '6-open-vault';
-const COMPLETE_VAULT = 'complete';
+const CONNECT = "connect";
+const SELECT = 'select';
+const SWAP = 'swap';
+const LOCK = 'lock';
+const DRAW = 'draw';
+const CONFIRM = 'confirm';
+const OPEN = 'open';
+const COMPLETE = 'complete';
 
-const CONFIRM_COLLATERAL_NUM = 1;
-const CHANGE_COLLATERAL_NUM = 2;
-const LOCK_COLLATERAL_NUM = 3;
-const DRAW_DAI_NUM = 4;
-const CONFIRM_VAULT_NUM = 5;
-const OPEN_VAULT_NUM = 6;
-const COMPLETE_VAULT_NUM = 7;
+const CONNECT_NUM = 1;
+const SELECT_NUM = 2;
+const SWAP_NUM = 3;
+const LOCK_NUM = 4;
+const DRAW_NUM = 5;
+const CONFIRM_NUM = 6;
+const OPEN_NUM = 7;
+const COMPLETE_NUM = 8;
 
-const stepNames = {
-  [CONFIRM_COLLATERAL]: CONFIRM_COLLATERAL_NUM,
-  [CHANGE_COLLATERAL]: CHANGE_COLLATERAL_NUM,
-  [LOCK_COLLATERAL]: LOCK_COLLATERAL_NUM,
-  [DRAW_DAI]: DRAW_DAI_NUM,
-  [CONFIRM_VAULT]: CONFIRM_VAULT_NUM,
-  [OPEN_VAULT]: OPEN_VAULT_NUM,
-  [COMPLETE_VAULT]: COMPLETE_VAULT_NUM
+const steps = {
+  [CONNECT]: CONNECT_NUM,
+  [SELECT]: SELECT_NUM,
+  [SWAP]: SWAP_NUM,
+  [LOCK]: LOCK_NUM,
+  [DRAW]: DRAW_NUM,
+  [CONFIRM]: COMPLETE_NUM,
+  [OPEN]: OPEN_NUM,
+  [COMPLETE]: COMPLETE_NUM
 };
 
 export {
-    CONFIRM_COLLATERAL,
-    CHANGE_COLLATERAL,
-    LOCK_COLLATERAL,
-    DRAW_DAI,
-    CONFIRM_VAULT,
-    OPEN_VAULT,
-    COMPLETE_VAULT,
-    CONFIRM_COLLATERAL_NUM,
-    CHANGE_COLLATERAL_NUM,
-    LOCK_COLLATERAL_NUM,
-    DRAW_DAI_NUM,
-    CONFIRM_VAULT_NUM,
-    OPEN_VAULT_NUM,
-    COMPLETE_VAULT_NUM
+  CONNECT,
+  SELECT,
+  SWAP,
+  LOCK,
+  DRAW,
+  CONFIRM,
+  OPEN,
+  COMPLETE,
+  CONNECT_NUM,
+  SELECT_NUM,
+  SWAP_NUM,
+  LOCK_NUM,
+  DRAW_NUM,
+  CONFIRM_NUM,
+  OPEN_NUM
 }
 
-export default stepNames;
+export default steps;

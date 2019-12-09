@@ -72,7 +72,7 @@ export const Header: FC<HeaderProps> = props => {
         router.push('/vaults').then(() => {
           props.dispatchTransitionFinish();
         });
-      }, 550);
+      }, 500);
       return;
     }
     props.dispatchTransitionFinish();
