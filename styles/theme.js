@@ -7,7 +7,7 @@ const theme = {
   borderWidths: {
     default: 2
   },
-  breakpoints: ['640px', '832px', '1024px'],
+  breakpoints: ['650px', '900px', '1050px'],
   buttons: buttons,
   colors: colors,
   fontSizes: [14, 16, 18, 24, 28, 36, 42],
