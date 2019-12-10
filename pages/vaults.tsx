@@ -3,7 +3,7 @@ import emotionNormalize from 'emotion-normalize';
 import { ThemeProvider, withTheme } from 'emotion-theming';
 import React from 'react';
 import { WrappedHeader } from '../components/blocks/header/wrapper';
-import { Dashboard } from '../components/blocks/vaults-dashboard';
+import { Dashboard } from '../components/blocks/vault-dashboard';
 import { Context } from '../components/context';
 import { rootReducer, useStore } from '../store/store';
 import appTheme from '../styles/theme';

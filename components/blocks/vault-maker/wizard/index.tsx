@@ -30,10 +30,11 @@ export interface WizardProps {
  * @extends {FC<Props>}
  */
 export const Wizard = props => {
-  const { sx, step } = props;
+  const { isTransitioning, sx, step } = props;
+  const { base, transitioning } = styles;
 
   return (
-    <Box>
+    <Box sx={{...base, ...(transitioning(isTransitioning)), ...sx}}>
       {step === steps[CONNECT] && <Connect />} 
       {step === steps[LOCK] && <Lock />} 
     </Box>

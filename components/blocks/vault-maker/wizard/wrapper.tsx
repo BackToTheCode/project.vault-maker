@@ -1,5 +1,5 @@
 import connect from '../../../../store/connect';
-import { Wizard } from '../maker-wizard';
+import { Wizard } from '../wizard';
 
 function mapStateToProps(state: any) {
   const { step } = state.wizard;

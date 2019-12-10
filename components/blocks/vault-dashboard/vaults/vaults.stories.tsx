@@ -16,7 +16,7 @@ export default {
       { name: 'primary', value: 'rgb(26, 171, 155)' }
     ]
   },
-  title: 'Elements|Tabs'
+  title: 'Elements|Vaults'
 };
 
 export const Default = () => (
