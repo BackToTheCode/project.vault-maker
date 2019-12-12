@@ -26,15 +26,15 @@ export interface HeaderProps {
   /**
    * Whether a route transition is in progress
    */
-  isTransitioning: boolean;
+  isTransitioning?: boolean;
   /**
    * Dispatch transition start action
    */
-  dispatchTransitionStart: () => any;
+  dispatchTransitionStart?: () => any;
   /**
    * Dispatch transition finish action
    */
-  dispatchTransitionFinish: () => any;
+  dispatchTransitionFinish?: () => any;
 }
 
 /**
