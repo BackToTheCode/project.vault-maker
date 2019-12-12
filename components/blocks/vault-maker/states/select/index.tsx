@@ -36,7 +36,6 @@ export const Select = props => {
   const { balance, balanceTitle, balanceToken, balanceUsd, button, buttonContainer, container, subTitle, swap, title } = styles;
   const { symbol, sx } = props;
 
-
   /**
    * Select method that initialises web3 and maker objects
    *
@@ -45,7 +44,6 @@ export const Select = props => {
    * 
    * @return {Maker}
    */
-
 
   /**
    * Click handler for when users attempt to connect with Metamask
@@ -66,9 +64,9 @@ export const Select = props => {
         <Text sx={balanceUsd} variant="body.regular">5,024.24 USD</Text>
       </Container>
       <Container sx={buttonContainer}>
-      <Button sx={button}>Select</Button><Text sx={swap} variant="body.regular">Swap collateral</Text>
-      </Container>
-      
+         <Button sx={button}>Select</Button>
+         <Text sx={swap} variant="body.regular">Swap collateral</Text>
+      </Container>   
     </Flex>
   );
 };

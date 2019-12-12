@@ -88,6 +88,7 @@ export const Connect = props => {
       props.dispatchTokens({ tokens });
       props.dispatchSelectToken({ selectedToken: defaultToken });
       props.dispatchStep({ step: SELECT_NUM })
+      props.dispatchChangeIcon({ icon: defaultToken.symbol.toLowerCase(), iconWidth: '160px', hasBackground: true})
       setLoading(false);
       
     } catch (error) {

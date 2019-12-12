@@ -33,8 +33,6 @@ export const Wizard = props => {
   const { isTransitioning, sx, step } = props;
   const { base, transitioning } = styles;
 
-  console.log('step', step)
-
   return (
     <Box sx={{...base, ...(transitioning(isTransitioning)), ...sx}}>
       {step === steps[CONNECT] && <WrappedConnect />} 

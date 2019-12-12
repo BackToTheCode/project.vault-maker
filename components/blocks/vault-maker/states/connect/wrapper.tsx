@@ -11,12 +11,14 @@ function mapStateToProps(state: any) {
 
 function mapDispatchToProps(dispatch: any) {
   return {
+    dispatchChangeIcon: (payload: any) => dispatch({ type: 'CHANGE_ICON', payload}),
     dispatchConnect: (payload: any) => dispatch({ type: 'CONNECT', payload}),
     dispatchSelectToken: (payload: any) => dispatch({ type: 'SELECT_TOKEN', payload }),
     dispatchSetMaker: (payload: any) => dispatch({ type: 'SET_MAKER', payload}),
     dispatchSetWeb3: (payload: any) => dispatch({ type: 'SET_WEB3', payload}),
     dispatchStep: (payload: any) => dispatch({ type: 'STEP', payload }),
     dispatchTokens: (payload: any) => dispatch({ type: 'SELECT_TOKEN' , payload}),
+    
   };
 }
 
