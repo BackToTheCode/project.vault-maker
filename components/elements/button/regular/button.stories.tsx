@@ -7,14 +7,6 @@ import { Button } from '../regular';
 export default {
   component: Button,
   decorators: [checkA11y],
-  parameters: {
-    info: {
-      header: false,
-      inline: true,
-
-      text: marked(require('../button.stories.md').default)
-    }
-  },
   title: 'Design System|Buttons/Regular Button'
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Flex, Image } from 'rebass';
 import savingsIcon from '../../../public/images/savings.svg';
-import { WrappedWizard } from './maker-wizard/wrapper';
 import styles from './styles';
+import { WrappedWizard } from './wizard/wrapper';
 
 /**
  * VaultMakerProps {@link VaultMaker}
@@ -38,7 +38,7 @@ export const VaultMaker = (props) => {
         <Image src={savingsIcon} sx={{...vault, ...(vault.transitioning(isTransitioning))}} />
       </Flex>
       <Flex sx={{...gridItem,...makerItem}}>
-        <WrappedWizard />
+        <WrappedWizard isTransitioning={isTransitioning} />
       </Flex>
     </Box>
   );  

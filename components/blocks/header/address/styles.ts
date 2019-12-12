@@ -2,6 +2,7 @@ const styles = {
   address: {
     color: 'rgb(255,255,255)',
     display: ['none', 'block', 'block'],
+    maxWidth: '140px',
     overflow: 'hidden',
     px: 4,
     py: 4,

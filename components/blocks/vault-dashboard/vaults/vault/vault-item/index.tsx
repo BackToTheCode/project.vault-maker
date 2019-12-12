@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Box, Text } from 'rebass';
 import styles from './styles';
 

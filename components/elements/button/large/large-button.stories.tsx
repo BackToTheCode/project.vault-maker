@@ -1,5 +1,4 @@
 import React from 'react';
-import marked from 'marked';
 import { LargeButton } from '../large';
 import { checkA11y } from '@storybook/addon-a11y';
 import { withKnobs, select } from '@storybook/addon-knobs';
@@ -7,13 +6,6 @@ import { withKnobs, select } from '@storybook/addon-knobs';
 export default {
   title: 'Design System|Buttons/Large Button',
   component: LargeButton,
-  parameters: {
-    info: {
-      inline: true,
-      header: false,
-      text: marked(require('../button.stories.md').default)
-    }
-  },
   decorators: [checkA11y]
 };
 
