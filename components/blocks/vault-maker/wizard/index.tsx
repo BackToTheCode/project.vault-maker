@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box } from 'rebass';
-import steps, { CONNECT, LOCK } from '../../../../constants/step-names';
+import steps, { CONNECT, SELECT } from '../../../../constants/step-names';
 import { WrappedConnect } from '../states/connect/wrapper';
-import { Lock } from '../states/lock';
+import { WrappedSelect } from '../states/select/wrapper';
 import styles from './styles';
 
 /**
@@ -38,7 +38,7 @@ export const Wizard = props => {
   return (
     <Box sx={{...base, ...(transitioning(isTransitioning)), ...sx}}>
       {step === steps[CONNECT] && <WrappedConnect />} 
-      {step === steps[LOCK] && <Lock />} 
+      {step === steps[SELECT] && <WrappedSelect />} 
     </Box>
   );
 };

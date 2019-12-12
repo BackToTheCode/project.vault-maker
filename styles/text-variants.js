@@ -8,39 +8,46 @@ const text = {
     large: {
       color: 'white',
       fontFamily: 'body',
-      fontSize: 3
+      fontSize: 3,
+      letterSpacing: '0.5px',
     },
     regular: {
       color: 'white',
       fontFamily: 'body',
-      fontSize: 2
+      fontSize: 2,
+      letterSpacing: '0.5px',
     },
     small: {
       color: 'white',
       fontFamily: 'body',
-      fontSize: 0
+      fontSize: 0,
+      letterSpacing: '0.5px',
     }
   },
   heading: {
     extra: {
       color: 'white',
       fontFamily: 'heading',
-      fontSize: [6, 6, 6]
+      fontSize: [6, 6, 6],
+      letterSpacing: '0.5px',
     },
     large: {
       color: 'white',
       fontFamily: 'heading',
-      fontSize: [5, 5, 5]
+      fontSize: [5, 5, 5],
+      letterSpacing: '0.5px',
     },
     regular: {
       color: 'white',
       fontFamily: 'heading',
-      fontSize: 4
+      fontSize: 4,
+      letterSpacing: '0.5px',
     },
     small: {
       color: 'white',
       fontFamily: 'heading',
-      fontSize: 3
+      fontSize: 3,
+      letterSpacing: '0.5px',
     }
   }
 };

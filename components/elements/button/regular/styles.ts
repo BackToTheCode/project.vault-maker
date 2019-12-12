@@ -12,6 +12,7 @@ const styles = {
     fontFamily: 'body',
     fontSize: 2,
     fontWeight: 'body',
+    letterSpacing: '0.4px',
     opacity: '1',
     px: 7,
     py: 5,

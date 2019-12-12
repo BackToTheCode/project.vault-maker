@@ -6,7 +6,7 @@ const buttons = {
     },
     bg: 'transparent',
     borderColor: 'primary',
-    color: 'primary'
+    color: 'primary',
   },
   primary: {
     '&:hover': {
