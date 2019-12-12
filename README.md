@@ -26,13 +26,6 @@ Start the development server with `yarn dev`
 
 Run the test suit with with `yarn test`
 
-## Process
-
-- Firstly, simple wireframes were drawn on paper to help the author understand the necessary flows. These are open to change as the project progresses [`Wireframes | InvisionApp`](https://projects.invisionapp.com/boards/FD3XNJ8SM8Q/)
-- Secondly, a kanban board was prepared populated with all the necessary tickets [`Kanban Board | Vault Maker`] (https://trello.com/b/H0NV22h9/mcd-vault-manager)
-- Thirdly, setup storybook to create a design-system for the tool [`Design System | Storybook`] (https://adoring-leavitt-ad4453.netlify.com)
-- Finally, built out the tool itself using Next.JS / Dai.js and an array of other tools and libraries
-
 ## Structure
 
 ```

@@ -13,14 +13,16 @@ const styles = {
         flex: [0, 0, 1],
         justifyContent: 'center',
         transition: '0.5s flex',
-        transitioning: (isTransitioning: boolean) => isTransitioning ? {flex: 0}: {},
+        transitioning: (isTransitioning: boolean) => isTransitioning ? {flex: 0} : {},
     },
     makerItem: {
-        bg: 'grey'
+        alignItems: 'center',
+        bg: 'grey',
+        justifyContent: 'center',
     },
     vault: {
         transition: '0.5s opacity',
-        transitioning: (isTransitioning: boolean) => isTransitioning ? {opacity: 0}: {},
+        transitioning: (isTransitioning: boolean) => isTransitioning ? {opacity: 0} : {},
         width: '300px'
     }
  }
