@@ -79,7 +79,6 @@ export const Connect = props => {
     try {
       const [maker, web3] = await connect();
       
-      console.log('maker', maker)
       const userAccount = await getAccount(web3);
       let tokens = getTokens(maker);
       tokens = await addBalancesToTokens(maker, tokens);
@@ -89,6 +88,7 @@ export const Connect = props => {
       props.dispatchTokens({ tokens });
       props.dispatchSelectToken({ selectedToken: defaultToken });
       props.dispatchStep({ step: SELECT_NUM })
+      props.dispatchChangeIcon({ icon: defaultToken.symbol.toLowerCase(), iconWidth: '160px', hasBackground: true})
       setLoading(false);
       
     } catch (error) {
@@ -100,7 +100,7 @@ export const Connect = props => {
     isLoading ? <Loading /> : 
     <Flex sx={{...container, ...sx }}>
       <Title sx={title}>Start Making a Vault</Title>
-      <Text sx={{...title, ...subTitle}}variant="body.regular">Connect to the Ethereum network</Text>
+      <Text sx={{...title, ...subTitle}} variant="body.regular">Connect to the Ethereum network</Text>
       <Button onClick={handleClick} sx={button}>Connect with Metamask</Button>
     </Flex>
   );

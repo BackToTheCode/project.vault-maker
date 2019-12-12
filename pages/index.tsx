@@ -17,6 +17,7 @@ export default () => {
     ${emotionNormalize}
     body {
       background: ${theme.colors.superLightGrey};
+      line-height: ${theme.lineHeights.body};
     }
   `;
 

@@ -1,4 +1,4 @@
-import { CONNECT_NUM } from '../../constants/step-names';
+import { CONNECT_NUM, SELECT_NUM } from '../../constants/step-names';
 import { types } from '../actions';
 
 const initialState: any = {
