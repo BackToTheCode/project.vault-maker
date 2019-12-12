@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from 'rebass';
 import steps, { CONNECT, LOCK } from '../../../../constants/step-names';
-import { Connect } from '../states/connect';
+import { WrappedConnect } from '../states/connect/wrapper';
 import { Lock } from '../states/lock';
 import styles from './styles';
 
@@ -33,9 +33,11 @@ export const Wizard = props => {
   const { isTransitioning, sx, step } = props;
   const { base, transitioning } = styles;
 
+  console.log('step', step)
+
   return (
     <Box sx={{...base, ...(transitioning(isTransitioning)), ...sx}}>
-      {step === steps[CONNECT] && <Connect />} 
+      {step === steps[CONNECT] && <WrappedConnect />} 
       {step === steps[LOCK] && <Lock />} 
     </Box>
   );

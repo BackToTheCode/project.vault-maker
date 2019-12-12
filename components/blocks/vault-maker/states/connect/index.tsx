@@ -1,7 +1,7 @@
-import uniqBy from 'lodash.uniqby';
-import React, { useState } from 'react';
-import { Flex, Text } from 'rebass';
-import { connectMaker } from '../../../../../utils/web3';
+import React, { useState } from 'react';import { Flex, Text } from 'rebass';
+import { SELECT_NUM } from '../../../../../constants/step-names';
+import { addBalancesToTokens, getAccount, getTokens, selectTokenWithLargestBalance } from '../../../../../utils/maker';
+import { initMaker } from '../../../../../utils/maker/init-maker';
 import { Button } from '../../../../elements/button/regular';
 import { Loading } from '../../../../elements/loading';
 import { Title } from '../../../../elements/title';
@@ -36,70 +36,40 @@ export const Connect = props => {
   const { sx } = props;
   const [isLoading, setLoading] = useState(false);
 
+
+  /**
+   * Connect method that initialises web3 and maker objects
+   *
+   * An instantiated maker object
+   * @typedef {Object} Maker
+   * 
+   * @return {Maker}
+   */
   const connect = async () => {
     const network = process.env.NETWORK || 'kovan';
     const provider = process.env.PROVIDER || 'browser';
     const url = process.env.URL;
     const privateKey = process.env.PRIVATE_KEY;
 
-    const [maker, web3] = await connectMaker(network, provider, { url, privateKey });
+    const [maker, web3] = await initMaker(network, provider, { url, privateKey });
 
     props.dispatchSetMaker({ maker });
     props.dispatchSetWeb3({ web3 });
     
-    return maker;
+    return [maker, web3];
   };
 
-  const addBalances = async (maker: any, tokens: any[]) => {
-    const tokensService = maker.service('token');
-    const clonedTokens: any[] = tokens.map((token: any) => token);
-
-    for (const [idx, token] of tokens.entries()[Symbol.iterator]()) {
-      const tokenService = tokensService.getToken(token.symbol);
-      const tokenBalance = await tokenService.balance();
-      clonedTokens[idx].balance = tokenBalance.toNumber();
-      clonedTokens[idx].usdValue = tokenBalance.toNumber() * token.price;
-    }
-
-    return clonedTokens;
-  };
-
-  const getAccount = async (web3: any) => {
-    const accounts = await web3.eth.getAccounts();
-    const userAccount = accounts[0];
-
-    return userAccount;
-  };
-
-  const getTokens = async (maker: any) => {
-    const { cdpTypes } = maker.service('mcd:cdpType');
-    const uniqCdpTypes = uniqBy(cdpTypes, (cdpt: any) => cdpt.currency.symbol);
-
-    const dict: object = {};
-    const tokens = uniqCdpTypes.map((cdpType: any) => {
-      const token = {
-        ilk: cdpType.ilk,
-        penalty: cdpType.liquidationPenalty,
-        price: cdpType.price.toBigNumber().toNumber(),
-        ratio: cdpType.liquidationRatio.toBigNumber().toNumber(),
-        symbol: cdpType.currency.symbol
-      };
-      return { ...token, ...dict[token.symbol] };
-    });
-
-    return tokens;
-  };
-
-  const autoSelectToken = (tokens: any[]) => {
-    const usdValues = tokens.map(token => parseInt(token.usdValue, 10));
-    const maxIndex = usdValues.indexOf(Math.max(...usdValues));
-
-    return tokens[maxIndex];
-  };
-
+  /**
+   * Click handler for when users attempt to connect with Metamask
+   * Triggers loading component and updates global state
+   *
+   * An instantiated maker object   
+   * @typedef {Object} evt      Synthetic React event
+   * 
+   */
   const handleClick = async (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     evt.preventDefault();
-
+    
     setLoading(true);
 
     setTimeout(() =>{
@@ -108,16 +78,17 @@ export const Connect = props => {
 
     try {
       const [maker, web3] = await connect();
-
+      
+      console.log('maker', maker)
       const userAccount = await getAccount(web3);
-      let tokens = await getTokens(maker);
-      tokens = await addBalances(maker, tokens);
-      const defaultToken = autoSelectToken(tokens);
+      let tokens = getTokens(maker);
+      tokens = await addBalancesToTokens(maker, tokens);
+      const defaultToken = selectTokenWithLargestBalance(tokens);
 
       props.dispatchConnect({ address: userAccount });
       props.dispatchTokens({ tokens });
       props.dispatchSelectToken({ selectedToken: defaultToken });
-
+      props.dispatchStep({ step: SELECT_NUM })
       setLoading(false);
       
     } catch (error) {

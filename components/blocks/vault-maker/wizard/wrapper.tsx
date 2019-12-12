@@ -9,16 +9,6 @@ function mapStateToProps(state: any) {
   };
 }
 
-function mapDispatchToProps(dispatch: any) {
-    return {
-    //   dispatchTransitionFinish: () =>
-    //       dispatch({ type: 'TRANSITION_FINISH'}),
-    //   dispatchTransitionStart: () =>
-    //     dispatch({ type: 'TRANSITION_START' })
-    };
-  }
-  
-
-const WrappedWizard = connect(mapStateToProps, mapDispatchToProps)(Wizard);
+const WrappedWizard = connect(mapStateToProps, null)(Wizard);
 
 export { WrappedWizard };
