@@ -26,7 +26,7 @@ const theme = {
     "Ubuntu", "Cantarell", "Fira Sans", 
     "Droid Sans", "Helvetica Neue", sans-serif;`
   },
-  letterSpacing: '0.3px',
+  letterSpacing: '0.2px',
   lineHeights: {
     body: 1.45,
     heading: 1.25
