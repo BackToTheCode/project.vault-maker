@@ -15,7 +15,7 @@ const styles = {
   },
   indicator: {
     borderRadius: '50%',
-    bottom: [0, '14px', '14px'],
+    bottom: [0, '16px', '16px'],
     connected: (isConnected: boolean): any => (isConnected ? { bg: 'primary' } : { bg: 'warning' }),
     height: '8px',
     left: '-15px',
