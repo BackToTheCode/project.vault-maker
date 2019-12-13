@@ -8,7 +8,7 @@ const styles = {
     },
     color: 'rgba(255,255,255, 0.5)',
     cursor: 'pointer',
-    letterSpacing: '0.3px',
+    letterSpacing: '0.2px',
     mr: 5,
     p: 4
   },
