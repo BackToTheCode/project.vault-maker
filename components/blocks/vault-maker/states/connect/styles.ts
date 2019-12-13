@@ -1,7 +1,7 @@
 const styles = {
     button: {
       margin: 'auto',
-      width: '250px'
+      width: '270px'
     },
     container: {
       flexDirection: 'column',
