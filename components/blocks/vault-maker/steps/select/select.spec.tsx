@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import { Connect } from '../connect';
+import { Select } from '../select';
 
-describe('<Connect /> spec', () => {
+describe('<Select /> spec', () => {
   test('it renders the component', () => {
     // Arrange
-    const expectedText = 'Connect with Metamask';
+    const expectedText = 'Select a token';
 
     // Act
-    const { getByText } = render(<Connect />);
+    const { getByText } = render(<Select />);
 
     // Assert
     expect(getByText(expectedText)).toMatchSnapshot();
