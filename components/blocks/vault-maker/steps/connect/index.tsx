@@ -1,4 +1,5 @@
-import React, { useState } from 'react';import { Flex, Text } from 'rebass';
+import React, { useState } from 'react';
+import { Flex, Text } from 'rebass';
 import { SELECT_NUM } from '../../../../../constants/step-names';
 import { addBalancesToTokens, getAccount, getTokens, selectTokenWithLargestBalance } from '../../../../../utils/maker';
 import { initMaker } from '../../../../../utils/maker/init-maker';
@@ -35,7 +36,6 @@ export const Connect = props => {
   const { button, container, subTitle, title } = styles;
   const { sx } = props;
   const [isLoading, setLoading] = useState(false);
-
 
   /**
    * Connect method that initialises web3 and maker objects
@@ -84,6 +84,7 @@ export const Connect = props => {
       tokens = await addBalancesToTokens(maker, tokens);
       const defaultToken = selectTokenWithLargestBalance(tokens);
 
+      console.log('tokens', tokens);
       props.dispatchConnect({ address: userAccount });
       props.dispatchTokens({ tokens });
       props.dispatchSelectToken({ selectedToken: defaultToken });

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';import { Flex, Text } from 'rebass';
 import { Container } from '@backtothecode/vm-ui-library';
-import { SWAP_NUM, LOCK_NUM } from '../../../../../constants/step-names';
+import { LOCK_NUM, SWAP_NUM } from '../../../../../constants/step-names';
 import { addBalancesToTokens, getAccount, getTokens, selectTokenWithLargestBalance } from '../../../../../utils/maker';
 import { initMaker } from '../../../../../utils/maker/init-maker';
 import { Button } from '../../../../elements/button/regular';
@@ -37,22 +37,32 @@ export const Select = props => {
   const { symbol, sx } = props;
 
   /**
-   * Select method that initialises web3 and maker objects
-   *
-   * An instantiated maker object
-   * @typedef {Object} Maker
-   * 
-   * @return {Maker}
-   */
-
-  /**
-   * Click handler for when users attempt to connect with Metamask
-   * Triggers loading component and updates global state
+   * Click handler for progressing to the lock step of 
+   * the vault-maker wizard
    *
    * An instantiated maker object   
    * @typedef {Object} evt      Synthetic React event
    * 
    */
+  const confirmClickHandler = (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>)  => {
+    evt.preventDefault();
+    props.dispatchStep({ step: LOCK_NUM });
+
+  }
+  
+  /**
+   * Click handler for switching to the swap step of 
+   * the vault-maker wizard
+   *
+   * An instantiated maker object   
+   * @typedef {Object} evt      Synthetic React event
+   * 
+   */
+  const swapClickHandler = (evt: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    evt.preventDefault();
+    props.dispatchStep({ step: SWAP_NUM });
+
+  }
 
   return (
     <Flex sx={{...container, ...sx }}>
@@ -64,8 +74,8 @@ export const Select = props => {
         <Text sx={balanceUsd} variant="body.regular">5,024.24 USD</Text>
       </Container>
       <Container sx={buttonContainer}>
-         <Button sx={button}>Select</Button>
-         <Text sx={swap} variant="body.regular">Swap collateral</Text>
+         <Button onClick={confirmClickHandler}sx={button}>Confirm</Button>
+         <Text onClick={swapClickHandler} sx={swap} variant="body.regular">Swap collateral</Text>
       </Container>   
     </Flex>
   );

@@ -22,6 +22,7 @@ const tokenReducer = (state: any = initialState, action: any) => {
   switch (type) {
     case SELECT_TOKEN:
       const { selectedToken } = payload;
+      console.log('new-token-state', { ...state, selectedToken })
       return { ...state, selectedToken };
 
     case TOKENS:

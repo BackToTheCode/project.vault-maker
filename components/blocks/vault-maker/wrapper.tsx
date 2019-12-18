@@ -5,10 +5,10 @@ function mapStateToProps(state: any) {
   const { isTransitioning, icon, iconWidth, hasBackground } = state.routing;
 
   return {
+    hasBackground,
     icon,
     iconWidth,
     isTransitioning,
-    hasBackground
   };
 }
 

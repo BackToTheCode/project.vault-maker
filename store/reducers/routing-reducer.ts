@@ -18,10 +18,11 @@ export interface State {
 }
 
 const initialState: State = {
+  hasBackground: false,
   icon: 'saving',
   iconWidth: '300px',
   isTransitioning: false,
-  hasBackground: false
+
 };
 
 const routingReducer = (state: State = initialState, action: RoutingAction) => {

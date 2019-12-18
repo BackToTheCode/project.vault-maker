@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Flex, Image } from 'rebass';
-import savingIcon from '../../../public/images/savings.svg';
-import ethIcon from '../../../public/images/ethereum-logo.svg';
 import batIcon from '../../../public/images/bat-logo.png';
+import ethIcon from '../../../public/images/ethereum-logo.svg';
+import savingIcon from '../../../public/images/savings.svg';
 import styles from './styles';
 import { WrappedWizard } from './wizard/wrapper';
 

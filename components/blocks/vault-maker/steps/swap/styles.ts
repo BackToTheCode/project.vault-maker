@@ -38,9 +38,6 @@ const styles = {
     mb: 9
   },
   swap: {
-    '&:hover': {
-      color: 'rgba(255,255,255,0.8)'
-    },
     borderBottomColor: 'primary',
     borderBottomStyle: 'solid',
     borderBottomWidth: '1px',

@@ -15,6 +15,7 @@ const wizardReducer = (state: any = initialState, action: any) => {
   switch (type) {
     case STEP:
       const { step } = payload;
+      console.log('new-wizard-state', { ...state, step })
       return { ...state, step };
 
     case LOCK_COLLATERAL:
