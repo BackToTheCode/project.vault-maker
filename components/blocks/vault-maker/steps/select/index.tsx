@@ -3,10 +3,10 @@ import React, { FC } from 'react';
 import { Flex, Text } from 'rebass';
 import { LOCK_NUM, SWAP_NUM } from '../../../../../constants/step-names';
 import { Token } from '../../../../../store/reducers/token-reducer';
+import toCurrency from '../../../../../utils/helpers/currency-formatter';
 import { Button } from '../../../../elements/button/regular';
 import { Title } from '../../../../elements/title';
 import styles from './styles';
-import toCurrency from '../../../../../utils/helpers/currency-formatter';
 
 /**
  * SelectProps {@link Select}
