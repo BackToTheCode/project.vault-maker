@@ -93,10 +93,9 @@ export const Connect: FC<ConnectProps> = props => {
       props.dispatchStep({ step: SELECT_NUM })
       props.dispatchChangeIcon({ icon: defaultToken.symbol.toLowerCase(), iconWidth: '160px', hasBackground: true});
       
-      setLoading(false);
-      
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
 

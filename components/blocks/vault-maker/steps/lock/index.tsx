@@ -1,11 +1,11 @@
-import { Container } from '@backtothecode/vm-ui-library';
+import { WideContainer } from '@backtothecode/vm-ui-library';
 import { Input } from '@rebass/forms';
 import React, { FC } from 'react';
 import { Flex, Text } from 'rebass';
 import { DRAW_NUM, SELECT_NUM } from '../../../../../constants/step-names';
 import { Token } from '../../../../../store/reducers/token-reducer';
-import { Button } from '../../../elements/button/regular';
-import { Title } from '../../../elements/title';
+import { Button } from '../../../../elements/button/regular';
+import { Title } from '../../../../elements/title';
 import styles from './styles';
 
 /**
@@ -50,7 +50,7 @@ export const Lock: FC<LockProps> = props => {
    */
   const confirmClickHandler = (evt: React.MouseEvent<HTMLButtonElement, MouseEvent>)  => {
     evt.preventDefault();
-    props.dispatchStep({ step: SELECT_NUM });
+    props.dispatchStep({ step: DRAW_NUM });
 
   }
 
@@ -64,7 +64,7 @@ export const Lock: FC<LockProps> = props => {
    */
   const backClickHandler = (evt: React.MouseEvent<HTMLDivElement, MouseEvent>)  => {
     evt.preventDefault();
-    props.dispatchStep({ step: DRAW_NUM });
+    props.dispatchStep({ step: SELECT_NUM });
 
   }
 
@@ -74,20 +74,21 @@ export const Lock: FC<LockProps> = props => {
     <Flex as="form" onSubmit={handleSubmit} sx={{ ...container, ...sx }}>
       <Title sx={title}>Lock up collateral</Title>
       <Text sx={{ ...title, ...subTitle }} variant="body.regular">
-        `How much ${symbol} would you like to lock as collateral`
+        {`How much ${symbol} would you like to lock as collateral`}
       </Text>
-      <Container>
+      <WideContainer>
         <Input sx={input} />
-      </Container>
+        <Title sx={styles.symbol}>{`${symbol}`}</Title>
+      </WideContainer>
 
-      <Container sx={buttonContainer}>
+      <WideContainer sx={buttonContainer}>
         <Button onClick={confirmClickHandler} sx={button}>
           Lock
         </Button>
         <Text onClick={backClickHandler} sx={backButton} variant="body.regular">
           Go back
         </Text>
-      </Container>
+      </WideContainer>
     </Flex>
   );
 };
