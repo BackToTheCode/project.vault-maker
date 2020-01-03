@@ -11,13 +11,14 @@ export type RoutingAction =
   | { type: 'START_TRANSITION', payload: Payload }
   | { type: 'FINISH_TRANSITION', payload: Payload };
 
-export interface State {
+export interface RoutingState {
+  hasBackground: boolean;
   icon: string,
   iconWidth: string,
   isTransitioning: boolean;
 }
 
-const initialState: State = {
+const initialState: RoutingState = {
   hasBackground: false,
   icon: 'saving',
   iconWidth: '300px',
@@ -25,7 +26,7 @@ const initialState: State = {
 
 };
 
-const routingReducer = (state: State = initialState, action: RoutingAction) => {
+const routingReducer = (state: RoutingState = initialState, action: RoutingAction) => {
   const { CHANGE_ICON, TRANSITION_START, TRANSITION_FINISH } = types.routing;
   const { type } = action;
 

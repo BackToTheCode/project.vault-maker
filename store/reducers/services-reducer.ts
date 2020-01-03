@@ -25,13 +25,13 @@ export type ServicesAction =
       payload: Payload;
     };
 
-export interface State {
+export interface ServicesState {
   maker: any;
   web3: any;
   cdp: any;
 }
 
-const initialState: State = {
+const initialState: ServicesState = {
   cdp: null,
   maker: null,
   web3: null,
@@ -39,7 +39,7 @@ const initialState: State = {
 };
 
 const servicesReducer = (
-  state: State = initialState,
+  state: ServicesState = initialState,
   action: ServicesAction
 ) => {
   const { SET_MAKER, SET_WEB3, SET_CDP, INITIALISE_SERVICES } = types.services;

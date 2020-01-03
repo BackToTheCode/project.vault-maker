@@ -3,9 +3,11 @@ import { Select } from '../select';
 
 function mapStateToProps(state: any) {
   const { isTransitioning } = state.routing;
+  const { selectedToken } = state.tokens;
 
   return {
-    isTransitioning
+    isTransitioning,
+    selectedToken
   };
 }
 

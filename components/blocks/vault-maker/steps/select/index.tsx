@@ -1,12 +1,12 @@
-import React, { useState } from 'react';import { Flex, Text } from 'rebass';
 import { Container } from '@backtothecode/vm-ui-library';
+import React, { FC } from 'react';
+import { Flex, Text } from 'rebass';
 import { LOCK_NUM, SWAP_NUM } from '../../../../../constants/step-names';
-import { addBalancesToTokens, getAccount, getTokens, selectTokenWithLargestBalance } from '../../../../../utils/maker';
-import { initMaker } from '../../../../../utils/maker/init-maker';
+import { Token } from '../../../../../store/reducers/token-reducer';
 import { Button } from '../../../../elements/button/regular';
-import { Loading } from '../../../../elements/loading';
 import { Title } from '../../../../elements/title';
 import styles from './styles';
+import toCurrency from '../../../../../utils/helpers/currency-formatter';
 
 /**
  * SelectProps {@link Select}
@@ -17,7 +17,9 @@ export interface SelectProps {
   /**
    * A system-ui style object
    */
+  dispatchStep: ({ step }: { step: number }) => void,
   sx?: any;
+  selectedToken: Token;
 }
 
 /**
@@ -32,9 +34,9 @@ export interface SelectProps {
  * @see SelectProps
  * @extends {FC<Props>}
  */
-export const Select = props => {
-  const { balance, balanceTitle, balanceToken, balanceUsd, button, buttonContainer, container, subTitle, swap, title } = styles;
-  const { symbol, sx } = props;
+export const Select: FC<SelectProps> = props => {
+  const { balanceTitle, balanceToken, balanceUsd, button, buttonContainer, container, subTitle, swap, title } = styles;
+  const { selectedToken, sx } = props;
 
   /**
    * Click handler for progressing to the lock step of 
@@ -64,14 +66,16 @@ export const Select = props => {
 
   }
 
+  const { balance, symbol, usdValue } = selectedToken;
+
   return (
     <Flex sx={{...container, ...sx }}>
       <Title sx={title}>Select a token</Title>
       <Text sx={{...title, ...subTitle}} variant="body.regular">Decide what tokens you would like to use as collateral for your Vault</Text>
-      <Container data-testid="first-vault" sx={{ ...balance, ...sx }}>
+      <Container data-testid="first-vault" sx={{ ...styles.balance, ...sx }}>
         <Text sx={balanceTitle} variant="body.regular">Balance</Text>
-        <Title sx={balanceToken}>{`101.35 ${symbol}`}</Title>
-        <Text sx={balanceUsd} variant="body.regular">5,024.24 USD</Text>
+        <Title sx={balanceToken}>{`${toCurrency(balance)} ${symbol}`}</Title>
+        <Text sx={balanceUsd} variant="body.regular">{`${toCurrency(usdValue)} USD`}</Text>
       </Container>
       <Container sx={buttonContainer}>
          <Button onClick={confirmClickHandler}sx={button}>Confirm</Button>
@@ -80,7 +84,3 @@ export const Select = props => {
     </Flex>
   );
 };
-
-Select.defaultProps = {
-  symbol: 'ETH'
-}

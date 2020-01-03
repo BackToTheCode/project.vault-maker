@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Flex, Text } from 'rebass';
 import { SELECT_NUM } from '../../../../../constants/step-names';
 import { addBalancesToTokens, getAccount, getTokens, selectTokenWithLargestBalance } from '../../../../../utils/maker';
@@ -17,6 +17,13 @@ export interface ConnectProps {
   /**
    * A system-ui style object
    */
+  dispatchConnect: ({ address }: { address: string }) => void,
+  dispatchTokens: ({ tokens }: { tokens: any[] })  => void,
+  dispatchSelectToken: ({ selectedToken }: { selectedToken: any })  => void,
+  dispatchStep: ({ step }: { step: number }) => void,
+  dispatchChangeIcon: ({ icon, iconWidth, hasBackground }: { icon: string, iconWidth: string, hasBackground: boolean }) => void;
+  dispatchSetMaker: ({ maker }: { maker: object }) => void;
+  dispatchSetWeb3: ({ web3 }: { web3: object }) => void;
   sx?: any;
 }
 
@@ -32,7 +39,7 @@ export interface ConnectProps {
  * @see ConnectProps
  * @extends {FC<Props>}
  */
-export const Connect = props => {
+export const Connect: FC<ConnectProps> = props => {
   const { button, container, subTitle, title } = styles;
   const { sx } = props;
   const [isLoading, setLoading] = useState(false);
@@ -72,19 +79,14 @@ export const Connect = props => {
     
     setLoading(true);
 
-    setTimeout(() =>{
-      setLoading(false);
-    }, 5000);
-
     try {
       const [maker, web3] = await connect();
       
       const userAccount = await getAccount(web3);
-      let tokens = getTokens(maker);
+      let tokens = getTokens(maker)
       tokens = await addBalancesToTokens(maker, tokens);
       const defaultToken = selectTokenWithLargestBalance(tokens);
 
-      console.log('tokens', tokens);
       props.dispatchConnect({ address: userAccount });
       props.dispatchTokens({ tokens });
       props.dispatchSelectToken({ selectedToken: defaultToken });

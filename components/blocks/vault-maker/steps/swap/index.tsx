@@ -1,4 +1,5 @@
 import { Container } from '@backtothecode/vm-ui-library';
+import { useTheme } from 'emotion-theming';
 import React from 'react';
 import { Box, Flex, Text } from 'rebass';
 import { SELECT_NUM } from '../../../../../constants/step-names';
@@ -37,6 +38,7 @@ export interface SwapProps {
 export const Swap = props => {
   const { balance, balanceTitle, balanceToken, balanceUsd, button, buttonContainer, container, subTitle, swap, title } = styles;
   const { selectedToken, sx, tokens } = props;
+  const theme: any = useTheme();
 
   /**
    * Click handler for progressing to the lock step of 
@@ -67,8 +69,6 @@ export const Swap = props => {
     eth: ethIcon,
   };
 
-  console.log('symbol', selectedToken.symbol);
-
   return (
     <Box as="form" onSubmit={handleSubmit}>
       <Flex sx={{...container, ...sx }}>
@@ -80,16 +80,18 @@ export const Swap = props => {
           symbol={selectedToken.symbol}
           dispatchSelectToken={props.dispatchSelectToken}
           tokens={tokens}
-          brand={'rgb(255,0,0)'}>
+          brand={theme.colors.eth}>
             ETH
-            </Option>
+        </Option>
         <Option 
           icon={icons.bat}
           name="BAT"
           symbol={selectedToken.symbol}
           dispatchSelectToken={props.dispatchSelectToken}
           tokens={tokens}
-          brand={'rgb(255,0,0)'}>BAT</Option>
+          brand={theme.colors.bat}>
+            BAT
+        </Option>
         <Container sx={buttonContainer}>
           <Button onClick={handleClick} sx={button}>Select</Button>
         </Container>   
