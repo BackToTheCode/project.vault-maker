@@ -29,12 +29,12 @@ export interface LockProps {
  * @see LockProps
  * @extends {FC<Props>}
  */
-export const Lock = props => {
+export const Lock: FC<LockProps> = props => {
   const { container, input, label } = styles;
   const { sx } = props;
 
   const handleSubmit = evt => evt.preventDefault();
-
+  // {`How much ${symbol} would you like to lock as collateral`}
   return (
     <Box as="form" onSubmit={handleSubmit} sx={{ ...container, ...sx }}>
       <Text variant="body.regular" sx={label}>

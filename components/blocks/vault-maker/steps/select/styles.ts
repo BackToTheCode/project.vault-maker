@@ -38,13 +38,16 @@ const styles = {
     mb: 9
   },
   swap: {
+    '&:hover': {
+      color: 'rgba(255,255,255,0.8)'
+    },
     borderBottomColor: 'primary',
     borderBottomStyle: 'solid',
     borderBottomWidth: '1px',
     color: 'rgba(255,255,255,0.5)',
+    cursor: 'pointer',
     ml: 8,
     py: 3,
-
   },
   title: {
     mb: 6

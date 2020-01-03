@@ -1,8 +1,11 @@
+import { useTheme } from 'emotion-theming';
 import React from 'react';
 import { Box } from 'rebass';
-import steps, { CONNECT, SELECT } from '../../../../constants/step-names';
-import { WrappedConnect } from '../states/connect/wrapper';
-import { WrappedSelect } from '../states/select/wrapper';
+import steps, { CONNECT, LOCK, SELECT, SWAP } from '../../../../constants/step-names';
+import { WrappedConnect } from '../steps/connect/wrapper';
+import { WrappedLock } from '../steps/lock/wrapper';
+import { WrappedSelect } from '../steps/select/wrapper';
+import { WrappedSwap } from '../steps/swap/wrapper';
 import styles from './styles';
 
 /**
@@ -32,11 +35,16 @@ export interface WizardProps {
 export const Wizard = props => {
   const { isTransitioning, sx, step } = props;
   const { base, transitioning } = styles;
+  const theme: any = useTheme();
+
+  console.log('wizard - step', step)
 
   return (
     <Box sx={{...base, ...(transitioning(isTransitioning)), ...sx}}>
       {step === steps[CONNECT] && <WrappedConnect />} 
       {step === steps[SELECT] && <WrappedSelect />} 
+      {step === steps[SWAP] && <WrappedSwap theme={theme} />} 
+      {step === steps[LOCK] && <WrappedLock />}
     </Box>
   );
 };

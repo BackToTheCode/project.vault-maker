@@ -2,7 +2,7 @@
 
 exports[`<Nav /> spec it renders the component 1`] = `
 <button
-  class="css-ku9nze"
+  class="css-nj2cbt"
 >
   Vaults
 </button>

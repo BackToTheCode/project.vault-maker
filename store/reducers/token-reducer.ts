@@ -1,6 +1,16 @@
 import { types } from '../actions';
 
-const defaultToken = {
+export interface Token {
+  balance: number;
+  ilk: string;
+  penalty: number;
+  price: number;
+  ratio: number;
+  symbol: string;
+  usdValue: number;
+}
+
+const defaultToken: Token = {
   balance: 0,
   ilk: 'ETH-A',
   penalty: 0,
@@ -26,6 +36,8 @@ const tokenReducer = (state: any = initialState, action: any) => {
 
     case TOKENS:
       const { tokens } = payload;
+      console.log('tokens-reducer', tokens);
+      console.log('tokens-state', { ...state, tokens })
       return { ...state, tokens };
 
     case INITIALISE_TOKENS:

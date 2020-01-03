@@ -1,14 +1,14 @@
 import { checkA11y } from '@storybook/addon-a11y';
 import React from 'react';
 import { Box } from 'rebass';
-import { Connect } from '../connect';
+import { Select } from '../select';
 
 const Background = ({ children }) => (
   <Box sx={{ bg: 'rgb(55,74,97)', ml: 7}}>{children}</Box>
 );
 
 export default {
-  component: Connect,
+  component: Select,
   decorators: [checkA11y],
   parameters: {
     backgrounds: [
@@ -16,12 +16,12 @@ export default {
       { name: 'primary', value: 'rgb(26, 171, 155)' }
     ]
   },
-  title: 'Blocks|Connect'
+  title: 'Blocks|Select'
 };
 
 export const Default = () => (
   <Background>
-    <Connect />
+    <Select />
   </Background>
 );
 

@@ -1,23 +1,23 @@
 import { types } from '../actions';
 
-export type ConnectionAction =
+export type ConnectAction =
   | { type: 'CONNECT'; payload: { address: string } }
   | { type: 'DISCONNECT'; payload: null };
 
-export interface State {
+export interface ConnectState {
   isConnected: boolean;
   address?: string;
 };
 
-const initialState: State = {
+const initialState: ConnectState = {
   isConnected: false
 };
 
 const connectReducer = (
-  state: State = initialState,
-  action: ConnectionAction
+  state: ConnectState = initialState,
+  action: ConnectAction
 ) => {
-  const { CONNECT, DISCONNECT, INITIALISE_CONNECT } = types.connection;
+  const { CONNECT, DISCONNECT, INITIALISE_CONNECT } = types.connect;
   const { payload, type } = action;
 
   switch (type) {
