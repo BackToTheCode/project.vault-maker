@@ -1,13 +1,12 @@
 import { Container } from '@backtothecode/vm-ui-library';
-import { useTheme } from 'emotion-theming';
-import React from 'react';
+import React, { FC } from 'react';
 import { Box, Flex, Text } from 'rebass';
 import { SELECT_NUM } from '../../../../../constants/step-names';
 import batIcon from '../../../../../public/images/bat-logo.png';
 import ethIcon from '../../../../../public/images/ethereum-logo.svg'
+import { Token } from '../../../../../store/reducers/token-reducer';
 import { Button } from '../../../../elements/button/regular';
 import { Title } from '../../../../elements/title';
-
 import { Option  } from './option';
 import styles from './styles';
 
@@ -20,7 +19,12 @@ export interface SwapProps {
   /**
    * A system-ui style object
    */
+  dispatchSelectToken?: ({ selectedToken }: { selectedToken: any })  => void;
+  dispatchStep?: ({ step }: { step: number }) => void;
+  selectedToken: Token;
   sx?: any;
+  theme: any;
+  tokens: Token[];
 }
 
 /**
@@ -35,10 +39,9 @@ export interface SwapProps {
  * @see SwapProps
  * @extends {FC<Props>}
  */
-export const Swap = props => {
-  const { balance, balanceTitle, balanceToken, balanceUsd, button, buttonContainer, container, subTitle, swap, title } = styles;
-  const { selectedToken, sx, tokens } = props;
-  const theme: any = useTheme();
+export const Swap: FC<SwapProps> = props => {
+  const { button, buttonContainer, container, subTitle, title } = styles;
+  const { selectedToken, sx, theme, tokens } = props;
 
   /**
    * Click handler for progressing to the lock step of 

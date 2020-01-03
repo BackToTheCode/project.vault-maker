@@ -17,13 +17,13 @@ export interface ConnectProps {
   /**
    * A system-ui style object
    */
-  dispatchConnect: ({ address }: { address: string }) => void,
-  dispatchTokens: ({ tokens }: { tokens: any[] })  => void,
-  dispatchSelectToken: ({ selectedToken }: { selectedToken: any })  => void,
-  dispatchStep: ({ step }: { step: number }) => void,
-  dispatchChangeIcon: ({ icon, iconWidth, hasBackground }: { icon: string, iconWidth: string, hasBackground: boolean }) => void;
-  dispatchSetMaker: ({ maker }: { maker: object }) => void;
-  dispatchSetWeb3: ({ web3 }: { web3: object }) => void;
+  dispatchConnect?: ({ address }: { address: string }) => void;
+  dispatchTokens?: ({ tokens }: { tokens: any[] })  => void;
+  dispatchSelectToken?: ({ selectedToken }: { selectedToken: any })  => void;
+  dispatchStep?: ({ step }: { step: number }) => void;
+  dispatchChangeIcon?: ({ icon, iconWidth, hasBackground }: { icon: string, iconWidth: string, hasBackground: boolean }) => void;
+  dispatchSetMaker?: ({ maker }: { maker: object }) => void;
+  dispatchSetWeb3?: ({ web3 }: { web3: object }) => void;
   sx?: any;
 }
 
