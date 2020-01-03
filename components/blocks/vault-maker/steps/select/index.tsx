@@ -17,7 +17,7 @@ export interface SelectProps {
   /**
    * A system-ui style object
    */
-  dispatchStep: ({ step }: { step: number }) => void,
+  dispatchStep: ({ step }: { step: number }) => void;
   sx?: any;
   selectedToken: Token;
 }
@@ -39,7 +39,7 @@ export const Select: FC<SelectProps> = props => {
   const { selectedToken, sx } = props;
 
   /**
-   * Click handler for progressing to the lock step of 
+   * Click handler for progressing to the select step of 
    * the vault-maker wizard
    *
    * An instantiated maker object   
@@ -53,7 +53,7 @@ export const Select: FC<SelectProps> = props => {
   }
   
   /**
-   * Click handler for switching to the swap step of 
+   * Click handler for switching to the select step of 
    * the vault-maker wizard
    *
    * An instantiated maker object   

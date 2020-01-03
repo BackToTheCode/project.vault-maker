@@ -1,8 +1,8 @@
 import { useReducer } from 'react';
 import { connectReducer, routingReducer, servicesReducer, tokenReducer, wizardReducer } from './reducers';
+import { ConnectState } from './reducers/connect-reducer';
 import { RoutingState } from './reducers/routing-reducer';
 import { ServicesState } from './reducers/services-reducer';
-import { ConnectState } from './reducers/connect-reducer';
 
 
 export interface State {

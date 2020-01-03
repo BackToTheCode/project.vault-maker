@@ -6,8 +6,6 @@ import savingIcon from '../../../public/images/savings.svg';
 import styles from './styles';
 import { WrappedWizard } from './wizard/wrapper';
 
-
-
 /**
  * VaultMakerProps {@link VaultMaker}
  * @see VaultMaker

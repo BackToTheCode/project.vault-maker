@@ -44,7 +44,7 @@ export const Swap: FC<SwapProps> = props => {
   const { selectedToken, sx, theme, tokens } = props;
 
   /**
-   * Click handler for progressing to the lock step of 
+   * Click handler for progressing to the swap step of 
    * the vault-maker wizard
    *
    * An instantiated maker object   
