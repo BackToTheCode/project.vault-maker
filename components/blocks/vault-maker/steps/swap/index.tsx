@@ -17,11 +17,20 @@ import styles from './styles';
 
 export interface SwapProps {
   /**
-   * A system-ui style object
+   * Dispatch the token selected by the user
    */
   dispatchSelectToken?: ({ selectedToken }: { selectedToken: any })  => void;
+  /**
+   * Dispatch the next step the wizard should progress to
+   */
   dispatchStep?: ({ step }: { step: number }) => void;
+  /**
+   * The currently selected Token
+   */
   selectedToken: Token;
+  /**
+   * A system-ui style object
+   */
   sx?: any;
   theme: any;
   tokens: Token[];
@@ -46,8 +55,7 @@ export const Swap: FC<SwapProps> = props => {
   /**
    * Click handler for progressing to the swap step of 
    * the vault-maker wizard
-   *
-   * An instantiated maker object   
+   * 
    * @typedef {Object} evt      Synthetic React event
    * 
    */

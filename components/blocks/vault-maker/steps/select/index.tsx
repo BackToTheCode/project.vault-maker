@@ -1,4 +1,4 @@
-import { Container } from '@backtothecode/vm-ui-library';
+import { WideContainer } from '@backtothecode/vm-ui-library';
 import React, { FC } from 'react';
 import { Flex, Text } from 'rebass';
 import { LOCK_NUM, SWAP_NUM } from '../../../../../constants/step-names';
@@ -15,10 +15,16 @@ import styles from './styles';
 
 export interface SelectProps {
   /**
-   * A system-ui style object
+   * Dispatch the next step the wizard should progress to
    */
   dispatchStep: ({ step }: { step: number }) => void;
+  /**
+   * A system-ui style object
+   */
   sx?: any;
+  /**
+   * The currently selected Token
+   */
   selectedToken: Token;
 }
 
@@ -72,15 +78,15 @@ export const Select: FC<SelectProps> = props => {
     <Flex sx={{...container, ...sx }}>
       <Title sx={title}>Select a token</Title>
       <Text sx={{...title, ...subTitle}} variant="body.regular">Decide what tokens you would like to use as collateral for your Vault</Text>
-      <Container data-testid="first-vault" sx={{ ...styles.balance, ...sx }}>
+      <WideContainer data-testid="first-vault" sx={{ ...styles.balance, ...sx }}>
         <Text sx={balanceTitle} variant="body.regular">Balance</Text>
         <Title sx={balanceToken}>{`${toCurrency(balance)} ${symbol}`}</Title>
         <Text sx={balanceUsd} variant="body.regular">{`${toCurrency(usdValue)} USD`}</Text>
-      </Container>
-      <Container sx={buttonContainer}>
+      </WideContainer>
+      <WideContainer sx={buttonContainer}>
          <Button onClick={confirmClickHandler}sx={button}>Confirm</Button>
          <Text onClick={swapClickHandler} sx={swap} variant="body.regular">Swap collateral</Text>
-      </Container>   
+      </WideContainer>   
     </Flex>
   );
 };

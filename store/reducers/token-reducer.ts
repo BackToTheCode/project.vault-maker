@@ -10,6 +10,11 @@ export interface Token {
   usdValue: number;
 }
 
+export interface TokenState {
+  selectedToken: Token;
+  tokens: Token[];
+}
+
 const defaultToken: Token = {
   balance: 0,
   ilk: 'ETH-A',
@@ -20,12 +25,12 @@ const defaultToken: Token = {
   usdValue: 0
 };
 
-const initialState: any = {
+const initialState: TokenState = {
   selectedToken: defaultToken,
   tokens: [defaultToken]
 };
 
-const tokenReducer = (state: any = initialState, action: any) => {
+const tokenReducer = (state: TokenState = initialState, action: any) => {
   const { SELECT_TOKEN, TOKENS, INITIALISE_TOKENS } = types.tokens;
   const { payload, type } = action;
 
@@ -36,8 +41,6 @@ const tokenReducer = (state: any = initialState, action: any) => {
 
     case TOKENS:
       const { tokens } = payload;
-      console.log('tokens-reducer', tokens);
-      console.log('tokens-state', { ...state, tokens })
       return { ...state, tokens };
 
     case INITIALISE_TOKENS:

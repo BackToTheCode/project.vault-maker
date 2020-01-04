@@ -24,9 +24,12 @@ const styles = {
     justifyContent: 'center',
     maxWidth: '500px',
     overflow: 'hidden',
-    width: '80%'
   },
   input: {
+    '&[type=number]::-webkit-inner-spin-button': {
+      WebkitAppearance: 'none',
+      margin: 0
+    },
     border: 0,
     borderBottom: '1px solid rgba(255,255,255, 0.5)',
     borderRadius: 0,
@@ -35,7 +38,8 @@ const styles = {
     fontFamily: 'body',
     fontSize: 6,
     outline: 'transparent',
-    p: 5
+    p: 5,
+
   },
   label: {
     mb: 5

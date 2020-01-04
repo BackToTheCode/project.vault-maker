@@ -3,14 +3,16 @@ import { connectReducer, routingReducer, servicesReducer, tokenReducer, wizardRe
 import { ConnectState } from './reducers/connect-reducer';
 import { RoutingState } from './reducers/routing-reducer';
 import { ServicesState } from './reducers/services-reducer';
+import { TokenState } from './reducers/token-reducer';
+import { WizardState } from './reducers/wizard-reducer';
 
 
 export interface State {
   connect: ConnectState;
   routing: RoutingState;
   services: ServicesState;
-  tokens: any;
-  wizard: any;
+  tokens: TokenState;
+  wizard: WizardState;
 }
 
 const combineReducers = reducer => {
