@@ -84,7 +84,7 @@ export const Select: FC<SelectProps> = props => {
         <Text sx={balanceUsd} variant="body.regular">{`${toCurrency(usdValue)} USD`}</Text>
       </WideContainer>
       <WideContainer sx={buttonContainer}>
-         <Button onClick={confirmClickHandler}sx={button}>Confirm</Button>
+         <Button onClick={confirmClickHandler} sx={button}>Confirm</Button>
          <Text onClick={swapClickHandler} sx={swap} variant="body.regular">Swap collateral</Text>
       </WideContainer>   
     </Flex>

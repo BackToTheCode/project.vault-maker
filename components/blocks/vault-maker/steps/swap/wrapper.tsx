@@ -14,8 +14,9 @@ function mapStateToProps(state: any) {
 
 function mapDispatchToProps(dispatch: any) {
   return {
+    dispatchChangeIcon:  (payload: any) => dispatch({ type: 'CHANGE_ICON', payload }),
     dispatchSelectToken: (payload: any) => dispatch({ type: 'SELECT_TOKEN', payload }),
-    dispatchStep: (payload: any) => dispatch({ type: 'STEP', payload })
+    dispatchStep: (payload: any) => dispatch({ type: 'STEP', payload }),
   };
 }
 

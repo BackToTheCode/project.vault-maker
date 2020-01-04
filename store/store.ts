@@ -38,7 +38,7 @@ const rootReducer = combineReducers({
 });
 
 // tslint:disable-next-line:no-shadowed-variable
-function useStore(rootReducer, state: State) {
+function useStore(rootReducer: any, state?: State) {
   const initialState = state || rootReducer(undefined, { type: undefined });
   return useReducer(rootReducer, initialState);
 }

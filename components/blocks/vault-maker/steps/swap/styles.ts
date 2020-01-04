@@ -1,4 +1,16 @@
 const styles = {
+  back: {
+    '&:hover': {
+      color: 'rgba(255,255,255,0.8)'
+    },
+    borderBottomColor: 'primary',
+    borderBottomStyle: 'solid',
+    borderBottomWidth: '1px',
+    color: 'rgba(255,255,255,0.5)',
+    cursor: 'pointer',
+    ml: 8,
+    py: 3,
+  },
   balance: {
     bg: 'midGrey',
     borderBottomWidth: '3px',
@@ -31,20 +43,12 @@ const styles = {
   container: {
     flexDirection: 'column',
     justifyContent: 'center',
-    maxWidth: '500px'
+    maxWidth: '500px',
+    width: '100%',
   },
   subTitle: {
     color: 'rgba(255,255,255,0.5)',
-    mb: 9
-  },
-  swap: {
-    borderBottomColor: 'primary',
-    borderBottomStyle: 'solid',
-    borderBottomWidth: '1px',
-    color: 'rgba(255,255,255,0.5)',
-    cursor: 'pointer',
-    ml: 8,
-    py: 3,
+    mb: 9,
   },
   title: {
     mb: 6

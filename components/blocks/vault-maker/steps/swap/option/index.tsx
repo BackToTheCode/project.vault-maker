@@ -12,6 +12,10 @@ export interface OptionProps {
   name: string;
   symbol?: string;
   tokens?: any[];
+  /**
+   * Dispatch a new icon 
+   */
+  dispatchChangeIcon?: ({ icon, iconWidth, hasBackground }: { icon: string, iconWidth: string, hasBackground: boolean }) => void;
   dispatchSelectToken?: ({ selectedToken }: { selectedToken: any }) => void;
 }
 
@@ -25,7 +29,9 @@ export const Option: FC<OptionProps> = props => {
       (token: any) => token.symbol === name
     )[0];
 
+    props.dispatchChangeIcon({ icon: selectedToken.symbol.toLowerCase(), iconWidth: '160px', hasBackground: true});
     props.dispatchSelectToken({ selectedToken });
+    
   };
 
   return (
