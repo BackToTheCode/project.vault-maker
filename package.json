@@ -39,7 +39,7 @@
     "emotion-normalize": "^10.1.0",
     "emotion-theming": "^10.0.19",
     "jsdoc": "^3.6.3",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash.uniqby": "^4.7.0",
     "marked": "^0.7.0",
     "next": "^9.1.4",
